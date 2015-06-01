@@ -1,0 +1,22 @@
+include ../../../../../mixins/input
+
+form.form-horizontal(novalidate name="basicsForm")
+  .form-group
+    label.col-xs-2.control-label ID
+    .col-xs-10
+      p.static-control(ng-bind="unit.unit._id")
+  +input('title','Titel (Pflichtfeld)')(ng-model="unit.unit.title" ng-model-options="main.ngModelOptions")
+  +input('subtitle','Untertitel')(ng-model="unit.unit.subtitle" ng-model-options="main.ngModelOptions")
+  .form-group
+    .col-xs-2 Voraussetzungen
+    .col-xs-10
+      .checkbox(ng-repeat="item in units.units | filter : {_id: '!'+unit.unit._id}"): label
+        input(type="checkbox" name="requires" ng-model="unit.requires[item._id]" ng-change="unit.toggleRequires(item._id)" ng-model-options="main.ngModelOptions")
+        | {{item.title}}
+  .form-group
+    marked(input="unit.unit.description" label="Beschreibungstext (Pflichtfeld)")
+.alert.alert-success(ng-if="unit.patches.length===0" role="alert") alles hochgeladen
+.alert.alert-info(ng-if="unit.patches.length>0" role="alert") lade Änderungen hoch
+.alert.alert-danger(ng-if="unit.error" role="alert")
+  button(type="button" ng-click="unit.unit=unit.recover") rückgängig
+  span Fehler beim Hochladen

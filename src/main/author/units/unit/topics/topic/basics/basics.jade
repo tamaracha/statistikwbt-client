@@ -1,0 +1,14 @@
+include ../../../../../../mixins/input
+include ../../../../../../mixins/radio-inline
+
+.form-group(ng-if="author.unit.topics[author.topic]._id")
+  label.col-xs-2.control-label ID
+  .col-xs-10
+    p.static-control(ng-bind="author.unit.topics[author.topic]._id")
++input('title2','Titel')(ng-model="author.unit.topics[author.topic].title")
++input('subtitle2','Untertitel')(ng-model="author.unit.topics[author.topic].subtitle")
++radio-inline('topicTextMode','Text',{'write': 'bearbeiten','preview': 'Vorschau'})(ng-model="author.form.topicText")
+.form-group(ng-switch="author.form.topicText")
+  .col-xs-offset-2.col-xs-10(ng-switch-when="write")
+    textarea.form-control(ng-model="author.unit.topics[author.topic].body")
+  .col-xs-offset-2.col-xs-10(md="author.unit.topics[author.topic].body" mathjax ng-switch-when="preview")

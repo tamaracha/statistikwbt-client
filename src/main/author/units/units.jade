@@ -1,0 +1,34 @@
+include ../../../mixins/input
+
+h3
+  button.btn.btn-default(type="button" ng-click="units.collapse=!units.collapse")
+    span.fa(ng-class="units.collapseUnits ? 'fa-toggle-off' : 'fa-toggle-on'" aria-hidden="true")
+    |  {{units.collapseUnits ? 'einblenden' : 'ausblenden'}}
+  br
+  span Kapitelübersicht
+div(collapse="units.collapseUnits"): form.form-horizontal(novalidate name="unitsForm")
+  .form-group
+    label.col-xs-2.control-label(for="selectUnit") Kapitel
+    .col-xs-10
+      select.form-control#selectUnit(name="selectUnit" ng-model="units.selected" ng-options="u.title for u in units.units track by u._id")
+  .form-group(ng-if="units.selected")
+    label.col-xs-2 Funktionen
+    .col-xs-10: .button-group
+      a.btn.btn-primary(ui-sref="main.content.unit.description({unit: units.selected._id})") Anschauen
+      a.btn.btn-default(ui-sref=".unit.basics({unit: units.selected._id})") Bearbeiten
+      button.btn.btn-default(type="button" ng-click="units.remove()") Löschen
+div(ui-view)
+  h3 Neues Kapitel anlegen
+  form.form-horizontal(novalidate name="newForm" ng-submit="units.save()")
+    +input('title','Titel')(ng-model="units.new.title")
+    +input('subtitle','Untertitel')(ng-model="units.new.subtitle")
+    .form-group
+      label.col.xs-2 Voraussetzungen
+      .col-xs-10
+        .checkbox(ng-repeat="unit in units.units"): label
+          input(type="checkbox" name="requires" ng-model="units.requires[unit._id]")
+          |  {{unit.title}}
+    marked(input="units.new.description")
+    .form-group
+      .col-xs-offset-2.col-xs-10
+        input(type="submit" value="Anlegen")

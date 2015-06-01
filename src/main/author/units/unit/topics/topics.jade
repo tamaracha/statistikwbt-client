@@ -1,0 +1,24 @@
+include ../../../../../mixins/input
+
+button.btn.btn-default(type="button" ng-click="topics.collapse=!topics.collapse" ng-bind="topics.collapse ? 'Subkapitelübersicht einblenden' : 'Subkapitelübersicht ausblenden'")
+div(collapse="topics.collapse"): form.form-horizontal(novalidate name="topicsForm")
+  .form-group
+    label.col-xs-2.control-label(for="selectTopic") Subkapitel
+    .col-xs-10
+      select.form-control#selectTopic(ng-options="t.title for t in topics.topics track by t._id" ng-model="topics.selected")
+  .form-group(ng-if="topics.selected")
+    label.col-xs-2 Funktionen
+    .col-xs-10: .button-group
+      button(type="button" ng-click="topics.moveUp()") hoch
+      button(type="button" ng-click="topics.moveDown()") runter
+      a(ui-sref=".topic.basics({topic: topics.selected._id})") bearbeiten
+      button(type="button" ng-click="topics.remove()") löschen
+ui-view
+h3 Neues Subkapitel anlegen
+form.form-horizontal(novalidate name="newForm" ng-submit="topics.save()")
+  +input('title','Titel')(ng-model="topics.new.title")
+  +input('subtitle','Untertitel')(ng-model="topics.new.subtitle")
+  marked(input="topics.new.body" label="Inhalt")
+  .form-group
+    .col-xs-offset-2.col-xs-10
+      input(type="submit" value="erstellen")
