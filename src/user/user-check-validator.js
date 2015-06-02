@@ -1,4 +1,4 @@
-function userCheckValidator($q,UserRestResource){
+function userCheckValidator($q,Restangular){
   let directive={
     require: 'ngModel',
     restrict: 'A',
@@ -8,7 +8,7 @@ function userCheckValidator($q,UserRestResource){
     c.$asyncValidators.userCheck=function(value){
       var query={};
       query[attrs.name]=value;
-      var promise=UserRestResource.head(query);
+      var promise=Restangular.all('users').head(query);
       switch(attrs.userCheck){
         case 'available':
           return promise.then(() => {return $q.reject('exists');},() => {return true;});
