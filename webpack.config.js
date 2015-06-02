@@ -14,7 +14,7 @@ module.exports = {
         loader: 'ng-annotate!babel!jshint'
       },
       {
-        loader: 'jade?doctype=html',
+        loader: 'jade-html?doctype=html',
         test: /\.jade$/
       }
     ]
