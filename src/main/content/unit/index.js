@@ -1,6 +1,4 @@
-import styles from './subkapitel.css';
-console.log(styles);
-//styles.use();
+import './subkapitel.css';
 import template from './unit.jade';
 import controller from './unit-controller.js';
 import description from './description';

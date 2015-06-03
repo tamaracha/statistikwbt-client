@@ -26,7 +26,7 @@ module.exports = {
     ]
   },
   plugins: [
-    new webpack.optimize.UglifyJsPlugin(),
+    new webpack.optimize.UglifyJsPlugin({compress: {warnings: false}}),
     new WebpackNotifierPlugin()
   ],
   externals: {
