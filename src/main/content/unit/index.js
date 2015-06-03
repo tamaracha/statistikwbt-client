@@ -1,3 +1,5 @@
+import styles from './subkapitel.css';
+styles.use();
 import template from './unit.jade';
 import controller from './unit-controller.js';
 import description from './description';

@@ -16,14 +16,18 @@ module.exports = {
         loader: 'ng-annotate!babel!jshint'
       },
       {
+        loader: 'style!css',
+        test: /\.css$/,
+      },
+      {
         loader: 'jade-html?doctype=html',
         test: /\.jade$/
       }
     ]
   },
   plugins: [
-    new WebpackNotifierPlugin(),
-    new webpack.optimize.UglifyJsPlugin()
+    new webpack.optimize.UglifyJsPlugin(),
+    new WebpackNotifierPlugin()
   ],
   externals: {
     angular: 'angular',
