@@ -1,9 +1,4 @@
-function userCheckValidator($q,Restangular){
-  let directive={
-    require: 'ngModel',
-    restrict: 'A',
-    link: link
-  };
+export default function userCheckValidator($q,Restangular){
   function link(scope,el,attrs,c){
     c.$asyncValidators.userCheck=function(value){
       var query={};
@@ -16,6 +11,9 @@ function userCheckValidator($q,Restangular){
       }
     };
   }
-  return directive;
+  return {
+    require: 'ngModel',
+    restrict: 'A',
+    link
+  };
 }
-export default userCheckValidator;

@@ -1,14 +1,13 @@
 export default class FskCtrl{
-  constructor(UserModel,$modalInstance){
-    this.UserModel=UserModel;
+  constructor(Restangular,$modalInstance){
     this.$modalInstance=$modalInstance;
     this.sessko=[];
   }
   ok(){
-    return this.UserModel.createFsk(this.sessko)
-    .then($modalInstance.close);
+    return this.Restangular.all('fsk').post(this.sessko)
+    .then(this.$modalInstance.close);
   }
   cancel(){
-    return $modalInstance.dismiss();
+    return this.$modalInstance.dismiss();
   }
 }

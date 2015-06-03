@@ -4,7 +4,7 @@ export default /*@ngInject*/class MarkdownProvider{
     var preset='full';
     var options={
       html: true,
-      quotes: "„“",
+      quotes: '„“',
       breaks: true
     };
     this.config={preset,options};

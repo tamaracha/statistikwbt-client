@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import jsonpatch from 'fast-json-patch';
 export default /*@ngInject*/class UnitCtrl{
   constructor($scope,unit){
@@ -7,7 +8,7 @@ export default /*@ngInject*/class UnitCtrl{
     this.initRequires();
     $scope.$watch('unit.unit',(val,oldVal) => {
       this.patches=jsonpatch.compare(oldVal,val);
-      if(this.patches.length===0) return;
+      if(this.patches.length===0){return;}
       return unit.patch(this.patches)
       .then((data) => {
         this.patches=[];
@@ -27,7 +28,7 @@ export default /*@ngInject*/class UnitCtrl{
   }
   toggleRequires(id){
     let includes=_.includes(this.unit.requires,id);
-    if(this.requires[id]===includes) return;
+    if(this.requires[id]===includes){return;}
     if(this.requires[id]===true){
       this.unit.requires.push(id);
     }

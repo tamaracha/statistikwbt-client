@@ -1,32 +1,36 @@
-var _=require('lodash');
+//var _=require('lodash');
 var gulp=require('gulp');
-var $=require('gulp-load-plugins')();
+var del=require('del');
 var webpackConfig=require('./webpack.config.js');
+var $=require('gulp-load-plugins')();
 $.webpack=require('webpack')(webpackConfig);
 
-gulp.task('jade',jade);
+function clean(cb){
+  del('dist/*',cb);
+}
+gulp.task('clean',clean);
+
 function jade(){
   return gulp.src('src/index.jade')
   .pipe($.jade({doctype: 'html'}))
   .pipe(gulp.dest('dist'));
 }
+gulp.task('jade',jade);
 
-gulp.task('webpack',webpack);
 function webpack(cb){
   return $.webpack.run(cb);
 }
+gulp.task('webpack',webpack);
 
-gulp.task('compress',compress);
 function compress(){
-  return gulp.src([
-    'dist/index.html',
-    'dist/bundle.js'
-  ])
+  return gulp.src('dist/*')
   .pipe($.gzip())
   .pipe(gulp.dest('dist'));
 }
+gulp.task('compress',compress);
 
 gulp.task('default',gulp.series([
+  'clean',
   gulp.parallel([
     'jade',
     'webpack'

@@ -1,3 +1,4 @@
+import _ from 'lodash';
 export default /*@ngInject*/class TopicsCtrl{
   constructor(topics){
     this.topics=topics;

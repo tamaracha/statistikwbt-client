@@ -1,3 +1,4 @@
+var webpack=require('webpack');
 var WebpackNotifierPlugin = require('webpack-notifier');
 
 module.exports = {
@@ -20,7 +21,8 @@ module.exports = {
     ]
   },
   plugins: [
-    new WebpackNotifierPlugin()
+    new WebpackNotifierPlugin(),
+    new webpack.optimize.UglifyJsPlugin()
   ],
   externals: {
     angular: 'angular',
@@ -33,8 +35,5 @@ module.exports = {
     alias: {
       ngstorage: __dirname+'/bower_components/ngstorage/ngStorage.min.js'
     }
-  },
-  jshint: {
-    esnext: true
   }
 };

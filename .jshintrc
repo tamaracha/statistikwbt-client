@@ -1,0 +1,10 @@
+{
+  "node": true,
+
+  "curly": true,
+  "latedef": true,
+  "quotmark": true,
+  "undef": true,
+  "trailing": true,
+  "esnext": true
+}

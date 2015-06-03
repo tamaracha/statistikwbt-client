@@ -8,7 +8,7 @@ export default {
   template,
   resolve: {
     markdown: /*@ngInject*/function($q,$ocLazyLoad){
-      return $q(function(resolve,reject){
+      return $q(function(resolve){
         require.ensure([],function(){
           var md=require('../../markdown');
           return resolve($ocLazyLoad.load({name: md}));

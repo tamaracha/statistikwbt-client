@@ -17,7 +17,7 @@ export default {
       return Restangular.all('units').getList(query);
     },
     markdown: /*@ngInject*/function($q,$ocLazyLoad){
-      return $q(function(resolve,reject){
+      return $q(function(resolve){
         require.ensure([],function(){
           var md=require('../../markdown');
           $ocLazyLoad.load({name: md});

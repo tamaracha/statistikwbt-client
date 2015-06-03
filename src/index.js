@@ -1,4 +1,5 @@
 // libraries
+import angular from 'angular';
 import 'angular-ui-router';
 import 'angular-ui-router.statehelper';
 import 'script!../bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js';
@@ -9,15 +10,13 @@ import 'oclazyload';
 // config
 import {config, run} from './config.js';
 
-// unit
-
 // user
 import * as user from './user';
 
 // modals
 import modals from './modals';
 
-export default angular.module("wbt",[
+export default angular.module('wbt',[
   'restangular',
   'ui.router',
   'ui.router.stateHelper',

@@ -1,5 +1,4 @@
-import jsonpatch from 'fast-json-patch';
-export default /*@ngInject*/class UserModel{
+export default /*@ngInject*/class user{
   constructor(Restangular,$localStorage,$window,$q){
     this.Users=Restangular.all('users');
     this.Token=Restangular.one('tokens','new');
@@ -21,7 +20,6 @@ export default /*@ngInject*/class UserModel{
       return this.Users.get(this.$storage._id)
       .then((data) => {
         this.data=data;
-        this.observer=jsonpatch.observe(this.data);
         return data;
       });
     }
@@ -30,7 +28,7 @@ export default /*@ngInject*/class UserModel{
   authenticate(name,pass){
     return this.$q((resolve,reject) => {
       if(!name||!pass){return reject('missing credentials');}
-      let str=this.$window.btoa(name+":"+pass);
+      let str=this.$window.btoa(name+':'+pass);
       let authorization='basic '+str;
       return resolve(this.Token.get(null,{authorization}));
     })
@@ -42,22 +40,16 @@ export default /*@ngInject*/class UserModel{
   inauthenticate(){
     this.$storage.$reset();
     this.data=null;
-    this.observer=null;
   }
   create(form){
     return this.Users.post(form)
     .then((data) => {
       this.data=data;
-      this.observer=jsonpatch.observe(this.data);
       return this.authenticate(form.email,form.password);
     });
   }
-  update(){
-    let patches=jsonpatch.generate(this.observer);
-    return this.data.patch(patches);
-  }
   remove(){
     return this.data.remove()
-    .then((data) => this.inauthenticate());
+    .then(() => this.inauthenticate());
   }
 }

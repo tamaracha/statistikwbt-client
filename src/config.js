@@ -5,12 +5,12 @@ export /*@ngInject*/function config($locationProvider,$compileProvider,$httpProv
   $compileProvider.debugInfoEnabled(false);
   $httpProvider.interceptors.push('userInterceptor');
   $httpProvider.defaults.paramSerializer='$httpParamSerializerJQLike';
-  RestangularProvider.setBaseUrl("/statistikwbt/api");
+  RestangularProvider.setBaseUrl('/statistikwbt/api');
   RestangularProvider.setRestangularFields({
-    id: "_id"
+    id: '_id'
   });
   stateHelperProvider.state(main);
-  $urlRouterProvider.otherwise("/home");
+  $urlRouterProvider.otherwise('/home');
 }
 
 export /*@ngInject*/function run($rootScope){

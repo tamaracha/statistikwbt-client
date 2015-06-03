@@ -1,3 +1,4 @@
+import angular from 'angular';
 import Markdown from './markdown-provider';
 import markdown from './markdown-directive';
 import marked from './marked-directive';
