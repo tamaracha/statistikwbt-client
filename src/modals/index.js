@@ -7,10 +7,7 @@ export default /*@ngInject*/class modals{
     this.$modal=$modal;
   }
   login(){
-    var modalInstance=this.$modal.open(login);
-    modalInstance.result.then(null,(res) => {
-      console.log(res);
-    });
+    return this.$modal.open(login);
   }
   fsk(){
     return this.$modal.open(fsk);
