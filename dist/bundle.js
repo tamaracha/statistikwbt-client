@@ -128,13 +128,13 @@
 
 	// user
 
-	var _user = __webpack_require__(131);
+	var _user = __webpack_require__(134);
 
 	var user = _interopRequireWildcard(_user);
 
 	// modals
 
-	var _modals = __webpack_require__(135);
+	var _modals = __webpack_require__(138);
 
 	var _modals2 = _interopRequireDefault(_modals);
 
@@ -295,31 +295,31 @@
 
 	var _mainControllerJs2 = _interopRequireDefault(_mainControllerJs);
 
-	var _home = __webpack_require__(19);
+	var _home = __webpack_require__(22);
 
 	var _home2 = _interopRequireDefault(_home);
 
-	var _contact = __webpack_require__(21);
+	var _contact = __webpack_require__(24);
 
 	var _contact2 = _interopRequireDefault(_contact);
 
-	var _software = __webpack_require__(23);
+	var _software = __webpack_require__(26);
 
 	var _software2 = _interopRequireDefault(_software);
 
-	var _content = __webpack_require__(25);
+	var _content = __webpack_require__(28);
 
 	var _content2 = _interopRequireDefault(_content);
 
-	var _download = __webpack_require__(107);
+	var _download = __webpack_require__(110);
 
 	var _download2 = _interopRequireDefault(_download);
 
-	var _register = __webpack_require__(110);
+	var _register = __webpack_require__(113);
 
 	var _register2 = _interopRequireDefault(_register);
 
-	var _author = __webpack_require__(113);
+	var _author = __webpack_require__(116);
 
 	var _author2 = _interopRequireDefault(_author);
 
@@ -350,10 +350,16 @@
 	  value: true
 	});
 
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
+	var _modalsLogin = __webpack_require__(19);
+
+	var _modalsLogin2 = _interopRequireDefault(_modalsLogin);
+
 	/*@ngInject*/
-	var MainCtrl = function MainCtrl($state, $stateParams, user, modals) {
+	var MainCtrl = function MainCtrl($state, $stateParams, user, modals, $modal) {
 	  _classCallCheck(this, MainCtrl);
 
 	  this.$state = $state;
@@ -368,7 +374,7 @@
 	    }
 	  };
 	};
-	MainCtrl.$inject = ["$state", "$stateParams", "user", "modals"];
+	MainCtrl.$inject = ["$state", "$stateParams", "user", "modals", "$modal"];
 
 	exports['default'] = MainCtrl;
 	module.exports = exports['default'];
@@ -385,14 +391,19 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _homeJade = __webpack_require__(20);
+	var _loginJade = __webpack_require__(20);
 
-	var _homeJade2 = _interopRequireDefault(_homeJade);
+	var _loginJade2 = _interopRequireDefault(_loginJade);
+
+	var _loginControllerJs = __webpack_require__(21);
+
+	var _loginControllerJs2 = _interopRequireDefault(_loginControllerJs);
 
 	exports['default'] = {
-	  name: 'home',
-	  url: '/home',
-	  template: _homeJade2['default']
+	  template: _loginJade2['default'],
+	  controller: _loginControllerJs2['default'],
+	  controllerAs: 'login',
+	  animation: false
 	};
 	module.exports = exports['default'];
 
@@ -400,7 +411,7 @@
 /* 20 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports='<div class="jumbo-tron"><h2>Willkommen!</h2><h3>Das erwartet dich hier</h3><p>Hier kannst du die Grundlagen der psychologischen Statistik kennenlernen und dir eine Vorstellung davon erschlie\xDFen, wie und warum Statistik in der Forschung eingesetzt wird, was sie Leisten kann und was ihre Grenzen sind.. Falls du einfach nur die Inhalte deiner Statistikvorlesung etwas wiederholen m\xF6chtest oder gerade in der Klausur durchgefallen bist, laden wir dich genauso herzlich ein wie die Statistikanf\xE4nger.</p><p>Es gibt hier Lernkapitel, die sich jeweils mit einem bestimmten Themengebiet besch\xE4ftigen. Es gibt keine festgelegte Reihenfolge bei der Bearbeitung und du brauchst nicht alles von Anfang bis Ende durchzulesen, was hier zu finden ist. Manche Kapitel haben jedoch andere als Abh\xE4ngigkeiten. Bearbeite am besten zuerst die Abh\xE4ngigkeiten, bevor du ein solches Kapitel bearbeitest. Ein Kapitel besteht aus den Kernartikeln, die jeweils durch Zus\xE4tze erg\xE4nzt sind . Du kannst relativ flexibel entscheiden, ob und welche Zus\xE4tze du lesen m\xF6chtest.</p><dl class="dl-horizontal"><dt>Aufgaben</dt><dd>Die Einheit ist abgeschlossen, wenn du alle Aufgaben bearbeitet hast.</dd><dt>Beispiele</dt><dd>Wenn du mehr Hilfestellung oder Veranschaulichung brauchst, kannst du dir die Beispiele ansehen.</dd><dt>Extras</dt><dd>theoretischere Hintergrundinformationen, f\xFCr den Fall, dass du noch Luft hast und es genauer wissen m\xF6chtest</dd></dl><h3>Deine Mitarbeit ist gefragt</h3><p>Du hast die M\xF6glichkeit, Kapitel kurz mittels Rating zu bewerten, die du abgeschlossen hast. Mache bitte gro\xDFz\xFCgigen Gebrauch davon. Die Ratings k\xF6nnen beliebig oft ge\xE4ndert werden, du kannst also frei von der Leber weg bewerten.</p><p>Wir m\xF6chten nachvollziehen, ob und wie sich deine Selbsteinsch\xE4tzung deiner Statistikkenntnisse durch die Benutzung dieser Webseite ver\xE4ndert. Deswegen kannst du nicht nur Bewertungen abgeben, sondern auch deine aktuellen Statistikkenntnisse einsch\xE4tzen. Tue dies z.B., wenn du gerade ein Kapitel beendet hast oder wenn es dir gerade einf\xE4llt.</p><p ng-if="!main.user.authenticated"><a data-ui-sref="^.register" class="btn btn-primary">jetzt registrieren und anfangen.</a></p></div>'
+	module.exports='<div class="modal-header"><h3>Anmelden</h3></div><div class="modal-body"><form id="login-form" novalidate name="loginForm" role="form" class="form-horizontal"><div data-ng-class="{\'has-success\': loginForm.email.$valid, \'has-error\': loginForm.email.$invalid&&loginForm.email.$touched}" class="form-group"><label for="email-input" class="col-xs-2 control-label">E-Mail-Adresse</label><div class="col-xs-10"><input type="email" name="email" id="email-input" class="form-control" placeholder="name@provider.com" data-ng-model="login.name" required maxlength="20" user-check="exists" data-ng-model-options="{debounce: 500}"><span data-ng-show="loginForm.email.$touched&&loginForm.email.$invalid" data-ng-messages="loginForm.email.$error" class="help-block"><span data-ng-message="required">Bitte gib eine E-Mail-Adresse an.</span><span data-ng-message="email">Das ist keine g\xFCltige E-mail-Adresse.</span><span data-ng-message="userExists">Dieser User existiert nicht.</span></span><span aria-live="assertive" data-ng-show="loginForm.email.$touched" class="help-block"><span ng-if="loginForm.email.$valid">Dieser User existiert.</span><span ng-if="loginForm.email.$pending">Pr\xFCfe Verf\xFCgbarkeit</span></span></div></div><div data-ng-class="{\'has-success\': loginForm.password.$valid, \'has-error\': loginForm.password.$invalid&&loginForm.password.$touched}" class="form-group"><label for="password-input" class="col-xs-2 control-label">Passwort</label><div class="col-xs-10"><input type="password" name="password" id="password-input" class="form-control" ng-model="login.pass" required minlength="8" placeholder="unl\xF6sbar"><span data-ng-switch="login.message" aria-live="assertive" class="help-block"><span data-ng-switch-when="incorrect password">Das Passwort ist nicht korrekt.</span><span data-ng-switch-when="incorrect username">Der Benutzer existiert nicht.</span></span></div></div></form></div><div class="modal-footer"><input type="button" value="abbrechen" data-ng-click="login.cancel()" class="btn btn-default"><input type="button" data-ng-class="{\'btn-primary\': loginForm.$valid, \'btn-danger\': loginForm.$invalid}" value="anmelden" data-ng-click="login.login()" class="btn"></div>'
 
 /***/ },
 /* 21 */
@@ -412,9 +423,90 @@
 	  value: true
 	});
 
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	var LoginCtrl = (function () {
+	  function LoginCtrl(user, $modalInstance, $q) {
+	    _classCallCheck(this, LoginCtrl);
+
+	    this.user = user;
+	    this.$q = $q;
+	    this.$modalInstance = $modalInstance;
+	    this.name = '';
+	    this.pass = '';
+	    this.message = '';
+	  }
+
+	  _createClass(LoginCtrl, [{
+	    key: 'login',
+	    value: function login() {
+	      var _this = this;
+
+	      return this.user.authenticate(this.name, this.pass).then(function () {
+	        return _this.user.init().then(function () {
+	          _this.$modalInstance.close();
+	        });
+	      })['catch'](function (e) {
+	        _this.message = e.data;return e;
+	      });
+	    }
+	  }, {
+	    key: 'cancel',
+	    value: function cancel() {
+	      this.$modalInstance.dismiss('lala');
+	    }
+	  }]);
+
+	  return LoginCtrl;
+	})();
+
+	exports['default'] = LoginCtrl;
+	module.exports = exports['default'];
+
+/***/ },
+/* 22 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _contactJade = __webpack_require__(22);
+	var _homeJade = __webpack_require__(23);
+
+	var _homeJade2 = _interopRequireDefault(_homeJade);
+
+	exports['default'] = {
+	  name: 'home',
+	  url: '/home',
+	  template: _homeJade2['default']
+	};
+	module.exports = exports['default'];
+
+/***/ },
+/* 23 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports='<div class="jumbo-tron"><h2>Willkommen!</h2><h3>Das erwartet dich hier</h3><p>Hier kannst du die Grundlagen der psychologischen Statistik kennenlernen und dir eine Vorstellung davon erschlie\xDFen, wie und warum Statistik in der Forschung eingesetzt wird, was sie Leisten kann und was ihre Grenzen sind.. Falls du einfach nur die Inhalte deiner Statistikvorlesung etwas wiederholen m\xF6chtest oder gerade in der Klausur durchgefallen bist, laden wir dich genauso herzlich ein wie die Statistikanf\xE4nger.</p><p>Es gibt hier Lernkapitel, die sich jeweils mit einem bestimmten Themengebiet besch\xE4ftigen. Es gibt keine festgelegte Reihenfolge bei der Bearbeitung und du brauchst nicht alles von Anfang bis Ende durchzulesen, was hier zu finden ist. Manche Kapitel haben jedoch andere als Abh\xE4ngigkeiten. Bearbeite am besten zuerst die Abh\xE4ngigkeiten, bevor du ein solches Kapitel bearbeitest. Ein Kapitel besteht aus den Kernartikeln, die jeweils durch Zus\xE4tze erg\xE4nzt sind . Du kannst relativ flexibel entscheiden, ob und welche Zus\xE4tze du lesen m\xF6chtest.</p><dl class="dl-horizontal"><dt>Aufgaben</dt><dd>Die Einheit ist abgeschlossen, wenn du alle Aufgaben bearbeitet hast.</dd><dt>Beispiele</dt><dd>Wenn du mehr Hilfestellung oder Veranschaulichung brauchst, kannst du dir die Beispiele ansehen.</dd><dt>Extras</dt><dd>theoretischere Hintergrundinformationen, f\xFCr den Fall, dass du noch Luft hast und es genauer wissen m\xF6chtest</dd></dl><h3>Deine Mitarbeit ist gefragt</h3><p>Du hast die M\xF6glichkeit, Kapitel kurz mittels Rating zu bewerten, die du abgeschlossen hast. Mache bitte gro\xDFz\xFCgigen Gebrauch davon. Die Ratings k\xF6nnen beliebig oft ge\xE4ndert werden, du kannst also frei von der Leber weg bewerten.</p><p>Wir m\xF6chten nachvollziehen, ob und wie sich deine Selbsteinsch\xE4tzung deiner Statistikkenntnisse durch die Benutzung dieser Webseite ver\xE4ndert. Deswegen kannst du nicht nur Bewertungen abgeben, sondern auch deine aktuellen Statistikkenntnisse einsch\xE4tzen. Tue dies z.B., wenn du gerade ein Kapitel beendet hast oder wenn es dir gerade einf\xE4llt.</p><p ng-if="!main.user.authenticated"><a data-ui-sref="^.register" class="btn btn-primary">jetzt registrieren und anfangen.</a></p></div>'
+
+/***/ },
+/* 24 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	var _contactJade = __webpack_require__(25);
 
 	var _contactJade2 = _interopRequireDefault(_contactJade);
 
@@ -426,13 +518,13 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 22 */
+/* 25 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports='<h2>Kontakt</h2><p>Anfragen zu inhaltlichen Themen, technischen Schwierigkeiten, Feedback/Kritik und Anregungen sind bitte an <a href="mailto:webmaster@t-cook.de">webmaster@t-cook.de </a>zu richten. Ich werde mich dann bald des Problems annehmen. Es kann den Vorgang beschleunigen, den Nutzernamen mit anzugeben oder die Anfrage mit der E-Mail-Adresse zu schicken, die im Profil angegeben wurde.</p>'
 
 /***/ },
-/* 23 */
+/* 26 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -443,7 +535,7 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _softwareJade = __webpack_require__(24);
+	var _softwareJade = __webpack_require__(27);
 
 	var _softwareJade2 = _interopRequireDefault(_softwareJade);
 
@@ -455,13 +547,13 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 24 */
+/* 27 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports='<h2>Statistiksoftware Excel</h2><p>Mit Excel l\xE4sst sich schon einiges an statistischen Auswertungen erreichen. Es folgen ein paar Grundlagen dar\xFCber, wie man mit Excel viel Rechnerei computergest\xFCtzt durchf\xFChren kann. Es wird ein Excel 2013 zugrunde gelegt. Gr\xF6\xDFtenteils sollte das hier Beschriebene aber auch in \xE4lteren Versionen verf\xFCgbar sein.</p><accordion><accordion-group is-open="true" heading="Formeln"><p>Formeln k\xF6nnen die Grundrechenarten auf Zahlen anwenden und einer Zelle kann man eine Formel zuweisen, statt einfach direkt eine Zahl in die Zelle einzutragen. Eine Zelle mit Formel zeigt das berechnete Ergebnis als Wert an. Markiere die Zelle, in der das Ergebnis erscheinen soll und trage die Formel dort ein. Formeln beginnen mit einem Gleichheitszeichen und werden mit der Return- oder Tabtaste ausgef\xFChrt. Durch das Gleichheitszeichen wei\xDF Excel, dass es die Eingabe als Formel interpretieren soll und nicht als normalen Wert. Mit den Grundrechenoperatoren (+, -, * und /) kann man nun Rechnungen auf Grundschulniveau konstruieren. Das ist sehr bequem, wenn das formulieren schneller geht als das Rechnen, z.B. bei der Anzahl von Sekunden: <kbd>=60*60*24*7</kbd> f\xFChrt zu 604.800.</p></accordion-group><accordion-group heading="Referenzieren"><p>In Formeln kann man nicht nur die zu verrechnenden Zahlen direkt eingeben, sondern stattdessen auch die Koordinaten der Zellen, in denen die Zahlen stehen: =a1+b1*c1. Die Spalten werden von links nach rechts mit Buchstaben bezeichnet, Zeilen von oben nach unten mit Nummern. In einer Koordinate kommt zuerst die Spalte, dann die Zeile. Die Zelle in der dritten Spalte von links und der zweiten Zeile von oben hei\xDFt z.B. C2. Das Angenehme dabei ist: \xC4ndert sich der Wert einer solchen referenzierten Zelle, wird die Formel neu berechnet und der Wert der mit Formel versehenen Zelle stimmt immer.</p></accordion-group><accordion-group heading="Zellbereiche ausf\xFCllen"><p>Excel interpretiert die Koordinaten in einer Formel als relativ, bezogen auf die Formelzelle. Verschiebt man die Zelle mit der Formel z.B. um eine Spalte nach rechts, werden auch die Koordinaten in der Formel so ge\xE4ndert, als h\xE4tten sich die referenzierten Zellen mit verschoben. Um wirklich absolute Koordinaten zu erhalten, die an ihre Spalte bzw. Zeile fixiert sind, wird dem Buchstaben oder der Nummer ein Dollarzeichen vorangestellt. =$b$3 w\xE4re vollst\xE4ndig fixiert, =$b3 hingegen nur auf der Spalte. Ein Vorzug der relativen Schreibweise ist, dass man die Formel kopieren und auf eine ganze Spalte oder Zeile anwenden kann.</p><p>Beispiel: Es gibt Spalte a und b, und 20 Zeilen. Man m\xF6chte eine Spalte c erstellen, indem man in jeder Zeile den Wert aus Spalte b von dem aus Spalte a subtrahiert. Hierzu schreibt man in Zelle c1: =a1-b1. Nun kopiert man Zelle c1, markiert Zellen c2\u2014c20 und f\xFCgt die kopierte Zelle ein. Die Referenzen passen sich an die Zeilen an, in denen die Formeln stehen.</p></accordion-group><accordion-group heading="Funktionen"><p>Funktionen fassen komplexere Rechenoperationen unter einem Funktionsnamen zusammen. Sie werden mit Eingabewerten (Parametern) gef\xFCttert und geben einen Ausgabewert zur\xFCck, der aufgrund der Parameter berechnet wird. Funktionen erscheinen in Formeln, k\xF6nnen entweder deren einziger Bestandteil sein oder noch von Rechenoperatoren umgeben sein: =Funktionsname(Parameter1;Parameter2;\u2026). Die Funktion zur Berechnung der Summe hei\xDFt naheliegenderweise Summe. Um die Summe aus C2 und C3 zu berechnen, lautet der Funktionsaufruf: summe(C2;C3). Diese Aufgabe w\xE4re nat\xFCrlich mit einem direkten Formelaufruf schneller erledigt; Funktionen entfalten ihr Potential erst bei komplexeren Berechnungen wie auch Statistik.</p></accordion-group><accordion-group heading="Bereiche referenzieren"><p>Um die Summenfunktion doch noch zu rehabilitieren, kann als Parameter statt einzelner Zellen ein Zellbereich \xFCbergeben werden. Bereiche werden notiert, indem die Zellbez\xFCge f\xFCr Anfangs- und Endzelle durch einen Doppelpunkt getrennt werden: =Summe(C3:C6) entspricht =summe(c3;c4;c5;c6). Bereiche k\xF6nnen auch zweidimensional sein: c2:d4 entspricht C2, C3, C4, D2, D3 und D4. So kann man mit der Summenfunktion und Bereichsreferenzierung auch Summen \xFCber gr\xF6\xDFere Bereiche bilden, was allein mit Formeln sehr viel Tipparbeit und fehleranf\xE4lliger w\xE4re.</p></accordion-group><accordion-group heading="Funktionsbibliothek"><p>Im Men\xFC unter Formeln > Funktionsbibliothek > Mehr Funktionen > Statistisch gibt es Funktionen speziell f\xFCr statistische Berechnungen. Man muss die in Excel implementierten Funktionen also nicht auswendig eingeben, sondern kann sie aus dem Men\xFC heraus ausw\xE4hlen.</p></accordion-group></accordion>'
 
 /***/ },
-/* 25 */
+/* 28 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -472,15 +564,15 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _contentJade = __webpack_require__(26);
+	var _contentJade = __webpack_require__(29);
 
 	var _contentJade2 = _interopRequireDefault(_contentJade);
 
-	var _contentControllerJs = __webpack_require__(27);
+	var _contentControllerJs = __webpack_require__(30);
 
 	var _contentControllerJs2 = _interopRequireDefault(_contentControllerJs);
 
-	var _unit = __webpack_require__(28);
+	var _unit = __webpack_require__(31);
 
 	var _unit2 = _interopRequireDefault(_unit);
 
@@ -501,7 +593,7 @@
 	    markdown: /*@ngInject*/["$q", "$ocLazyLoad", function markdown($q, $ocLazyLoad) {
 	      return $q(function (resolve) {
 	        __webpack_require__.e/* nsure */(1, function () {
-	          var md = __webpack_require__(40);
+	          var md = __webpack_require__(43);
 	          $ocLazyLoad.load({ name: md });
 	          return resolve(md);
 	        });
@@ -513,13 +605,13 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 26 */
+/* 29 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports='<nav role="navigation" class="row"><div class="col-xs-12"><ul class="nav nav-pills"><li ng-repeat="unit in content.units track by unit._id" data-ui-sref-active="active"><a data-ui-sref=".unit.description({unit: unit._id})" data-ng-bind="unit.title" data-ng-class="{\'text-success\': main.user.complete(unit._id), \'text-primary\': main.user.requiresComplete(unit.requires)&amp;&amp;!main.user.complete(unit._id), \'text-warning\': !main.user.requiresComplete(unit.requires)&amp;&amp;!main.user.complete(unit._id)}"></a></li></ul></div></nav><section class="row"><div data-ui-view class="col-xs-12"><h2>Wozu \xFCberhaupt Statistik?</h2><p>Psychologie leistet einen enormen Beitrag zur Gestaltung wirksamer Unterrichtsmethoden, Diagnostik und Interventionen, Marketing/Werbung, Personalauswahl und -Entwicklung, Produktdesign (Ergonomie), und weiteren Anwendungsbereichen, in denen Wissen \xFCber das Erleben und Verhalten des Menschen unabdingbar ist. Wie kommen wir aber zu diesem Wissen?</p><dl><dt>Fragestellung/Annahmen</dt><dd>Es werden Annahmen zu einem Thema aufgestellt, die sich \xFCberpr\xFCfen lassen und nach der \xDCberpr\xFCfung widerlegt oder best\xE4tigt sind. Solche Annahmen m\xFCssen widerlegbar sein, sonst bringt sie einfach keinen Erkenntnisgewinn. Das Sprichwort \u201EWenn der Hahn kr\xE4ht auf dem Mist, \xE4ndert sich das wetter oder es bleibt, wie es ist.\u201C trifft immer zu, wie das Wetter auch sein mag und es gibt keine M\xF6glichkeit, es zu widerlegen. Hingegen ist \u201EWenn der Fuchs heult, wird der Mond scheinen\u201C widerlegbar. Tats\xE4chlich verifizieren kann man solche universellen Annahmen nicht, sondern h\xF6chstens falsifizieren. Deshalb ist bei wissenschaftlichen Annahmen die Falsifizierbarkeit sehr wichtig und bezeichnend f\xFCr eine gute Annahme. Besonders etablierte Erkenntnisse haben im Grunde \u201Enur\u201C zahlreichen Falsifizierungsversuchen widerstanden. Das sind Situationen, deren Ausgang f\xFCr oder gegen die Annahme spricht. Dass die Sonne morgens aufgeht, wird jeden Morgen gepr\xFCft und wurde bisher nicht widerlegt. Es ist also eine empirisch gut fundierte, vorl\xE4ufig akzeptierte Annahme. Hier zeigt sich schon, dass der bin\xE4re Wahrheitsbegriff von wahr und unwahr zu etwas kontinuierlicherem wird.</dd><dt>Empirie</dt><dd>In Experimenten, Felduntersuchungen usw. werden Informationen \xFCber menschliches Erleben oder Verhalten gesammelt, die f\xFCr oder gegen die Annahme sprechen. Dies kann sehr schwierig sein, wenn z.B. viele andere Annahmen die gesammelten Beobachtungen ebenso gut erkl\xE4ren k\xF6nnten wie die aktuell gepr\xFCfte. Eine Annahme \xFCber Geschlechterunterschiede kann nur dann untersucht werden, wenn zwischen den beiden Gruppen m\xF6glichst nur der Geschlechterunterschied besteht.</dd><dt>Statistik</dt><dd>Gemachte Beobachtungen werden als Messwerte ausgedr\xFCckt. Dadurch ist es m\xF6glich, sie auf logisch-mathematischer Ebene zu beschreiben, zusammenzufassen und Annahmen zu pr\xFCfen. Man l\xE4sst also die Inhaltlichen Aspekte vorerst mal beiseite und arbeitet mit den Werten. Das ist z.B. n\xF6tig, weil Menschen sich nie in Bezug auf eine Annahme genau gleich verhalten. Man hat es also mit Tendenzen zu tun, die sich erst mittels Statistik extrahieren lassen.</dd><dt>Interpretation</dt><dd>Die statistischen Ergebnisse werden im Hinblick auf die Annahme interpretiert. Trifft die Annahme den Ergebnissen zufolge zu oder nicht? Gen\xFCgend so gepr\xFCfte Annahmen k\xF6nnen zu einer Theorie integriert werden. Theorien sind sozusagen die vorl\xE4ufigen \u201EWahrheiten\u201C dar\xFCber, wie die Welt funktioniert. Zumindest k\xF6nnen sie weitere konkrete Beobachtungen vorhersagen und sie erkl\xE4ren. Von konkreten Beobachtungen auf andere Beobachtungen zu schlie\xDFen, ist nicht m\xF6glich. Theorien sind in st\xE4ndiger Weiterentwicklung begriffen und werden stetig verbessert und verfeinert. Aus einer Theorie ergeben sich wiederum Annahmen, die man empirisch-statistisch pr\xFCfen kann um die Theorie zu testen.</dd></dl><h3>Warum dieser Umweg \xFCber die Statistik?</h3><h4>Objektivit\xE4t und Transparenz</h4><p>Es gibt nat\xFCrlich bessere und weniger gute Wege zu einer wissenschaftlichen Erkenntnis, aber der jeweilige Weg ist mit durch Statistik objektiv und transparent. Es ist also f\xFCr jeden klar nachvollziehbar, wie man von Einzelbeobachtungen zu einem statistischen Ergebnis gelangt ist. Dies gilt ebenso auch f\xFCr die Empirie, wo klar ersichtlich sein muss, wie die Beobachtungen zustande kamen. Vor allem aber lie\xDFe sich ohne Statistik kein verwertbares Ergebnis gewinnen, das sich hinsichtlich der gepr\xFCften Fragestellung interpretieren lie\xDFe.</p><h4>Qualit\xE4t und Verantwortung</h4><p>Durch Empirie und Statistik wird die Qualit\xE4t von Theorien gesteigert. Selbst wenn eine Theorie nicht jeden Einzelfall korrekt vorhersagen kann, erbringt diese systematische Vorgehensweise die besten Trefferquoten. Die Psychologie hat das ziel , durch sinnvolle Methodenwahl m\xF6glichst gute Theorien hervorzubringen und somit m\xF6glichst gute Vorhersagen zu liefern. Die Naturwissenschaften arbeiten empirisch und sicher h\xE4tten Sie ein Problem damit, wenn Maschinen oder Autos pl\xF6tzlich nicht mehr aufgrund m\xF6glichst sicherer und objektiver Erkenntnisse konstruiert w\xFCrden, sondern nach rein subjektivem Gutd\xFCnken (Ich baue, wie es mir gef\xE4llt). W\xFCrden Sie freiwillig ein solches Auto fahren? Warum sollte dies in der Psychologie anders sein, nur weil jeder gern seine private Psychologie pflegt? Erst so bekommt die Psychologie als Wissenschaft \xFCberhaupt einen Sinn. Wegen dieses hohen Anspruchs greifen viele Fachgebiete auf psychologische Befunde zur\xFCck, woraus der Psychologie wiederum eine gro\xDFe Verantwortung gegen\xFCber diesen Fachgebieten erw\xE4chst und gegen\xFCber den dabei involvierten Menschen. Durch fahrl\xE4ssige Behauptungen \xFCber kognitive, soziale und emotionale Entwicklung, Lernprozesse und die daraus abgeleitete Qualit\xE4t bestimmter Unterrichtsmethoden oder Therapieformen k\xF6nnten andere menschen wie Patienten, Mitarbeiter oder Sch\xFCler eine Fehlbehandlung erfahren, weil sich Personaler, Lehrer oder Berater auf diese Behauptungen verlassen. </p></div></section>'
 
 /***/ },
-/* 27 */
+/* 30 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -542,7 +634,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 28 */
+/* 31 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -553,21 +645,21 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	__webpack_require__(29);
+	__webpack_require__(32);
 
-	var _unitJade = __webpack_require__(33);
+	var _unitJade = __webpack_require__(36);
 
 	var _unitJade2 = _interopRequireDefault(_unitJade);
 
-	var _unitControllerJs = __webpack_require__(34);
+	var _unitControllerJs = __webpack_require__(37);
 
 	var _unitControllerJs2 = _interopRequireDefault(_unitControllerJs);
 
-	var _description = __webpack_require__(35);
+	var _description = __webpack_require__(38);
 
 	var _description2 = _interopRequireDefault(_description);
 
-	var _topic = __webpack_require__(37);
+	var _topic = __webpack_require__(40);
 
 	var _topic2 = _interopRequireDefault(_topic);
 
@@ -593,16 +685,16 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 29 */
+/* 32 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(30);
+	var content = __webpack_require__(33);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(32)(content, {});
+	var update = __webpack_require__(35)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -619,14 +711,14 @@
 	}
 
 /***/ },
-/* 30 */
+/* 33 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(31)();
+	exports = module.exports = __webpack_require__(34)();
 	exports.push([module.id, ".subkapitel {\n  background-color: #E9EAED;\n  box-shadow: 0px 1px 1px #888888;\n  line-height: 2em;\n}", ""]);
 
 /***/ },
-/* 31 */
+/* 34 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -682,7 +774,7 @@
 
 
 /***/ },
-/* 32 */
+/* 35 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -907,13 +999,13 @@
 
 
 /***/ },
-/* 33 */
+/* 36 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports='<header class="row"><div class="col-sm-4"><h2><a ui-sref=".description" ng-bind="unit.unit.title"></a></h2></div><div class="col-sm-8"><h2 ng-bind="unit.unit.subtitle"></h2></div></header><div class="row"><nav class="col-sm-4"><ul class="nav nav-pills nav-stacked"><li ng-repeat="topic in unit.unit.topics track by topic._id" ui-sref-active="active"><a ui-sref=".topic({topic: topic._id})" ng-bind="topic.title"></a></li><li data-ui-sref-active="active"><a data-ui-sref="main.content.unit.test">Test</a></li></ul></nav><main data-ui-view class="col-sm-8 subkapitel"></main></div>'
 
 /***/ },
-/* 34 */
+/* 37 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -936,7 +1028,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 35 */
+/* 38 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -947,7 +1039,7 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _descriptionJade = __webpack_require__(36);
+	var _descriptionJade = __webpack_require__(39);
 
 	var _descriptionJade2 = _interopRequireDefault(_descriptionJade);
 
@@ -959,13 +1051,13 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 36 */
+/* 39 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports='<h3>Beschreibung</h3><div markdown="unit.unit.description"></div><h4>Voraussetzungen</h4><p ng-if="!unit.unit.requires">Es gibt keine Voraussetzungen.</p><ul ng-if="unit.unit.requires" class="list-unstyled"><li ng-repeat="required in unit.unit.requires"><a data-ng-bind="required.title" data-ui-sref=".({unit: required._id})"></a></li></ul>'
 
 /***/ },
-/* 37 */
+/* 40 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -976,11 +1068,11 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _topicJade = __webpack_require__(38);
+	var _topicJade = __webpack_require__(41);
 
 	var _topicJade2 = _interopRequireDefault(_topicJade);
 
-	var _topicControllerJs = __webpack_require__(39);
+	var _topicControllerJs = __webpack_require__(42);
 
 	var _topicControllerJs2 = _interopRequireDefault(_topicControllerJs);
 
@@ -999,13 +1091,13 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 38 */
+/* 41 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports='<h3 data-ng-bind="topic.topic.subtitle ? topic.topic.title+\': \'+topic.topic.subtitle : topic.topic.title"></h3><div markdown="topic.topic.body" math-jax></div><div role="toolbar" class="btn-toolbar"><div class="btn-group"><div dropdown is-open="status.examples" data-ng-if="topic.topic.examples.length&gt;0" class="btn-group"><button type="button" dropdown-toggle class="btn btn-default dropdown-toggle">Beispiele<span class="caret"></span></button><ul class="dropdown-menu"><li data-ng-repeat="example in topic.topic.examples"><a data-ui-sref=".example({example: example.title})" ng-bind="example.title" class="btn btn-default"></a></li></ul></div><div dropdown is-open="status.extras" data-ng-if="topic.topic.extras.length&gt;0" class="btn-group"><button type="button" dropdown-toggle class="btn btn-default dropdown-toggle">Extras<span class="caret"></span></button><ul class="dropdown-menu"><li data-ng-repeat="extra in topic.topic.extras"><a data-ui-sref=".extra({extra: extra.title})" data-ng-bind="extra.title" class="btn btn-default"></a></li></ul></div></div><div data-ng-if="main.user.authenticated" class="btn-group"><button type="button" ng-click="main.modal.akzeptanz(unit.unit)" class="btn btn-default">Kapitel bewerten</button><button type="button" data-ng-click="main.modal.fsk()" class="btn btn-default">Statistikkenntnisse einsch\xE4tzen</button></div></div><section data-ui-view></section>'
 
 /***/ },
-/* 39 */
+/* 42 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -1028,9 +1120,6 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 40 */,
-/* 41 */,
-/* 42 */,
 /* 43 */,
 /* 44 */,
 /* 45 */,
@@ -1095,7 +1184,10 @@
 /* 104 */,
 /* 105 */,
 /* 106 */,
-/* 107 */
+/* 107 */,
+/* 108 */,
+/* 109 */,
+/* 110 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1106,11 +1198,11 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _downloadJade = __webpack_require__(108);
+	var _downloadJade = __webpack_require__(111);
 
 	var _downloadJade2 = _interopRequireDefault(_downloadJade);
 
-	var _downloadControllerJs = __webpack_require__(109);
+	var _downloadControllerJs = __webpack_require__(112);
 
 	var _downloadControllerJs2 = _interopRequireDefault(_downloadControllerJs);
 
@@ -1124,13 +1216,13 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 108 */
+/* 111 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports='<h2>Download</h2><p>Falls du die Inhalte dieser Webseite gern als Textdokument archivieren m\xF6chtest, kannst du hier ein Dokument mit den von dir bearbeiteten Kapiteln herunterladen. Du kannst zwischen ein paar Formaten w\xE4hlen und einstellen, welche Bestandteile du haben m\xF6chtest.</p><form name="downloadForm" novalidate method="get" action="/statistikwbt/api/downloads" class="form-horizontal"><input type="hidden" name="token" ng-value="main.identity.token()"><div class="form-group"><label class="col-xs-2">Kapitel</label><div class="col-xs-10"><div data-ng-repeat="unit in download.units" class="checkbox"><label><input type="checkbox" name="units" data-ng-value="unit._id" checked> {{unit.title}}</label></div></div></div><div class="form-group"><label class="col-xs-2">Inhalte</label><div class="col-xs-10"><label class="checkbox-inline"><input type="checkbox" name="contents" value="body" checked> Kerntexte</label><label class="checkbox-inline"><input type="checkbox" name="contents" value="examples" checked> Beispiele</label><label class="checkbox-inline"><input type="checkbox" name="contents" value="extras" checked> Extras</label></div></div><div class="form-group"><label class="col-xs-2">Dateiformat</label><div class="col-xs-10"><label class="radio-inline"><input type="radio" name="format" value="docx" checked><span class="fa fa-file-word-o"></span> MS Word</label><label class="radio-inline"><input type="radio" name="format" value="rtf"> RTF</label><label class="radio-inline"><input type="radio" name="format" value="epub"><span class="fa fa-book"></span> Epub</label><label class="radio-inline"><input type="radio" name="format" value="markdown"><span class="fa fa-file-text-o"></span> Markdown</label><label class="radio-inline"><input type="radio" name="format" value="latex"><span class="fa fa-file-code-o"></span> LaTex</label></div></div><div class="form-group"><div class="col-xs-2-offset col-xs-10"><input type="submit" value="Download" data-ng-class="{\'btn-primary\': undefined.$valid,\'btn-danger\': undefined.$invalid}" class="btn"></div></div></form>'
 
 /***/ },
-/* 109 */
+/* 112 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -1153,7 +1245,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 110 */
+/* 113 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1164,11 +1256,11 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _registerJade = __webpack_require__(111);
+	var _registerJade = __webpack_require__(114);
 
 	var _registerJade2 = _interopRequireDefault(_registerJade);
 
-	var _registerControllerJs = __webpack_require__(112);
+	var _registerControllerJs = __webpack_require__(115);
 
 	var _registerControllerJs2 = _interopRequireDefault(_registerControllerJs);
 
@@ -1182,13 +1274,13 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 111 */
+/* 114 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports='<h2>Registrieren</h2><form novalidate name="registerForm" ng-submit="main.user.register(register.registerData)" role="form" class="form-horizontal"><fieldset><legend>Logindaten</legend><div data-ng-class="{\'has-success\': registerForm.email.$valid, \'has-error\': registerForm.email.$invalid&&registerForm.email.$touched}" class="form-group"><label for="email-input" class="col-xs-2 control-label">E-Mail-Adresse</label><div class="col-xs-10"><input type="email" name="email" id="email-input" class="form-control" required maxlength="20" placeholder="name@provider.com" data-ng-model="register.registerData.email" data-ng-model-options="{debounce: 500}" user-available><span data-ng-show="registerForm.email.$touched&&registerForm.email.$invalid" data-ng-messages="registerForm.email.$error" class="help-block"><span data-ng-message="required">Bitte gib eine E-Mail-Adresse an.</span><span data-ng-message="email">Das ist keine g\xFCltige E-mail-Adresse.</span><span data-ng-message="userAvailable">Diese E-Mail ist schon registriert.</span></span><span aria-live="assertive" data-ng-show="registerForm.email.$touched" class="help-block"><span data-ng-if="registerForm.email.$valid">Diese E-mail ist noch verf\xFCgbar.</span><span data-ng-if="registerForm.email.$pending">Pr\xFCfe Verf\xFCgbarkeit</span></span></div></div><div data-ng-class="{\'has-success\': registerForm.password.$valid, \'has-error\': registerForm.password.$invalid&&registerForm.password.$touched}" class="form-group"><label for="password-input" class="col-xs-2 control-label">Passwort</label><div class="col-xs-10"><div class="input-group"><input type="{{register.showPassword ? \'text\' : \'password\'}}" name="password" id="password-input" class="form-control" data-ng-model="register.registerData.password" required minlength="8" placeholder="unl\xF6sbar"><span class="input-group-btn"><button type="button" data-ng-click="register.showPassword=!register.showPassword" data-ng-bind="register.showPassword ? \'ausblenden\' : \'einblenden\'" class="btn btn-default"></button></span></div><span data-ng-show="registerForm.password.$touched&&registerForm.password.$invalid" data-ng-messages="registerForm.password.$error" class="help-block"><span data-ng-message="required">Bitte gib ein Passwort an.</span><span data-ng-message="minlength">Das Passwort sollte mindestens acht Zeichen lang sein.</span></span></div></div></fieldset><fieldset><legend>Personenangaben</legend><div data-ng-class="{\'has-success\': registerForm.nickname.$valid, \'has-error\': registerForm.nickname.$invalid&&registerForm.nickname.$touched}" class="form-group"><label for="nickname-input" class="col-xs-2 control-label">Nickname (optional</label><div class="col-xs-10"><input type="text" name="nickname" id="nickname-input" class="form-control" data-ng-model="register.registerData.profile.nickname" maxlength="20"></div></div><div data-ng-class="{\'has-success\': registerForm.age.$valid, \'has-error\': registerForm.age.$invalid&&registerForm.age.$touched}" class="form-group"><label for="age-input" class="col-xs-2 control-label">Alter</label><div class="col-xs-10"><input type="number" name="age" id="age-input" class="form-control" required min="0" max="100" step="1" data-ng-model="register.registerData.profile.age"><span data-ng-show="registerForm.age.$touched&&registerForm.age.$invalid" data-ng-messages="registerForm.age.$error" class="help-block"><span data-ng-message=\'0\'>J</span><span data-ng-message=\'1\'>a</span><span data-ng-message=\'2\'>h</span><span data-ng-message=\'3\'>r</span><span data-ng-message=\'4\'>e</span></span></div></div><div class="form-group"><label class="col-xs-2">Geschlecht</label><div class="col-xs-10"><label class="radio-inline"><input type="radio" name="sex" value="male" data-ng-model="register.registerData.profile.sex" required><span class="fa fa-male"></span> m\xE4nnlich</label><label class="radio-inline"><input type="radio" name="sex" value="female" data-ng-model="register.registerData.profile.sex" required><span class="fa fa-female"></span> weiblich</label></div></div><div data-ng-class="{\'has-success\': registerForm.subject.$valid, \'has-error\': registerForm.subject.$invalid&&registerForm.subject.$touched}" class="form-group"><label for="subject-input" class="col-xs-2 control-label">Studienfach (optional)</label><div class="col-xs-10"><input type="text" name="subject" id="subject-input" class="form-control" data-ng-model="register.registerData.profile.subject" typeahead="subject.name for subject in register.getSubjects($viewValue)" placeholder="hier Studienfach eingeben und ausw\xE4hlen" typeahead-min-length="3" ng-required="register.profile.subject"></div></div><div class="form-group"><label class="col-xs-2">Registrierungsgrund/gr\xFCnde</label><div class="col-xs-10"><div class="checkbox"><label><input type="checkbox" data-ng-model="register.registerData.reasons[0]"> Interesse f\xFCr das Thema</label></div><div class="checkbox"><label><input type="checkbox" data-ng-model="register.registerData.reasons[1]"> Langeweile, Zeitvertreib, zuf\xE4llig reingestolpert</label></div><div class="checkbox"><label><input type="checkbox" data-ng-model="register.registerData.reasons[2]"> Vor- oder Nachbereitung f\xFCr Klausur/Vorlesung</label></div></div></div></fieldset><fieldset><legend>Datenschutz</legend><p>Mit der Registrierung erkl\xE4rst du dich mit folgenden Punkten einverstanden:</p><ul><li>Wir behandeln deine Eingaben anonym und vertraulich.</li><li>Neben deinen explizit gemachten Angaben werden deine Bewegungen teilweise mit erfasst um dich nicht zus\xE4tzlich nach deiner Verweildauer, den von dir angefurften Inhalten o.\xC4. fragen zu m\xFCssen.</li><li>Zu Forschungszwecken werten wir alle Nutzerdaten wissenschaftlich aus.</li><li>Wir behalten uns das Recht vor, dich zu Forschungszwecken \xFCber deine hier angegebene E-Mail-Adresse kontaktieren zu k\xF6nnen.</li></ul><div class="form-group"><div class="col-xs-2-offset col-xs-10"><input type="submit" value="Einverstanden und Registrieren" data-ng-class="{\'btn-primary\': registerForm.$valid,\'btn-danger\': registerForm.$invalid}" class="btn"></div></div></fieldset></form>'
 
 /***/ },
-/* 112 */
+/* 115 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1229,7 +1321,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 113 */
+/* 116 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1240,15 +1332,15 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _authorJade = __webpack_require__(114);
+	var _authorJade = __webpack_require__(117);
 
 	var _authorJade2 = _interopRequireDefault(_authorJade);
 
-	var _units = __webpack_require__(115);
+	var _units = __webpack_require__(118);
 
 	var _units2 = _interopRequireDefault(_units);
 
-	var _vega = __webpack_require__(130);
+	var _vega = __webpack_require__(133);
 
 	var _vega2 = _interopRequireDefault(_vega);
 
@@ -1260,7 +1352,7 @@
 	    markdown: /*@ngInject*/["$q", "$ocLazyLoad", function markdown($q, $ocLazyLoad) {
 	      return $q(function (resolve) {
 	        __webpack_require__.e/* nsure */(1/* duplicate */, function () {
-	          var md = __webpack_require__(40);
+	          var md = __webpack_require__(43);
 	          return resolve($ocLazyLoad.load({ name: md }));
 	        });
 	      });
@@ -1272,13 +1364,13 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 114 */
+/* 117 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports='<div class="row"><div class="col-xs-12"><div ncy-breadcrumb></div><h2>Authorenmodus</h2><ul class="nav nav-tabs"><li ui-sref-active="active"><a ui-sref=".units">Kapitel</a></li><li ui-sref-active="active"><a ui-sref=".vega">Vega</a></li></ul><div ui-view><p>Dies ist der Autorenmodus. Nur WBT-Autoren k\xF6nnen ihn verwenden und mit seiner Hilfe die Inhalte des WBT bearbeiten.</p></div></div></div>'
 
 /***/ },
-/* 115 */
+/* 118 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1289,15 +1381,15 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _unitsJade = __webpack_require__(116);
+	var _unitsJade = __webpack_require__(119);
 
 	var _unitsJade2 = _interopRequireDefault(_unitsJade);
 
-	var _unitsControllerJs = __webpack_require__(117);
+	var _unitsControllerJs = __webpack_require__(120);
 
 	var _unitsControllerJs2 = _interopRequireDefault(_unitsControllerJs);
 
-	var _unit = __webpack_require__(119);
+	var _unit = __webpack_require__(122);
 
 	var _unit2 = _interopRequireDefault(_unit);
 
@@ -1321,13 +1413,13 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 116 */
+/* 119 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports='<h3><button type="button" ng-click="units.collapse=!units.collapse" class="btn btn-default"><span ng-class="units.collapseUnits ? \'fa-toggle-off\' : \'fa-toggle-on\'" aria-hidden="true" class="fa"></span> {{units.collapseUnits ? \'einblenden\' : \'ausblenden\'}}</button><br><span>Kapitel\xFCbersicht</span></h3><div collapse="units.collapseUnits"><form novalidate name="unitsForm" class="form-horizontal"><div class="form-group"><label for="selectUnit" class="col-xs-2 control-label">Kapitel</label><div class="col-xs-10"><select id="selectUnit" name="selectUnit" ng-model="units.selected" ng-options="u.title for u in units.units track by u._id" class="form-control"></select></div></div><div ng-if="units.selected" class="form-group"><label class="col-xs-2">Funktionen</label><div class="col-xs-10"><div class="button-group"><a ui-sref="main.content.unit.description({unit: units.selected._id})" class="btn btn-primary">Anschauen</a><a ui-sref=".unit.basics({unit: units.selected._id})" class="btn btn-default">Bearbeiten</a><button type="button" ng-click="units.remove()" class="btn btn-default">L\xF6schen</button></div></div></div></form></div><div ui-view><h3>Neues Kapitel anlegen</h3><form novalidate name="newForm" ng-submit="units.save()" class="form-horizontal"><div data-ng-class="{\'has-success\': undefined.title.$valid, \'has-error\': undefined.title.$invalid&&undefined.title.$touched}" class="form-group"><label for="title-input" class="col-xs-2 control-label">Titel</label><div class="col-xs-10"><input type="text" name="title" id="title-input" class="form-control" ng-model="units.new.title"></div></div><div data-ng-class="{\'has-success\': undefined.subtitle.$valid, \'has-error\': undefined.subtitle.$invalid&&undefined.subtitle.$touched}" class="form-group"><label for="subtitle-input" class="col-xs-2 control-label">Untertitel</label><div class="col-xs-10"><input type="text" name="subtitle" id="subtitle-input" class="form-control" ng-model="units.new.subtitle"></div></div><div class="form-group"><label class="col xs-2">Voraussetzungen</label><div class="col-xs-10"><div ng-repeat="unit in units.units" class="checkbox"><label><input type="checkbox" name="requires" ng-model="units.requires[unit._id]"> {{unit.title}}</label></div></div></div><marked input="units.new.description"></marked><div class="form-group"><div class="col-xs-offset-2 col-xs-10"><input type="submit" value="Anlegen"></div></div></form></div>'
 
 /***/ },
-/* 117 */
+/* 120 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1342,7 +1434,7 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
-	var _lodash = __webpack_require__(118);
+	var _lodash = __webpack_require__(121);
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
@@ -1404,13 +1496,13 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 118 */
+/* 121 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = _;
 
 /***/ },
-/* 119 */
+/* 122 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1421,23 +1513,23 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _unitJade = __webpack_require__(120);
+	var _unitJade = __webpack_require__(123);
 
 	var _unitJade2 = _interopRequireDefault(_unitJade);
 
-	var _unitController = __webpack_require__(121);
+	var _unitController = __webpack_require__(124);
 
 	var _unitController2 = _interopRequireDefault(_unitController);
 
-	var _basics = __webpack_require__(123);
+	var _basics = __webpack_require__(126);
 
 	var _basics2 = _interopRequireDefault(_basics);
 
-	var _topics = __webpack_require__(125);
+	var _topics = __webpack_require__(128);
 
 	var _topics2 = _interopRequireDefault(_topics);
 
-	var _tests = __webpack_require__(128);
+	var _tests = __webpack_require__(131);
 
 	var _tests2 = _interopRequireDefault(_tests);
 
@@ -1459,13 +1551,13 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 120 */
+/* 123 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports='<h3 ng-bind="unit.unit.title"></h3><ul class="nav nav-tabs"><li ui-sref-active="active"><a ui-sref=".basics">Grunddaten</a></li><li ui-sref-active="active"><a ui-sref=".topics">Subkapitel</a></li><li ui-sref-active="active"><a ui-sref=".tests">Testaufgaben</a></li></ul><div ui-view></div>'
 
 /***/ },
-/* 121 */
+/* 124 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1480,11 +1572,11 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
-	var _lodash = __webpack_require__(118);
+	var _lodash = __webpack_require__(121);
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
-	var _fastJsonPatch = __webpack_require__(122);
+	var _fastJsonPatch = __webpack_require__(125);
 
 	var _fastJsonPatch2 = _interopRequireDefault(_fastJsonPatch);
 
@@ -1546,7 +1638,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 122 */
+/* 125 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*!
@@ -2265,7 +2357,7 @@
 
 
 /***/ },
-/* 123 */
+/* 126 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2276,7 +2368,7 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _basicsJade = __webpack_require__(124);
+	var _basicsJade = __webpack_require__(127);
 
 	var _basicsJade2 = _interopRequireDefault(_basicsJade);
 
@@ -2289,13 +2381,13 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 124 */
+/* 127 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports='<form novalidate name="basicsForm" class="form-horizontal"><div class="form-group"><label class="col-xs-2 control-label">ID</label><div class="col-xs-10"><p ng-bind="unit.unit._id" class="static-control"></p></div></div><div data-ng-class="{\'has-success\': undefined.title.$valid, \'has-error\': undefined.title.$invalid&&undefined.title.$touched}" class="form-group"><label for="title-input" class="col-xs-2 control-label">Titel (Pflichtfeld)</label><div class="col-xs-10"><input type="text" name="title" id="title-input" class="form-control" ng-model="unit.unit.title" ng-model-options="main.ngModelOptions"></div></div><div data-ng-class="{\'has-success\': undefined.subtitle.$valid, \'has-error\': undefined.subtitle.$invalid&&undefined.subtitle.$touched}" class="form-group"><label for="subtitle-input" class="col-xs-2 control-label">Untertitel</label><div class="col-xs-10"><input type="text" name="subtitle" id="subtitle-input" class="form-control" ng-model="unit.unit.subtitle" ng-model-options="main.ngModelOptions"></div></div><div class="form-group"><div class="col-xs-2">Voraussetzungen</div><div class="col-xs-10"><div ng-repeat="item in units.units | filter : {_id: \'!\'+unit.unit._id}" class="checkbox"><label><input type="checkbox" name="requires" ng-model="unit.requires[item._id]" ng-change="unit.toggleRequires(item._id)" ng-model-options="main.ngModelOptions">{{item.title}}</label></div></div></div><div class="form-group"><marked input="unit.unit.description" label="Beschreibungstext (Pflichtfeld)"></marked></div></form><div ng-if="unit.patches.length===0" role="alert" class="alert alert-success">alles hochgeladen</div><div ng-if="unit.patches.length&gt;0" role="alert" class="alert alert-info">lade \xC4nderungen hoch</div><div ng-if="unit.error" role="alert" class="alert alert-danger"><button type="button" ng-click="unit.unit=unit.recover">r\xFCckg\xE4ngig</button><span>Fehler beim Hochladen</span></div>'
 
 /***/ },
-/* 125 */
+/* 128 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2306,11 +2398,11 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _topicsJade = __webpack_require__(126);
+	var _topicsJade = __webpack_require__(129);
 
 	var _topicsJade2 = _interopRequireDefault(_topicsJade);
 
-	var _topicsController = __webpack_require__(127);
+	var _topicsController = __webpack_require__(130);
 
 	var _topicsController2 = _interopRequireDefault(_topicsController);
 
@@ -2331,13 +2423,13 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 126 */
+/* 129 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports='<button type="button" ng-click="topics.collapse=!topics.collapse" ng-bind="topics.collapse ? \'Subkapitel\xFCbersicht einblenden\' : \'Subkapitel\xFCbersicht ausblenden\'" class="btn btn-default"></button><div collapse="topics.collapse"><form novalidate name="topicsForm" class="form-horizontal"><div class="form-group"><label for="selectTopic" class="col-xs-2 control-label">Subkapitel</label><div class="col-xs-10"><select id="selectTopic" ng-options="t.title for t in topics.topics track by t._id" ng-model="topics.selected" class="form-control"></select></div></div><div ng-if="topics.selected" class="form-group"><label class="col-xs-2">Funktionen</label><div class="col-xs-10"><div class="button-group"><button type="button" ng-click="topics.moveUp()">hoch</button><button type="button" ng-click="topics.moveDown()">runter</button><a ui-sref=".topic.basics({topic: topics.selected._id})">bearbeiten</a><button type="button" ng-click="topics.remove()">l\xF6schen</button></div></div></div></form></div><ui-view></ui-view><h3>Neues Subkapitel anlegen</h3><form novalidate name="newForm" ng-submit="topics.save()" class="form-horizontal"><div data-ng-class="{\'has-success\': undefined.title.$valid, \'has-error\': undefined.title.$invalid&&undefined.title.$touched}" class="form-group"><label for="title-input" class="col-xs-2 control-label">Titel</label><div class="col-xs-10"><input type="text" name="title" id="title-input" class="form-control" ng-model="topics.new.title"></div></div><div data-ng-class="{\'has-success\': undefined.subtitle.$valid, \'has-error\': undefined.subtitle.$invalid&&undefined.subtitle.$touched}" class="form-group"><label for="subtitle-input" class="col-xs-2 control-label">Untertitel</label><div class="col-xs-10"><input type="text" name="subtitle" id="subtitle-input" class="form-control" ng-model="topics.new.subtitle"></div></div><marked input="topics.new.body" label="Inhalt"></marked><div class="form-group"><div class="col-xs-offset-2 col-xs-10"><input type="submit" value="erstellen"></div></div></form>'
 
 /***/ },
-/* 127 */
+/* 130 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2352,7 +2444,7 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
-	var _lodash = __webpack_require__(118);
+	var _lodash = __webpack_require__(121);
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
@@ -2417,7 +2509,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 128 */
+/* 131 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2428,7 +2520,7 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _testsJade = __webpack_require__(129);
+	var _testsJade = __webpack_require__(132);
 
 	var _testsJade2 = _interopRequireDefault(_testsJade);
 
@@ -2440,13 +2532,13 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 129 */
+/* 132 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports='<h3>Testaufgaben</h3>'
 
 /***/ },
-/* 130 */
+/* 133 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2461,7 +2553,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 131 */
+/* 134 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2472,15 +2564,15 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _userInterceptor = __webpack_require__(132);
+	var _userInterceptor = __webpack_require__(135);
 
 	var _userInterceptor2 = _interopRequireDefault(_userInterceptor);
 
-	var _userModel = __webpack_require__(133);
+	var _userModel = __webpack_require__(136);
 
 	var _userModel2 = _interopRequireDefault(_userModel);
 
-	var _userCheckValidator = __webpack_require__(134);
+	var _userCheckValidator = __webpack_require__(137);
 
 	var _userCheckValidator2 = _interopRequireDefault(_userCheckValidator);
 
@@ -2492,7 +2584,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 132 */
+/* 135 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -2520,7 +2612,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 133 */
+/* 136 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2622,7 +2714,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 134 */
+/* 137 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2660,7 +2752,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 135 */
+/* 138 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2675,7 +2767,7 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
-	var _login2 = __webpack_require__(136);
+	var _login2 = __webpack_require__(19);
 
 	var _login3 = _interopRequireDefault(_login2);
 
@@ -2699,7 +2791,10 @@
 	  _createClass(modals, [{
 	    key: 'login',
 	    value: function login() {
-	      return this.$modal.open(_login3['default']);
+	      var modalInstance = this.$modal.open(_login3['default']);
+	      modalInstance.result.then(null, function (res) {
+	        console.log(res);
+	      });
 	    }
 	  }, {
 	    key: 'fsk',
@@ -2717,91 +2812,6 @@
 	})();
 
 	exports['default'] = modals;
-	module.exports = exports['default'];
-
-/***/ },
-/* 136 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, '__esModule', {
-	  value: true
-	});
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-	var _loginJade = __webpack_require__(137);
-
-	var _loginJade2 = _interopRequireDefault(_loginJade);
-
-	var _loginControllerJs = __webpack_require__(138);
-
-	var _loginControllerJs2 = _interopRequireDefault(_loginControllerJs);
-
-	exports['default'] = {
-	  template: _loginJade2['default'],
-	  controller: _loginControllerJs2['default'],
-	  controllerAs: 'login'
-	};
-	module.exports = exports['default'];
-
-/***/ },
-/* 137 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports='<div class="modal-header"><h3>Anmelden</h3></div><div class="modal-body"><form id="login-form" novalidate name="loginForm" role="form" class="form-horizontal"><div data-ng-class="{\'has-success\': loginForm.email.$valid, \'has-error\': loginForm.email.$invalid&&loginForm.email.$touched}" class="form-group"><label for="email-input" class="col-xs-2 control-label">E-Mail-Adresse</label><div class="col-xs-10"><input type="email" name="email" id="email-input" class="form-control" placeholder="name@provider.com" data-ng-model="login.name" required maxlength="20" user-check="exists" data-ng-model-options="{debounce: 500}"><span data-ng-show="loginForm.email.$touched&&loginForm.email.$invalid" data-ng-messages="loginForm.email.$error" class="help-block"><span data-ng-message="required">Bitte gib eine E-Mail-Adresse an.</span><span data-ng-message="email">Das ist keine g\xFCltige E-mail-Adresse.</span><span data-ng-message="userExists">Dieser User existiert nicht.</span></span><span aria-live="assertive" data-ng-show="loginForm.email.$touched" class="help-block"><span ng-if="loginForm.email.$valid">Dieser User existiert.</span><span ng-if="loginForm.email.$pending">Pr\xFCfe Verf\xFCgbarkeit</span></span></div></div><div data-ng-class="{\'has-success\': loginForm.password.$valid, \'has-error\': loginForm.password.$invalid&&loginForm.password.$touched}" class="form-group"><label for="password-input" class="col-xs-2 control-label">Passwort</label><div class="col-xs-10"><input type="password" name="password" id="password-input" class="form-control" ng-model="login.pass" required minlength="8" placeholder="unl\xF6sbar"><span data-ng-switch="login.message" aria-live="assertive" class="help-block"><span data-ng-switch-when="incorrect password">Das Passwort ist nicht korrekt.</span><span data-ng-switch-when="incorrect username">Der Benutzer existiert nicht.</span></span></div></div></form></div><div class="modal-footer"><input type="button" value="abbrechen" data-ng-click="login.cancel()" class="btn btn-default"><input type="button" data-ng-class="{\'btn-primary\': loginForm.$valid, \'btn-danger\': loginForm.$invalid}" value="anmelden" data-ng-click="login.login()" class="btn"></div>'
-
-/***/ },
-/* 138 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, '__esModule', {
-	  value: true
-	});
-
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-	var LoginCtrl = (function () {
-	  function LoginCtrl(user, $modalInstance, $q) {
-	    _classCallCheck(this, LoginCtrl);
-
-	    this.user = user;
-	    this.$q = $q;
-	    this.$modalInstance = $modalInstance;
-	    this.name = '';
-	    this.pass = '';
-	    this.message = '';
-	  }
-
-	  _createClass(LoginCtrl, [{
-	    key: 'login',
-	    value: function login() {
-	      var _this = this;
-
-	      return this.user.authenticate(this.name, this.pass).then(function () {
-	        return _this.user.init().then(function () {
-	          _this.$modalInstance.close();
-	        });
-	      })['catch'](function (e) {
-	        _this.message = e.data;return e;
-	      });
-	    }
-	  }, {
-	    key: 'cancel',
-	    value: function cancel() {
-	      this.$modalInstance.dismiss();
-	    }
-	  }]);
-
-	  return LoginCtrl;
-	})();
-
-	exports['default'] = LoginCtrl;
 	module.exports = exports['default'];
 
 /***/ },
@@ -2902,6 +2912,7 @@
 	  template: _akzeptanzJade2['default'],
 	  controller: _akzeptanzControllerJs2['default'],
 	  controllerAs: 'akzeptanz',
+	  animation: false,
 	  resolve: {
 	    summary: /*@ngInject*/["UnitModel", function summary(UnitModel) {
 	      return UnitModel.akzeptanz();

@@ -5,6 +5,7 @@ export default {
   template,
   controller,
   controllerAs: 'akzeptanz',
+  animation: false,
   resolve: {
     summary: /*@ngInject*/function(UnitModel){
       return UnitModel.akzeptanz();

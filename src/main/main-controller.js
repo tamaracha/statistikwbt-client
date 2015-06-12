@@ -1,5 +1,6 @@
+import login from '../modals/login';
 export default /*@ngInject*/class MainCtrl{
-  constructor($state,$stateParams,user,modals){
+  constructor($state,$stateParams,user,modals,$modal){
     this.$state=$state;
     this.$stateParams=$stateParams;
     this.user=user;

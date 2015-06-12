@@ -4,5 +4,6 @@ import controller from './login-controller.js';
 export default {
   template,
   controller,
-  controllerAs: 'login'
+  controllerAs: 'login',
+  animation: false
 };

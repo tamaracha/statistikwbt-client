@@ -1,5 +1,5 @@
-webpackJsonp([1],Array(40).concat([
-/* 40 */
+webpackJsonp([1],Array(43).concat([
+/* 43 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -14,15 +14,15 @@ webpackJsonp([1],Array(40).concat([
 
 	var _angular2 = _interopRequireDefault(_angular);
 
-	var _markdownProvider = __webpack_require__(41);
+	var _markdownProvider = __webpack_require__(44);
 
 	var _markdownProvider2 = _interopRequireDefault(_markdownProvider);
 
-	var _markdownDirective = __webpack_require__(103);
+	var _markdownDirective = __webpack_require__(106);
 
 	var _markdownDirective2 = _interopRequireDefault(_markdownDirective);
 
-	var _markedDirective = __webpack_require__(105);
+	var _markedDirective = __webpack_require__(108);
 
 	var _markedDirective2 = _interopRequireDefault(_markedDirective);
 
@@ -37,7 +37,7 @@ webpackJsonp([1],Array(40).concat([
 	module.exports = exports['default'];
 
 /***/ },
-/* 41 */
+/* 44 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -52,7 +52,7 @@ webpackJsonp([1],Array(40).concat([
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
-	var _remarkable = __webpack_require__(42);
+	var _remarkable = __webpack_require__(45);
 
 	var _remarkable2 = _interopRequireDefault(_remarkable);
 
@@ -102,17 +102,17 @@ webpackJsonp([1],Array(40).concat([
 	module.exports = exports['default'];
 
 /***/ },
-/* 42 */
+/* 45 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 
-	module.exports = __webpack_require__(43);
+	module.exports = __webpack_require__(46);
 
 
 /***/ },
-/* 43 */
+/* 46 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -121,21 +121,21 @@ webpackJsonp([1],Array(40).concat([
 	 * Local dependencies
 	 */
 
-	var assign       = __webpack_require__(45).assign;
-	var Renderer     = __webpack_require__(47);
-	var ParserCore   = __webpack_require__(49);
-	var ParserBlock  = __webpack_require__(66);
-	var ParserInline = __webpack_require__(81);
-	var Ruler        = __webpack_require__(44);
+	var assign       = __webpack_require__(48).assign;
+	var Renderer     = __webpack_require__(50);
+	var ParserCore   = __webpack_require__(52);
+	var ParserBlock  = __webpack_require__(69);
+	var ParserInline = __webpack_require__(84);
+	var Ruler        = __webpack_require__(47);
 
 	/**
 	 * Preset configs
 	 */
 
 	var config = {
-	  'default':    __webpack_require__(100),
-	  'full':       __webpack_require__(101),
-	  'commonmark': __webpack_require__(102)
+	  'default':    __webpack_require__(103),
+	  'full':       __webpack_require__(104),
+	  'commonmark': __webpack_require__(105)
 	};
 
 	/**
@@ -309,11 +309,11 @@ webpackJsonp([1],Array(40).concat([
 	 * rendering.
 	 */
 
-	module.exports.utils = __webpack_require__(45);
+	module.exports.utils = __webpack_require__(48);
 
 
 /***/ },
-/* 44 */
+/* 47 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -592,7 +592,7 @@ webpackJsonp([1],Array(40).concat([
 
 
 /***/ },
-/* 45 */
+/* 48 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -679,7 +679,7 @@ webpackJsonp([1],Array(40).concat([
 
 	var NAMED_ENTITY_RE   = /&([a-z#][a-z0-9]{1,31});/gi;
 	var DIGITAL_ENTITY_TEST_RE = /^#((?:x[a-f0-9]{1,8}|[0-9]{1,8}))/i;
-	var entities = __webpack_require__(46);
+	var entities = __webpack_require__(49);
 
 	function replaceEntityPattern(match, name) {
 	  var code = 0;
@@ -739,7 +739,7 @@ webpackJsonp([1],Array(40).concat([
 
 
 /***/ },
-/* 46 */
+/* 49 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// List of valid entities
@@ -2879,7 +2879,7 @@ webpackJsonp([1],Array(40).concat([
 
 
 /***/ },
-/* 47 */
+/* 50 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2888,8 +2888,8 @@ webpackJsonp([1],Array(40).concat([
 	 * Local dependencies
 	 */
 
-	var utils = __webpack_require__(45);
-	var rules = __webpack_require__(48);
+	var utils = __webpack_require__(48);
+	var rules = __webpack_require__(51);
 
 	/**
 	 * Expose `Renderer`
@@ -2960,7 +2960,7 @@ webpackJsonp([1],Array(40).concat([
 
 
 /***/ },
-/* 48 */
+/* 51 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2969,10 +2969,10 @@ webpackJsonp([1],Array(40).concat([
 	 * Local dependencies
 	 */
 
-	var has             = __webpack_require__(45).has;
-	var unescapeMd      = __webpack_require__(45).unescapeMd;
-	var replaceEntities = __webpack_require__(45).replaceEntities;
-	var escapeHtml      = __webpack_require__(45).escapeHtml;
+	var has             = __webpack_require__(48).has;
+	var unescapeMd      = __webpack_require__(48).unescapeMd;
+	var replaceEntities = __webpack_require__(48).replaceEntities;
+	var escapeHtml      = __webpack_require__(48).escapeHtml;
 
 	/**
 	 * Renderer rules cache
@@ -3392,7 +3392,7 @@ webpackJsonp([1],Array(40).concat([
 
 
 /***/ },
-/* 49 */
+/* 52 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3401,22 +3401,22 @@ webpackJsonp([1],Array(40).concat([
 	 * Local dependencies
 	 */
 
-	var Ruler = __webpack_require__(44);
+	var Ruler = __webpack_require__(47);
 
 	/**
 	 * Core parser `rules`
 	 */
 
 	var _rules = [
-	  [ 'block',          __webpack_require__(51)          ],
-	  [ 'abbr',           __webpack_require__(52)           ],
-	  [ 'references',     __webpack_require__(55)     ],
-	  [ 'inline',         __webpack_require__(60)         ],
-	  [ 'footnote_tail',  __webpack_require__(50)  ],
-	  [ 'abbr2',          __webpack_require__(61)          ],
-	  [ 'replacements',   __webpack_require__(62)   ],
-	  [ 'smartquotes',    __webpack_require__(63)    ],
-	  [ 'linkify',        __webpack_require__(64)        ]
+	  [ 'block',          __webpack_require__(54)          ],
+	  [ 'abbr',           __webpack_require__(55)           ],
+	  [ 'references',     __webpack_require__(58)     ],
+	  [ 'inline',         __webpack_require__(63)         ],
+	  [ 'footnote_tail',  __webpack_require__(53)  ],
+	  [ 'abbr2',          __webpack_require__(64)          ],
+	  [ 'replacements',   __webpack_require__(65)   ],
+	  [ 'smartquotes',    __webpack_require__(66)    ],
+	  [ 'linkify',        __webpack_require__(67)        ]
 	];
 
 	/**
@@ -3456,7 +3456,7 @@ webpackJsonp([1],Array(40).concat([
 
 
 /***/ },
-/* 50 */
+/* 53 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3557,7 +3557,7 @@ webpackJsonp([1],Array(40).concat([
 
 
 /***/ },
-/* 51 */
+/* 54 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3580,7 +3580,7 @@ webpackJsonp([1],Array(40).concat([
 
 
 /***/ },
-/* 52 */
+/* 55 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Parse abbreviation definitions, i.e. `*[abbr]: description`
@@ -3589,8 +3589,8 @@ webpackJsonp([1],Array(40).concat([
 	'use strict';
 
 
-	var StateInline    = __webpack_require__(53);
-	var parseLinkLabel = __webpack_require__(54);
+	var StateInline    = __webpack_require__(56);
+	var parseLinkLabel = __webpack_require__(57);
 
 
 	function parseAbbr(str, parserInline, options, env) {
@@ -3656,7 +3656,7 @@ webpackJsonp([1],Array(40).concat([
 
 
 /***/ },
-/* 53 */
+/* 56 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Inline parser state
@@ -3744,7 +3744,7 @@ webpackJsonp([1],Array(40).concat([
 
 
 /***/ },
-/* 54 */
+/* 57 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3809,17 +3809,17 @@ webpackJsonp([1],Array(40).concat([
 
 
 /***/ },
-/* 55 */
+/* 58 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 
-	var StateInline          = __webpack_require__(53);
-	var parseLinkLabel       = __webpack_require__(54);
-	var parseLinkDestination = __webpack_require__(56);
-	var parseLinkTitle       = __webpack_require__(58);
-	var normalizeReference   = __webpack_require__(59);
+	var StateInline          = __webpack_require__(56);
+	var parseLinkLabel       = __webpack_require__(57);
+	var parseLinkDestination = __webpack_require__(59);
+	var parseLinkTitle       = __webpack_require__(61);
+	var normalizeReference   = __webpack_require__(62);
 
 
 	function parseReference(str, parser, options, env) {
@@ -3913,14 +3913,14 @@ webpackJsonp([1],Array(40).concat([
 
 
 /***/ },
-/* 56 */
+/* 59 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 
-	var normalizeLink = __webpack_require__(57);
-	var unescapeMd    = __webpack_require__(45).unescapeMd;
+	var normalizeLink = __webpack_require__(60);
+	var unescapeMd    = __webpack_require__(48).unescapeMd;
 
 	/**
 	 * Parse link destination
@@ -4003,12 +4003,12 @@ webpackJsonp([1],Array(40).concat([
 
 
 /***/ },
-/* 57 */
+/* 60 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var replaceEntities = __webpack_require__(45).replaceEntities;
+	var replaceEntities = __webpack_require__(48).replaceEntities;
 
 	module.exports = function normalizeLink(url) {
 	  var normalized = replaceEntities(url);
@@ -4022,13 +4022,13 @@ webpackJsonp([1],Array(40).concat([
 
 
 /***/ },
-/* 58 */
+/* 61 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 
-	var unescapeMd = __webpack_require__(45).unescapeMd;
+	var unescapeMd = __webpack_require__(48).unescapeMd;
 
 	/**
 	 * Parse link title
@@ -4074,7 +4074,7 @@ webpackJsonp([1],Array(40).concat([
 
 
 /***/ },
-/* 59 */
+/* 62 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4088,7 +4088,7 @@ webpackJsonp([1],Array(40).concat([
 
 
 /***/ },
-/* 60 */
+/* 63 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4107,7 +4107,7 @@ webpackJsonp([1],Array(40).concat([
 
 
 /***/ },
-/* 61 */
+/* 64 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Enclose abbreviations in <abbr> tags
@@ -4201,7 +4201,7 @@ webpackJsonp([1],Array(40).concat([
 
 
 /***/ },
-/* 62 */
+/* 65 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Simple typographical replacements
@@ -4271,7 +4271,7 @@ webpackJsonp([1],Array(40).concat([
 
 
 /***/ },
-/* 63 */
+/* 66 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Convert straight quotation marks to typographic ones
@@ -4390,7 +4390,7 @@ webpackJsonp([1],Array(40).concat([
 
 
 /***/ },
-/* 64 */
+/* 67 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Replace link-like texts with link nodes.
@@ -4400,7 +4400,7 @@ webpackJsonp([1],Array(40).concat([
 	'use strict';
 
 
-	var Autolinker = __webpack_require__(65);
+	var Autolinker = __webpack_require__(68);
 
 
 	var LINK_SCAN_RE = /www|@|\:\/\//;
@@ -4557,7 +4557,7 @@ webpackJsonp([1],Array(40).concat([
 
 
 /***/ },
-/* 65 */
+/* 68 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (root, factory) {
@@ -6886,7 +6886,7 @@ webpackJsonp([1],Array(40).concat([
 
 
 /***/ },
-/* 66 */
+/* 69 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -6895,26 +6895,26 @@ webpackJsonp([1],Array(40).concat([
 	 * Local dependencies
 	 */
 
-	var Ruler      = __webpack_require__(44);
-	var StateBlock = __webpack_require__(68);
+	var Ruler      = __webpack_require__(47);
+	var StateBlock = __webpack_require__(71);
 
 	/**
 	 * Parser rules
 	 */
 
 	var _rules = [
-	  [ 'code',       __webpack_require__(69) ],
-	  [ 'fences',     __webpack_require__(70),     [ 'paragraph', 'blockquote', 'list' ] ],
-	  [ 'blockquote', __webpack_require__(71), [ 'paragraph', 'blockquote', 'list' ] ],
-	  [ 'hr',         __webpack_require__(72),         [ 'paragraph', 'blockquote', 'list' ] ],
-	  [ 'list',       __webpack_require__(73),       [ 'paragraph', 'blockquote' ] ],
-	  [ 'footnote',   __webpack_require__(67),   [ 'paragraph' ] ],
-	  [ 'heading',    __webpack_require__(74),    [ 'paragraph', 'blockquote' ] ],
-	  [ 'lheading',   __webpack_require__(75) ],
-	  [ 'htmlblock',  __webpack_require__(76),  [ 'paragraph', 'blockquote' ] ],
-	  [ 'table',      __webpack_require__(78),      [ 'paragraph' ] ],
-	  [ 'deflist',    __webpack_require__(79),    [ 'paragraph' ] ],
-	  [ 'paragraph',  __webpack_require__(80) ]
+	  [ 'code',       __webpack_require__(72) ],
+	  [ 'fences',     __webpack_require__(73),     [ 'paragraph', 'blockquote', 'list' ] ],
+	  [ 'blockquote', __webpack_require__(74), [ 'paragraph', 'blockquote', 'list' ] ],
+	  [ 'hr',         __webpack_require__(75),         [ 'paragraph', 'blockquote', 'list' ] ],
+	  [ 'list',       __webpack_require__(76),       [ 'paragraph', 'blockquote' ] ],
+	  [ 'footnote',   __webpack_require__(70),   [ 'paragraph' ] ],
+	  [ 'heading',    __webpack_require__(77),    [ 'paragraph', 'blockquote' ] ],
+	  [ 'lheading',   __webpack_require__(78) ],
+	  [ 'htmlblock',  __webpack_require__(79),  [ 'paragraph', 'blockquote' ] ],
+	  [ 'table',      __webpack_require__(81),      [ 'paragraph' ] ],
+	  [ 'deflist',    __webpack_require__(82),    [ 'paragraph' ] ],
+	  [ 'paragraph',  __webpack_require__(83) ]
 	];
 
 	/**
@@ -7047,7 +7047,7 @@ webpackJsonp([1],Array(40).concat([
 
 
 /***/ },
-/* 67 */
+/* 70 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Process footnote reference list
@@ -7120,7 +7120,7 @@ webpackJsonp([1],Array(40).concat([
 
 
 /***/ },
-/* 68 */
+/* 71 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Parser state class
@@ -7284,7 +7284,7 @@ webpackJsonp([1],Array(40).concat([
 
 
 /***/ },
-/* 69 */
+/* 72 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Code block (4 spaces padded)
@@ -7326,7 +7326,7 @@ webpackJsonp([1],Array(40).concat([
 
 
 /***/ },
-/* 70 */
+/* 73 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// fences (``` lang, ~~~ lang)
@@ -7423,7 +7423,7 @@ webpackJsonp([1],Array(40).concat([
 
 
 /***/ },
-/* 71 */
+/* 74 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Block quotes
@@ -7562,7 +7562,7 @@ webpackJsonp([1],Array(40).concat([
 
 
 /***/ },
-/* 72 */
+/* 75 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Horizontal rule
@@ -7613,7 +7613,7 @@ webpackJsonp([1],Array(40).concat([
 
 
 /***/ },
-/* 73 */
+/* 76 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Lists
@@ -7885,7 +7885,7 @@ webpackJsonp([1],Array(40).concat([
 
 
 /***/ },
-/* 74 */
+/* 77 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// heading (#, ##, ...)
@@ -7949,7 +7949,7 @@ webpackJsonp([1],Array(40).concat([
 
 
 /***/ },
-/* 75 */
+/* 78 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// lheading (---, ===)
@@ -8010,7 +8010,7 @@ webpackJsonp([1],Array(40).concat([
 
 
 /***/ },
-/* 76 */
+/* 79 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// HTML block
@@ -8018,7 +8018,7 @@ webpackJsonp([1],Array(40).concat([
 	'use strict';
 
 
-	var block_names = __webpack_require__(77);
+	var block_names = __webpack_require__(80);
 
 
 	var HTML_TAG_OPEN_RE = /^<([a-zA-Z]{1,15})[\s\/>]/;
@@ -8090,7 +8090,7 @@ webpackJsonp([1],Array(40).concat([
 
 
 /***/ },
-/* 77 */
+/* 80 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// List of valid html blocks names, accorting to commonmark spec
@@ -8158,7 +8158,7 @@ webpackJsonp([1],Array(40).concat([
 
 
 /***/ },
-/* 78 */
+/* 81 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// GFM table, non-standard
@@ -8298,7 +8298,7 @@ webpackJsonp([1],Array(40).concat([
 
 
 /***/ },
-/* 79 */
+/* 82 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Definition lists
@@ -8511,7 +8511,7 @@ webpackJsonp([1],Array(40).concat([
 
 
 /***/ },
-/* 80 */
+/* 83 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Paragraph
@@ -8576,7 +8576,7 @@ webpackJsonp([1],Array(40).concat([
 
 
 /***/ },
-/* 81 */
+/* 84 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -8585,31 +8585,31 @@ webpackJsonp([1],Array(40).concat([
 	 * Local dependencies
 	 */
 
-	var Ruler       = __webpack_require__(44);
-	var StateInline = __webpack_require__(53);
-	var utils       = __webpack_require__(45);
+	var Ruler       = __webpack_require__(47);
+	var StateInline = __webpack_require__(56);
+	var utils       = __webpack_require__(48);
 
 	/**
 	 * Inline Parser `rules`
 	 */
 
 	var _rules = [
-	  [ 'text',            __webpack_require__(82) ],
-	  [ 'newline',         __webpack_require__(83) ],
-	  [ 'escape',          __webpack_require__(84) ],
-	  [ 'backticks',       __webpack_require__(85) ],
-	  [ 'del',             __webpack_require__(86) ],
-	  [ 'ins',             __webpack_require__(87) ],
-	  [ 'mark',            __webpack_require__(88) ],
-	  [ 'emphasis',        __webpack_require__(89) ],
-	  [ 'sub',             __webpack_require__(90) ],
-	  [ 'sup',             __webpack_require__(91) ],
-	  [ 'links',           __webpack_require__(92) ],
-	  [ 'footnote_inline', __webpack_require__(93) ],
-	  [ 'footnote_ref',    __webpack_require__(94) ],
-	  [ 'autolink',        __webpack_require__(95) ],
-	  [ 'htmltag',         __webpack_require__(97) ],
-	  [ 'entity',          __webpack_require__(99) ]
+	  [ 'text',            __webpack_require__(85) ],
+	  [ 'newline',         __webpack_require__(86) ],
+	  [ 'escape',          __webpack_require__(87) ],
+	  [ 'backticks',       __webpack_require__(88) ],
+	  [ 'del',             __webpack_require__(89) ],
+	  [ 'ins',             __webpack_require__(90) ],
+	  [ 'mark',            __webpack_require__(91) ],
+	  [ 'emphasis',        __webpack_require__(92) ],
+	  [ 'sub',             __webpack_require__(93) ],
+	  [ 'sup',             __webpack_require__(94) ],
+	  [ 'links',           __webpack_require__(95) ],
+	  [ 'footnote_inline', __webpack_require__(96) ],
+	  [ 'footnote_ref',    __webpack_require__(97) ],
+	  [ 'autolink',        __webpack_require__(98) ],
+	  [ 'htmltag',         __webpack_require__(100) ],
+	  [ 'entity',          __webpack_require__(102) ]
 	];
 
 	/**
@@ -8743,7 +8743,7 @@ webpackJsonp([1],Array(40).concat([
 
 
 /***/ },
-/* 82 */
+/* 85 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Skip text characters for text token, place those to pending buffer
@@ -8802,7 +8802,7 @@ webpackJsonp([1],Array(40).concat([
 
 
 /***/ },
-/* 83 */
+/* 86 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Proceess '\n'
@@ -8856,7 +8856,7 @@ webpackJsonp([1],Array(40).concat([
 
 
 /***/ },
-/* 84 */
+/* 87 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Proceess escaped chars and hardbreaks
@@ -8911,7 +8911,7 @@ webpackJsonp([1],Array(40).concat([
 
 
 /***/ },
-/* 85 */
+/* 88 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Parse backticks
@@ -8963,7 +8963,7 @@ webpackJsonp([1],Array(40).concat([
 
 
 /***/ },
-/* 86 */
+/* 89 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Process ~~deleted text~~
@@ -9053,7 +9053,7 @@ webpackJsonp([1],Array(40).concat([
 
 
 /***/ },
-/* 87 */
+/* 90 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Process ++inserted text++
@@ -9143,7 +9143,7 @@ webpackJsonp([1],Array(40).concat([
 
 
 /***/ },
-/* 88 */
+/* 91 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Process ==highlighted text==
@@ -9233,7 +9233,7 @@ webpackJsonp([1],Array(40).concat([
 
 
 /***/ },
-/* 89 */
+/* 92 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Process *this* and _that_
@@ -9388,7 +9388,7 @@ webpackJsonp([1],Array(40).concat([
 
 
 /***/ },
-/* 90 */
+/* 93 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Process ~subscript~
@@ -9452,7 +9452,7 @@ webpackJsonp([1],Array(40).concat([
 
 
 /***/ },
-/* 91 */
+/* 94 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Process ^superscript^
@@ -9516,17 +9516,17 @@ webpackJsonp([1],Array(40).concat([
 
 
 /***/ },
-/* 92 */
+/* 95 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Process [links](<to> "stuff")
 
 	'use strict';
 
-	var parseLinkLabel       = __webpack_require__(54);
-	var parseLinkDestination = __webpack_require__(56);
-	var parseLinkTitle       = __webpack_require__(58);
-	var normalizeReference   = __webpack_require__(59);
+	var parseLinkLabel       = __webpack_require__(57);
+	var parseLinkDestination = __webpack_require__(59);
+	var parseLinkTitle       = __webpack_require__(61);
+	var normalizeReference   = __webpack_require__(62);
 
 
 	module.exports = function links(state, silent) {
@@ -9687,14 +9687,14 @@ webpackJsonp([1],Array(40).concat([
 
 
 /***/ },
-/* 93 */
+/* 96 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Process inline footnotes (^[...])
 
 	'use strict';
 
-	var parseLinkLabel = __webpack_require__(54);
+	var parseLinkLabel = __webpack_require__(57);
 
 
 	module.exports = function footnote_inline(state, silent) {
@@ -9746,7 +9746,7 @@ webpackJsonp([1],Array(40).concat([
 
 
 /***/ },
-/* 94 */
+/* 97 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Process footnote references ([^...])
@@ -9814,15 +9814,15 @@ webpackJsonp([1],Array(40).concat([
 
 
 /***/ },
-/* 95 */
+/* 98 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Process autolinks '<protocol:...>'
 
 	'use strict';
 
-	var url_schemas   = __webpack_require__(96);
-	var normalizeLink = __webpack_require__(57);
+	var url_schemas   = __webpack_require__(99);
+	var normalizeLink = __webpack_require__(60);
 
 
 	/*eslint max-len:0*/
@@ -9898,7 +9898,7 @@ webpackJsonp([1],Array(40).concat([
 
 
 /***/ },
-/* 96 */
+/* 99 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// List of valid url schemas, accorting to commonmark spec
@@ -10076,7 +10076,7 @@ webpackJsonp([1],Array(40).concat([
 
 
 /***/ },
-/* 97 */
+/* 100 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Process html tags
@@ -10084,7 +10084,7 @@ webpackJsonp([1],Array(40).concat([
 	'use strict';
 
 
-	var HTML_TAG_RE = __webpack_require__(98).HTML_TAG_RE;
+	var HTML_TAG_RE = __webpack_require__(101).HTML_TAG_RE;
 
 
 	function isLetter(ch) {
@@ -10131,7 +10131,7 @@ webpackJsonp([1],Array(40).concat([
 
 
 /***/ },
-/* 98 */
+/* 101 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Regexps to match html elements
@@ -10196,17 +10196,17 @@ webpackJsonp([1],Array(40).concat([
 
 
 /***/ },
-/* 99 */
+/* 102 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Process html entity - &#123;, &#xAF;, &quot;, ...
 
 	'use strict';
 
-	var entities          = __webpack_require__(46);
-	var has               = __webpack_require__(45).has;
-	var isValidEntityCode = __webpack_require__(45).isValidEntityCode;
-	var fromCodePoint     = __webpack_require__(45).fromCodePoint;
+	var entities          = __webpack_require__(49);
+	var has               = __webpack_require__(48).has;
+	var isValidEntityCode = __webpack_require__(48).isValidEntityCode;
+	var fromCodePoint     = __webpack_require__(48).fromCodePoint;
 
 
 	var DIGITAL_RE = /^&#((?:x[a-f0-9]{1,8}|[0-9]{1,8}));/i;
@@ -10250,7 +10250,7 @@ webpackJsonp([1],Array(40).concat([
 
 
 /***/ },
-/* 100 */
+/* 103 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Remarkable default options
@@ -10334,7 +10334,7 @@ webpackJsonp([1],Array(40).concat([
 
 
 /***/ },
-/* 101 */
+/* 104 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Remarkable default options
@@ -10377,7 +10377,7 @@ webpackJsonp([1],Array(40).concat([
 
 
 /***/ },
-/* 102 */
+/* 105 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Commonmark default options
@@ -10453,7 +10453,7 @@ webpackJsonp([1],Array(40).concat([
 
 
 /***/ },
-/* 103 */
+/* 106 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -10465,7 +10465,7 @@ webpackJsonp([1],Array(40).concat([
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _MathJax = __webpack_require__(104);
+	var _MathJax = __webpack_require__(107);
 
 	var _MathJax2 = _interopRequireDefault(_MathJax);
 
@@ -10507,13 +10507,13 @@ webpackJsonp([1],Array(40).concat([
 	module.exports = exports['default'];
 
 /***/ },
-/* 104 */
+/* 107 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = MathJax;
 
 /***/ },
-/* 105 */
+/* 108 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -10524,11 +10524,11 @@ webpackJsonp([1],Array(40).concat([
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _MathJax = __webpack_require__(104);
+	var _MathJax = __webpack_require__(107);
 
 	var _MathJax2 = _interopRequireDefault(_MathJax);
 
-	var _markedJade = __webpack_require__(106);
+	var _markedJade = __webpack_require__(109);
 
 	var _markedJade2 = _interopRequireDefault(_markedJade);
 
@@ -10562,7 +10562,7 @@ webpackJsonp([1],Array(40).concat([
 	module.exports = exports['default'];
 
 /***/ },
-/* 106 */
+/* 109 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports='<div class="row"><div class="col-sm-12"><h3 ng-bind="marked.label"></h3><ul class="nav nav-tabs"><li ng-class="{\'active\': \'markdown\'}[marked.mode]"><button type="button" ng-click="marked.mode=\'write\'" class="btn btn-default">Markdown</button></li><li ng-class="{\'active\': \'preview\'}[marked.mode]"><button type="button" ng-click="marked.mode=\'preview\'" class="btn btn-default">Vorschau</button></li><li ng-class="{\'active\': \'both\'}[marked.mode]"><button type="button" ng-click="marked.mode=\'both\'" class="btn btn-default">nebeneinander</button></li></ul></div></div><div ng-switch="marked.mode" class="row"><div ng-switch-when="markdown" class="col-sm-12"><textarea ng-model="marked.input" ng-model-options="{updateOn: \'default blur\', debounce: {default: 500, blur: 0}}" class="form-control"></textarea></div><div ng-switch-when="preview" ng-bind-html="marked.output" class="col-sm-12"></div><div ng-switch-when="both" class="col-sm-6"><textarea ng-model="marked.input" ng-model-options="{updateOn: \'default blur\', debounce: {default: 500, blur: 0}}" class="form-control"></textarea></div><div ng-switch-when="both" ng-bind-html="marked.output" class="col-sm-6"></div></div>'

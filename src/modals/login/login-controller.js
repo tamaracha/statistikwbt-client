@@ -18,6 +18,6 @@ export default class LoginCtrl{
     .catch(      (e) => {this.message=e.data; return e;});
   }
   cancel(){
-    this.$modalInstance.dismiss();
+    this.$modalInstance.dismiss('lala');
   }
 }
