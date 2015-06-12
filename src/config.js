@@ -5,7 +5,7 @@ export /*@ngInject*/function config($locationProvider,$compileProvider,$httpProv
   $compileProvider.debugInfoEnabled(false);
   $httpProvider.interceptors.push('userInterceptor');
   $httpProvider.defaults.paramSerializer='$httpParamSerializerJQLike';
-  RestangularProvider.setBaseUrl('/statistikwbt/api');
+  RestangularProvider.setBaseUrl('api');
   RestangularProvider.setRestangularFields({
     id: '_id'
   });

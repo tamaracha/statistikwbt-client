@@ -15,7 +15,6 @@ import * as user from './user';
 
 // modals
 import modals from './modals';
-
 export default angular.module('wbt',[
   'restangular',
   'ui.router',

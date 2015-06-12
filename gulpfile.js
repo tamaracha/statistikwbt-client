@@ -1,26 +1,44 @@
 //var _=require('lodash');
 var gulp=require('gulp');
 var del=require('del');
-var webpackConfig=require('./webpack.config.js');
+var webpack=require('webpack');
 var $=require('gulp-load-plugins')();
-$.webpack=require('webpack')(webpackConfig);
+$.webpack_dev=webpack(require('./webpack.config.js'));
+$.webpack_prod=webpack(require('./webpack.config.min.js'));
 
 function clean(cb){
   del('dist/*',cb);
 }
 gulp.task('clean',clean);
 
-function jade(){
+function jade_dev(){
   return gulp.src('src/index.jade')
-  .pipe($.jade({doctype: 'html'}))
+  .pipe($.jade({
+    locals: {env: 'development'},
+    doctype: 'html'
+  }))
   .pipe(gulp.dest('dist'));
 }
-gulp.task('jade',jade);
-
-function webpack(cb){
-  return $.webpack.run(cb);
+gulp.task('jade_dev',jade_dev);
+function jade_prod(){
+  return gulp.src('src/index.jade')
+  .pipe($.jade({
+    locals: {env: 'production'},
+    doctype: 'html'
+  }))
+  .pipe(gulp.dest('dist'));
 }
-gulp.task('webpack',webpack);
+gulp.task('jade_prod',jade_prod);
+
+function webpack_dev(cb){
+  return $.webpack_dev.run(cb);
+}
+gulp.task('webpack_dev',webpack_dev);
+
+function webpack_prod(cb){
+  return $.webpack_prod.run(cb);
+}
+gulp.task('webpack_prod',webpack_prod);
 
 function compress(){
   return gulp.src('dist/*')
@@ -29,11 +47,18 @@ function compress(){
 }
 gulp.task('compress',compress);
 
+gulp.task('dev',gulp.series([
+  'clean',
+  gulp.parallel([
+    'jade_dev',
+    'webpack_dev'
+  ])
+]));
 gulp.task('default',gulp.series([
   'clean',
   gulp.parallel([
-    'jade',
-    'webpack'
+    'jade_prod',
+    'webpack_prod'
   ]),
   'compress'
 ]));
