@@ -9,12 +9,12 @@ export default {
   controller,
   controllerAs: 'units',
   resolve: {
-    units: function(Restangular){
+    units: ['Restangular',function(Restangular){
       let projections='title';
       let options={sort: 'position'};
       let query={projections,options};
       return Restangular.all('units').getList(query);
-    }
+    }]
   },
   ncyBreadcrumb: {label: 'Kapitel'},
   children: [
