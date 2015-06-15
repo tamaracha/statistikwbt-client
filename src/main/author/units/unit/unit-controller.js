@@ -1,10 +1,9 @@
 import _ from 'lodash';
-import jsonpatch from 'fast-json-patch';
 export default /*@ngInject*/class UnitCtrl{
-  constructor($scope,unit){
+  constructor($scope,jsonpatch,unit){
     this.unit=unit.plain();
     this.patches=[];
-    this.message=null;
+    this.error=null;
     this.initRequires();
     $scope.$watch('unit.unit',(val,oldVal) => {
       this.patches=jsonpatch.compare(oldVal,val);

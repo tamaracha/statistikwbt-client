@@ -1,12 +1,10 @@
-include ../../../mixins/input
-
 h3
   button.btn.btn-default(type="button" ng-click="units.collapse=!units.collapse")
-    span.fa(ng-class="units.collapseUnits ? 'fa-toggle-off' : 'fa-toggle-on'" aria-hidden="true")
-    |  {{units.collapseUnits ? 'einblenden' : 'ausblenden'}}
+    span.fa(ng-class="units.collapse ? 'fa-toggle-off' : 'fa-toggle-on'" aria-hidden="true")
+    |  {{units.collapse ? 'einblenden' : 'ausblenden'}}
   br
   span Kapitelübersicht
-div(collapse="units.collapseUnits"): form.form-horizontal(novalidate name="unitsForm")
+div(collapse="units.collapse"): form.form-horizontal(novalidate name="unitsForm")
   .form-group
     label.col-xs-2.control-label(for="selectUnit") Kapitel
     .col-xs-10
@@ -20,15 +18,6 @@ div(collapse="units.collapseUnits"): form.form-horizontal(novalidate name="units
 div(ui-view)
   h3 Neues Kapitel anlegen
   form.form-horizontal(novalidate name="newForm" ng-submit="units.save()")
-    +input('title','Titel')(ng-model="units.new.title")
-    +input('subtitle','Untertitel')(ng-model="units.new.subtitle")
-    .form-group
-      label.col.xs-2 Voraussetzungen
-      .col-xs-10
-        .checkbox(ng-repeat="unit in units.units"): label
-          input(type="checkbox" name="requires" ng-model="units.requires[unit._id]")
-          |  {{unit.title}}
-    marked(input="units.new.description")
-    .form-group
-      .col-xs-offset-2.col-xs-10
-        input(type="submit" value="Anlegen")
+    formly-form(model="units.new" fields="units.newFields" form="units.newForm")
+      .form-group: .col-xs-offset-2.col-xs-10
+        input.btn.btn-default(type="submit" value="Anlegen" ng-disabled="units.newForm.$invalid")

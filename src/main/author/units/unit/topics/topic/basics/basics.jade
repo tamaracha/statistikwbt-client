@@ -1,14 +1,15 @@
-include ../../../../../../mixins/input
-include ../../../../../../mixins/radio-inline
-
-.form-group(ng-if="author.unit.topics[author.topic]._id")
-  label.col-xs-2.control-label ID
-  .col-xs-10
-    p.static-control(ng-bind="author.unit.topics[author.topic]._id")
-+input('title2','Titel')(ng-model="author.unit.topics[author.topic].title")
-+input('subtitle2','Untertitel')(ng-model="author.unit.topics[author.topic].subtitle")
-+radio-inline('topicTextMode','Text',{'write': 'bearbeiten','preview': 'Vorschau'})(ng-model="author.form.topicText")
-.form-group(ng-switch="author.form.topicText")
-  .col-xs-offset-2.col-xs-10(ng-switch-when="write")
-    textarea.form-control(ng-model="author.unit.topics[author.topic].body")
-  .col-xs-offset-2.col-xs-10(md="author.unit.topics[author.topic].body" mathjax ng-switch-when="preview")
+include ../../../../../../../mixins/input
+form.form-horizontal(novalidate name="basicsForm")
+  .form-group
+    label.col-xs-2.control-label ID
+    .col-xs-10
+      p.static-control(ng-bind="topic.topic._id")
+  +input('title','Titel (Pflichtfeld)')(ng-model="topic.topic.title" ng-model-options="main.ngModelOptions")
+  +input('subtitle','Untertitel')(ng-model="topic.topic.subtitle" ng-model-options="main.ngModelOptions")
+  .form-group
+    marked(input="topic.topic.body" label="Text (Pflichtfeld)")
+.alert.alert-success(ng-if="topic.patches.length===0" role="alert") alles hochgeladen
+.alert.alert-info(ng-if="topic.patches.length>0" role="alert") lade Änderungen hoch
+.alert.alert-danger(ng-if="topic.error" role="alert")
+  button(type="button" ng-click="topic.topic=topic.recover") rückgängig
+  span Fehler beim Hochladen

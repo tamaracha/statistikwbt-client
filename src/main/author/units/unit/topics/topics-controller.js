@@ -4,11 +4,13 @@ export default /*@ngInject*/class TopicsCtrl{
     this.topics=topics;
     this.new={};
     this.selected=null;
+    this.collapse=false;
   }
   save(){
     this.topics.post(this.new)
-    .then((topics) => {
-      this.topics=topics;
+    .then((topic) => {
+      this.topics.push(topic);
+      this.selected=topic;
       this.new={};
     });
   }

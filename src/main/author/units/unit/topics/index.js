@@ -1,6 +1,6 @@
 import template from './topics.jade';
 import controller from './topics-controller';
-
+import topic from './topic';
 export default {
   name: 'topics',
   url: '/topics',
@@ -13,5 +13,8 @@ export default {
       let query={projections: 'topics.title topics._id'};
       return Restangular.one('units',$stateParams.unit).all('topics').getList(query);
     }
-  }
+  },
+  children: [
+    topic
+  ]
 };
