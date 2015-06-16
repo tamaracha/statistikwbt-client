@@ -1,6 +1,6 @@
 import main from './main';
 
-export /*@ngInject*/function config($locationProvider,$compileProvider,$httpProvider,stateHelperProvider,$urlRouterProvider,RestangularProvider,formlyConfigProvider){
+export /*@ngInject*/function config($locationProvider,$compileProvider,$httpProvider,$urlRouterProvider,RestangularProvider,stateHelperProvider,formlyConfigProvider){
   $locationProvider.html5Mode(true);
   $compileProvider.debugInfoEnabled(false);
   $httpProvider.interceptors.push('userInterceptor');
@@ -25,6 +25,11 @@ export /*@ngInject*/function run($rootScope,formlyConfig){
   formlyConfig.setType({
     name: 'horizontalInput',
     extends: 'input',
+    wrapper: ['horizontalBootstrapLabel','bootstrapHasError']
+  });
+  formlyConfig.setType({
+    name: 'horizontalStatic',
+    template: '<p class="static-control" ng-bind="model[options.key]"></p>',
     wrapper: ['horizontalBootstrapLabel','bootstrapHasError']
   });
   formlyConfig.setType({

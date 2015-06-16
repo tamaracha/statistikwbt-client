@@ -1,13 +1,5 @@
-include ../../../../../../../mixins/input
 form.form-horizontal(novalidate name="basicsForm")
-  .form-group
-    label.col-xs-2.control-label ID
-    .col-xs-10
-      p.static-control(ng-bind="topic.topic._id")
-  +input('title','Titel (Pflichtfeld)')(ng-model="topic.topic.title" ng-model-options="main.ngModelOptions")
-  +input('subtitle','Untertitel')(ng-model="topic.topic.subtitle" ng-model-options="main.ngModelOptions")
-  .form-group
-    marked(input="topic.topic.body" label="Text (Pflichtfeld)")
+  formly-form(model="topic.topic" fields="topic.topicFields" form="topic.topicForm")
 .alert.alert-success(ng-if="topic.patches.length===0" role="alert") alles hochgeladen
 .alert.alert-info(ng-if="topic.patches.length>0" role="alert") lade Änderungen hoch
 .alert.alert-danger(ng-if="topic.error" role="alert")

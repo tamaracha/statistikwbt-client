@@ -1,7 +1,6 @@
 import angular from 'angular';
 import Markdown from './markdown-provider';
 import markdown from './markdown-directive';
-import marked from './marked-directive';
 
 /**
 * @ngdoc overview
@@ -13,5 +12,4 @@ import marked from './marked-directive';
 export default angular.module('markdown',['ngSanitize'])
 .provider('markdown',Markdown)
 .directive('markdown',markdown)
-.directive('marked',marked)
 .name;

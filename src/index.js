@@ -1,10 +1,10 @@
 // libraries
 import angular from 'angular';
-import 'script!angular-ui-router';
-import 'script!angular-ui-router.stateHelper';
+import 'angular-ui-router';
+import 'ng-annotate?add=true!angular-ui-router.stateHelper';
 import 'script!angular-bootstrap';
-import 'script!ngstorage';
-import 'script!oclazyload';
+import 'ngstorage';
+import 'oclazyload';
 import formly from 'angular-formly';
 import formlyBootstrap from 'angular-formly-templates-bootstrap';
 

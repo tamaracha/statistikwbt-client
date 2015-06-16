@@ -8,11 +8,6 @@
   ],
   "dependencies": {
     "angular-bootstrap": "*",
-    "angular": "~1.4.0",
-    "ngstorage": "*",
-    "angular-breadcrumb": "~0.4.0",
-    "angular-ui-router": "~0.2.15",
-    "angular-ui-router.stateHelper": "~1.3.0",
     "oclazyload": "~1.0.1"
   },
   "name": "wbt",

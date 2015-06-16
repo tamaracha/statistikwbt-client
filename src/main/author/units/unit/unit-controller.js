@@ -4,7 +4,54 @@ export default /*@ngInject*/class UnitCtrl{
     this.unit=unit.plain();
     this.patches=[];
     this.error=null;
-    this.initRequires();
+    this.unitFields=[{
+      key: '_id',
+      type: 'horizontalStatic',
+      templateOptions: {
+        label: 'ID'
+      }
+    },
+    {
+      key: 'title',
+      type: 'horizontalInput',
+      templateOptions: {
+        type: 'text',
+        label: 'Titel',
+        placeholder: 'Titel des Kapitels',
+        required: true
+      }
+    },
+    {
+      key: 'subtitle',
+      type: 'horizontalInput',
+      templateOptions: {
+        type: 'text',
+        label: 'Untertitel',
+        placeholder: 'Untertitel des Kapitels'
+      }
+    },
+    {
+      key: 'requires',
+      type: 'horizontalMultiCheckbox',
+      templateOptions: {
+        label: 'Voraussetzungen',
+        valueProp: '_id',
+        labelProp: 'title',
+        options: _.reject($scope.units.units,{_id: unit._id})
+      }
+    },
+    {
+      key: 'description',
+      type: 'horizontalMarkdownArea',
+      templateOptions: {
+        label: 'Beschreibung',
+        required: true,
+        placeholder: 'hier Beschreibungstext eintragen'
+      }
+    }];
+    $scope.$watch('units.units',(val,oldVal) => {
+      this.unitFields[3].templateOptions.options=_.reject($scope.units.units,{_id: unit._id});
+    },true);
     $scope.$watch('unit.unit',(val,oldVal) => {
       this.patches=jsonpatch.compare(oldVal,val);
       if(this.patches.length===0){return;}
@@ -17,22 +64,5 @@ export default /*@ngInject*/class UnitCtrl{
         this.recover=oldVal;
       });
     },true);
-  }
-  initRequires(){
-    let requires={};
-    _.each(this.unit.requires,function(r){
-      requires[r]=true;
-    },this);
-    this.requires=requires;
-  }
-  toggleRequires(id){
-    let includes=_.includes(this.unit.requires,id);
-    if(this.requires[id]===includes){return;}
-    if(this.requires[id]===true){
-      this.unit.requires.push(id);
-    }
-    else if(this.requires[id]===false){
-      _.pull(this.unit.requires,id);
-    }
   }
 }
