@@ -5,7 +5,7 @@ var webpack=require('webpack');
 var $=require('gulp-load-plugins')();
 $.webpack_dev=webpack(require('./webpack.config.js'));
 $.webpack_prod=webpack(require('./webpack.config.min.js'));
-
+var angularVersion='1.4.1';
 function clean(cb){
   del('dist/*',cb);
 }
@@ -14,7 +14,7 @@ gulp.task('clean',clean);
 function jade_dev(){
   return gulp.src('src/index.jade')
   .pipe($.jade({
-    locals: {env: 'development'},
+    locals: {env: 'development',angularVersion},
     doctype: 'html'
   }))
   .pipe(gulp.dest('dist'));
@@ -23,7 +23,7 @@ gulp.task('jade_dev',jade_dev);
 function jade_prod(){
   return gulp.src('src/index.jade')
   .pipe($.jade({
-    locals: {env: 'production'},
+    locals: {env: 'production',angularVersion},
     doctype: 'html'
   }))
   .pipe(gulp.dest('dist'));

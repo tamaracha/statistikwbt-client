@@ -21,6 +21,10 @@ module.exports = {
       {
         loader: 'jade-html?doctype=html',
         test: /\.jade$/
+      },
+      {
+        loader: 'json!yaml',
+        test: /(.yaml|.yml)/
       }
     ]
   },

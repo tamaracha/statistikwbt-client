@@ -14,7 +14,7 @@ export /*@ngInject*/function config($locationProvider,$compileProvider,$httpProv
   formlyConfigProvider.disableWarnings=true;
 }
 
-export /*@ngInject*/function run($rootScope,formlyConfig){
+export /*@ngInject*/function run($rootScope,formlyConfig,validationMessages){
   $rootScope.$on('$stateChangeError',function(event, toState, toParams, fromState, fromParams, error){
     console.error(error);
   });
@@ -22,10 +22,17 @@ export /*@ngInject*/function run($rootScope,formlyConfig){
     name: 'horizontalBootstrapLabel',
     template: require('./formly/wrappers/horizontal-bootstrap-label.jade')
   });
+  formlyConfig.setWrapper({
+    name: 'bootstrapHasError',
+    template: '<div class="form-group" ng-class="{\'has-error\': showError, \'has-success\': fc.$valid}"><formly-transclude></formly-transclude></div>'
+  });
   formlyConfig.setType({
     name: 'horizontalInput',
     extends: 'input',
-    wrapper: ['horizontalBootstrapLabel','bootstrapHasError']
+    wrapper: ['horizontalBootstrapLabel','bootstrapHasError'],
+    defaultOptions: {
+      data: {messages: validationMessages}
+    }
   });
   formlyConfig.setType({
     name: 'horizontalStatic',

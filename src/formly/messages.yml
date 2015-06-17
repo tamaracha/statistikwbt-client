@@ -1,0 +1,6 @@
+required: Bitte ausfüllen
+minlength: Bitte längeren Wert eingeben
+maxlength: Wert ist zu lang
+email: keine gültige E-Mail-Adresse
+userExists: Dieser Benutzer existiert nicht
+userAvailable: Dieser Benutzer ist nicht mehr verfügbar

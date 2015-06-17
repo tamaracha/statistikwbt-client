@@ -10,6 +10,7 @@ import formlyBootstrap from 'angular-formly-templates-bootstrap';
 
 // config
 import {config, run} from './config.js';
+import messages from './formly/messages.yml';
 
 // user
 import * as user from './user';
@@ -32,6 +33,7 @@ export default angular.module('wbt',[
 ])
 .config(config)
 .run(run)
+.constant('validationMessages',messages)
 .factory('userInterceptor',user.interceptor)
 .service('user',user.model)
 .directive('userCheck',user.validator)
