@@ -7,6 +7,7 @@ export default {
   template,
   controller,
   controllerAs: 'tests',
+  ncyBreadcrumb: {label: '{{unit.unit.title}} — Testaufgaben'}
   resolve: {
     ngTagsInput: /*@ngInject*/function($q,$ocLazyLoad){
       return $q(function(resolve,reject){
