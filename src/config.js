@@ -14,55 +14,8 @@ export /*@ngInject*/function config($locationProvider,$compileProvider,$httpProv
   formlyConfigProvider.disableWarnings=true;
 }
 
-export /*@ngInject*/function run($rootScope,formlyConfig,validationMessages){
+export /*@ngInject*/function run($rootScope){
   $rootScope.$on('$stateChangeError',function(event, toState, toParams, fromState, fromParams, error){
     console.error(error);
-  });
-  formlyConfig.setWrapper({
-    name: 'horizontalBootstrapLabel',
-    template: require('./formly/wrappers/horizontal-bootstrap-label.jade')
-  });
-  formlyConfig.setWrapper({
-    name: 'bootstrapHasError',
-    template: require('./formly/wrappers/bootstrap-has-error.jade')
-  });
-  formlyConfig.setType({
-    name: 'horizontalInput',
-    extends: 'input',
-    wrapper: ['horizontalBootstrapLabel','bootstrapHasError'],
-    defaultOptions: {
-      data: {messages: validationMessages}
-    }
-  });
-  formlyConfig.setType({
-    name: 'horizontalStatic',
-    template: '<p class="static-control" ng-bind="model[options.key]"></p>',
-    wrapper: ['horizontalBootstrapLabel','bootstrapHasError']
-  });
-  formlyConfig.setType({
-    name: 'horizontalMultiCheckbox',
-    extends: 'multiCheckbox',
-    template: require('./formly/types/horizontal-multi-checkbox.jade'),
-    wrapper: ['horizontalBootstrapLabel','bootstrapHasError']
-  });
-  formlyConfig.setType({
-    name: 'horizontalTextarea',
-    extends: 'textarea',
-    wrapper: ['horizontalBootstrapLabel','bootstrapHasError']
-  });
-  formlyConfig.setType({
-    name: 'horizontalMarkdownArea',
-    extends: 'horizontalTextarea',
-    template: require('./formly/types/horizontal-markdown-area.jade')
-  });
-  formlyConfig.setType({
-    name: 'horizontalRadio',
-    extends: 'radio',
-    wrapper: ['horizontalBootstrapLabel','bootstrapHasError']
-  });
-  formlyConfig.setType({
-    name: 'horizontalRadioInline',
-    extends: 'horizontalRadio',
-    template: require('./formly/types/horizontal-radio-inline.jade')
   });
 }

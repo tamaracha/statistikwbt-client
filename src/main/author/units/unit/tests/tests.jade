@@ -1,7 +1,22 @@
 include /mixins/submit
 h3 Testaufgaben
-accordion
-  accordion-group(heading="Frage {{$index}}")
+p(ng-if="tests.tests.length===0") Noch keine Testaufgaben hinzugefügt
+accordion(ng-if="tests.tests.length>0")
+  accordion-group(heading="Aufgabe {{$index+1}}" ng-repeat="t in tests.tests")
+    dl.dl-horizontal
+      dt Aufgabenstamm
+      dd(markdown="t.text" math-jax)
+      dt Aufgabenformat
+      dd(ng-bind="{'single': 'Single-Choice', 'multiple': 'Multiple-Choice', 'input': 'Eingabe'}[t.type]")
+    ol(style="list-style-type:lower-latin;")
+      li(ng-repeat="c in t.choices")
+        dl.dl-horizontal
+          dt Antwort
+          dd(ng-bind="c.text")
+          dt Korrekt
+          dd(ng-bind="c.correct ? 'ja' : 'nein'")
+          dt Feedback
+          dd(ng-bind="c.feedback")
 div(ui-view)
   h3 Neue Aufgabe erstellen
   form.form-horizontal(novalidate name="tests.newTestForm" ng-submit="tests.create()")

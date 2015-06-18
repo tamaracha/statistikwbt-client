@@ -1,10 +1,9 @@
 export default /*@ngInject*/class TestsCtrl{
-  constructor(tests){
+  constructor(tests,Restangular,$stateParams){
     this.tests=tests;
-    this.newTest={tags: [
-      {text: 'hallo'},
-      {text: 'halli'}
-    ]};
+    this.Tests=Restangular.one('units',$stateParams.unit).all('tests');
+    this.newTest={tags: [], options: []};
+    this.error=null;
     this.newFields=[{
       type: 'horizontalMarkdownArea',
       key: 'text',
@@ -35,6 +34,43 @@ export default /*@ngInject*/class TestsCtrl{
       }
     },
     {
+      type: 'repeatSection',
+      key: 'choices',
+      templateOptions: {
+        btnText:'Antwortoption hinzufügen',
+        label: 'Antwortoptionen',
+        fields: [
+          {
+            type: 'horizontalInput',
+            key: 'text',
+            templateOptions: {
+              type: 'text',
+              label: 'Antwort',
+              placeholder: 'Lösung',
+              required: true
+            }
+          },
+          {
+            key: 'correct',
+            type: 'horizontalCheckbox',
+            templateOptions: {
+              label: 'Korrekt'
+            }
+          },
+          {
+            key: 'feedback',
+            type: 'horizontalInput',
+            templateOptions: {
+              label: 'Feedback',
+              type: 'text',
+              required: true,
+              placeholder: '*lob*'
+            }
+          }
+        ]
+      }
+    },
+    {
       key: 'tags',
       template: '<tags-input ng-model="model[options.key]"></tags-input>',
       wrapper: ['horizontalBootstrapLabel','bootstrapHasError'],
@@ -42,5 +78,14 @@ export default /*@ngInject*/class TestsCtrl{
         label: 'Tags'
       }
     }];
+  }
+  create(){
+    this.Tests.post(this.newTest)
+    .then((data) => {
+      this.tests.push(data);
+      this.newTest={};
+    }, (data) => {
+      this.error=data.data;
+    });
   }
 }
