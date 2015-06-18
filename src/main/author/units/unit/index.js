@@ -12,7 +12,7 @@ export default {
   controllerAs: 'unit',
   abstract: true,
   resolve: {
-    jsonpatch: function($q,$ocLazyLoad){
+    jsonpatch: /*@ngInject*/function($q,$ocLazyLoad){
       return $q(function(resolve,reject){
         require.ensure([],function(){
           var jsonpatch=require('fast-json-patch');
@@ -20,7 +20,7 @@ export default {
         });
       });
     },
-    unit: function(Restangular,$stateParams){
+    unit: /*@ngInject*/function(Restangular,$stateParams){
       let query={projections: 'title subtitle description requires'};
       return Restangular.one('units',$stateParams.unit).get(query);
     }

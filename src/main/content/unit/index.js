@@ -13,7 +13,7 @@ export default {
   controllerAs: 'unit',
   abstract: true,
   resolve: {
-    unit: function(Restangular,$stateParams){
+    unit: /*@ngInject*/function(Restangular,$stateParams){
       let query={projections: 'title subtitle description requires topics._id topics.title'};
       return Restangular.one('units',$stateParams.unit).get(query);
     }

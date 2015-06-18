@@ -8,7 +8,7 @@ export default {
   controller,
   controllerAs: 'topic',
   resolve: {
-    topic: function(Restangular,$stateParams){
+    topic: /*@ngInject*/function(Restangular,$stateParams){
       return Restangular.one('units',$stateParams.unit).one('topics',$stateParams.topic).get();
     }
   }
