@@ -19,7 +19,7 @@ module.exports = {
         test: /\.css$/,
       },
       {
-        loader: 'jade-html?doctype=html',
+        loader: `jade-html?doctype=html&basedir=${__dirname}/src`,
         test: /\.jade$/
       },
       {

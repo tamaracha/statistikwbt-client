@@ -1,1 +1,9 @@
+include /mixins/submit
 h3 Testaufgaben
+accordion
+  accordion-group(heading="Frage {{$index}}")
+div(ui-view)
+  h3 Neue Aufgabe erstellen
+  form.form-horizontal(novalidate name="tests.newTestForm" ng-submit="tests.create()")
+    formly-form(model="tests.newTest" fields="tests.newFields" form="tests.newTestForm")
+      +submit('Erstellen', 'tests.newTestForm')

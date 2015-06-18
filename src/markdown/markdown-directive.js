@@ -1,4 +1,4 @@
-import MathJax from 'MathJax';
+//import MathJax from 'MathJax';
 /**
 * @ngdoc directive
 * @name markdown.directive:markdown
@@ -12,10 +12,10 @@ import MathJax from 'MathJax';
 export default /*@ngInject*/function markdownDirective(markdown,$sanitize){
   function link(scope,el,attrs){
     function render(val){
-      let html=markdown.render(val||'');
+      let html=markdown.render(val);
       let saneHtml=$sanitize(html);
       el.html(saneHtml);
-      if(attrs.hasOwnProperty('mathjax')){
+      if(attrs.hasOwnProperty('mathJax')){
         MathJax.Hub.Queue(['Typeset', MathJax.Hub, el[0]]);
       }
     }

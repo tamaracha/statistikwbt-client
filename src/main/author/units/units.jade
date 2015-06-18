@@ -1,3 +1,4 @@
+include /mixins/submit
 h3
   button.btn.btn-default(type="button" ng-click="units.collapse=!units.collapse")
     span.fa(ng-class="units.collapse ? 'fa-toggle-off' : 'fa-toggle-on'" aria-hidden="true")
@@ -17,7 +18,6 @@ div(collapse="units.collapse"): form.form-horizontal(novalidate name="unitsForm"
       button.btn.btn-default(type="button" ng-click="units.remove()") Löschen
 div(ui-view)
   h3 Neues Kapitel anlegen
-  form.form-horizontal(novalidate name="newForm" ng-submit="units.save()")
+  form.form-horizontal(novalidate name="units.newForm" ng-submit="units.save()")
     formly-form(model="units.new" fields="units.newFields" form="units.newForm")
-      .form-group: .col-xs-offset-2.col-xs-10
-        input.btn.btn-default(type="submit" value="Anlegen" ng-disabled="units.newForm.$invalid")
+      +submit('Anlegen','units.newForm')

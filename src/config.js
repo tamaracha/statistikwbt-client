@@ -24,7 +24,7 @@ export /*@ngInject*/function run($rootScope,formlyConfig,validationMessages){
   });
   formlyConfig.setWrapper({
     name: 'bootstrapHasError',
-    template: '<div class="form-group" ng-class="{\'has-error\': showError, \'has-success\': fc.$valid}"><formly-transclude></formly-transclude></div>'
+    template: require('./formly/wrappers/bootstrap-has-error.jade')
   });
   formlyConfig.setType({
     name: 'horizontalInput',

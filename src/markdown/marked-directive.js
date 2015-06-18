@@ -1,4 +1,4 @@
-import MathJax from 'MathJax';
+//import MathJax from 'MathJax';
 import template from './marked.jade';
 
 export default /*@ngInject*/function(markdown){

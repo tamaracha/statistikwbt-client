@@ -1,5 +1,6 @@
 {
   "node": true,
+  "predef": ["MathJax","angular","_"],
 
   "curly": true,
   "latedef": true,

@@ -46,7 +46,7 @@ export default /*@ngInject*/class UnitCtrl{
       templateOptions: {
         label: 'Beschreibung',
         required: true,
-        placeholder: 'hier Beschreibungstext eintragen'
+        placeholder: 'Beschreibungstext'
       }
     }];
     $scope.$watch('units.units',(val,oldVal) => {
