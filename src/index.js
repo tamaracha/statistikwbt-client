@@ -7,6 +7,7 @@ import 'ngstorage';
 import 'oclazyload';
 import formly from 'angular-formly';
 import formlyBootstrap from 'angular-formly-templates-bootstrap';
+import 'angular-permission';
 
 // config
 import {config, run} from './config.js';
@@ -30,7 +31,8 @@ export default angular.module('wbt',[
   'ngStorage',
   'oc.lazyLoad',
   formly,
-  formlyBootstrap
+  formlyBootstrap,
+  'permission'
 ])
 .constant('validationMessages',messages)
 .config(config)

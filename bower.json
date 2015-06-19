@@ -8,13 +8,11 @@
   ],
   "dependencies": {
     "angular-bootstrap": "*",
-    "oclazyload": "~1.0.1"
+    "oclazyload": "~1.0.1",
+    "angular-permission": "~0.3.0"
   },
   "name": "wbt",
   "version": "0.0.0",
   "author": "tamara Cook",
-  "private": true,
-  "resolutions": {
-    "angular": "~1.3.13"
-  }
+  "private": true
 }

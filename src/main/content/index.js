@@ -8,6 +8,11 @@ export default {
   template,
   controller,
   controllerAs: 'content',
+  data: {
+    permissions: {
+      except: ['anonymous']
+    }
+  },
   resolve: {
     units: /*@ngInject*/function(Restangular){
       let query={

@@ -7,6 +7,11 @@ export default {
   name: 'author',
   url: '/author',
   template,
+  data: {
+    permissions: {
+      except: ['anonymous']
+    }
+  },
   resolve: {
     markdown: /*@ngInject*/function($q,$ocLazyLoad){
       return $q(function(resolve,reject){
