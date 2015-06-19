@@ -1,4 +1,5 @@
 import main from './main';
+import {types, wrappers} from './formly';
 
 export /*@ngInject*/function config($locationProvider,$compileProvider,$httpProvider,$urlRouterProvider,RestangularProvider,stateHelperProvider,formlyConfigProvider){
   $locationProvider.html5Mode(true);
@@ -12,9 +13,11 @@ export /*@ngInject*/function config($locationProvider,$compileProvider,$httpProv
   stateHelperProvider.state(main);
   $urlRouterProvider.otherwise('/home');
   formlyConfigProvider.disableWarnings=true;
+  formlyConfigProvider.setWrapper(wrappers);
+  formlyConfigProvider.setType(types);
 }
 
-export /*@ngInject*/function run($rootScope,$state,$stateParams,Permission,user,modals){
+export /*@ngInject*/function run($rootScope,$state,$stateParams,Permission,user,modals,formlyValidationMessages){
   $rootScope.$on('$stateChangeStart',function(event,toState,toParams,fromState,fromParams){
     $rootScope.prevState=fromState;
     $rootScope.prevParams=fromParams;
@@ -34,4 +37,10 @@ export /*@ngInject*/function run($rootScope,$state,$stateParams,Permission,user,
     if(!user.authenticated){return true;}
     return false;
   });
+  formlyValidationMessages.addTemplateOptionValueMessage('minlength','minlength','Bitte mindestens','Zeichen eingeben');
+  formlyValidationMessages.addTemplateOptionValueMessage('maxlength','maxlength','Bitte höchstens','Zeichen eingeben');
+  formlyValidationMessages.addTemplateOptionValueMessage('required','label','','ist erforderlich');
+  formlyValidationMessages.messages.email=function($viewValue){
+    return `${$viewValue} ist keine gültige E-Mail-Adresse`;
+  };
 }

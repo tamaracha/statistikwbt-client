@@ -1,13 +1,8 @@
 export default /*@ngInject*/class LoginCtrl{
-  constructor(user,$modalInstance,$q,Restangular){
+  constructor(user,$modalInstance){
     this.user=user;
-    this.$q=$q;
     this.$modalInstance=$modalInstance;
-    this.data={
-      email: '',
-      password: ''
-    };
-    this.message='';
+    this.data={};
     this.loginFields=[{
       key: 'email',
       type: 'horizontalInput',
@@ -15,17 +10,17 @@ export default /*@ngInject*/class LoginCtrl{
         type: 'email',
         label: 'E-Mail',
         required: true,
-        requiredValidatorMessage: 'bitte ausfüllen',
         placeholder: 'name@provider.com',
         maxlength: 20
       },
       validators: {
         userExists: {
-          expression: function(value){
-            var query={email: value};
-            return Restangular.all('users').head(query);
+          expression: function($viewValue){
+            return user.check('email',$viewValue);
           },
-          message: '$viewValue+" existiert nicht"'
+          message: function($viewValue){
+            return `${$viewValue} ist kein registrierter Benutzer`;
+          }
         }
       },
       modelOptions: {
@@ -46,14 +41,13 @@ export default /*@ngInject*/class LoginCtrl{
     }];
   }
   login(){
-    return this.user.authenticate(this.data.email,this.data.password)
-    .then(() => {
-      return this.user.init()
-      .then(() => {
-        this.$modalInstance.close();
-      });
-    })
-    .catch(      (e) => {this.message=e.data; return e;});
+    return this.user.authenticate(this.data,true)
+    .then((data) => {
+      return this.$modalInstance.close(data);
+    },(e) => {
+      this.message=e.data;
+      return e;
+    });
   }
   cancel(){
     this.$modalInstance.dismiss('cancel');

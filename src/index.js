@@ -5,14 +5,14 @@ import 'ng-annotate?add=true!angular-ui-router.stateHelper';
 import 'script!angular-bootstrap';
 import 'ngstorage';
 import 'oclazyload';
+import apiCheck from 'api-check';
+apiCheck.globalConfig.disabled=true;
 import formly from 'angular-formly';
 import formlyBootstrap from 'angular-formly-templates-bootstrap';
 import 'angular-permission';
 
 // config
 import {config, run} from './config.js';
-import formlyRun from './formly';
-import messages from './formly/messages.yml';
 
 // user
 import * as user from './user';
@@ -34,10 +34,8 @@ export default angular.module('wbt',[
   formlyBootstrap,
   'permission'
 ])
-.constant('validationMessages',messages)
 .config(config)
 .run(run)
-.run(formlyRun)
 .factory('userInterceptor',user.interceptor)
 .service('user',user.model)
 .directive('userCheck',user.validator)

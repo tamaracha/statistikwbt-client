@@ -8,6 +8,11 @@ export default /*@ngInject*/class user{
     this.data=null;
     this.init();
   }
+  check(name,value){
+    let query={};
+    query[name]=value;
+    return this.Users.head(query);
+  }
   get authenticated(){
     return this.$storage._id&&this.$storage.token ? true : false;
   }
@@ -16,17 +21,22 @@ export default /*@ngInject*/class user{
     this.$storage._id=data._id;
   }
   init(){
-    if(this.authenticated){
-      return this.Users.get(this.$storage._id)
-      .then((data) => {
-        this.data=data;
-        return data;
-      });
-    }
-    else{this.inauthenticate();}
-  }
-  authenticate(name,pass){
     return this.$q((resolve,reject) => {
+      if(!this.authenticated){
+        this.inauthenticate();
+        return reject('inauthenticated');
+      }
+      return resolve(this.Users.get(this.$storage._id));
+    })
+    .then((data) => {
+      this.data=data;
+      return data;
+    });
+  }
+  authenticate(form,init){
+    return this.$q((resolve,reject) => {
+      let name=form.email;
+      let pass=form.password;
       if(!name||!pass){return reject('missing credentials');}
       let str=this.$window.btoa(name+':'+pass);
       let authorization='basic '+str;
@@ -34,6 +44,9 @@ export default /*@ngInject*/class user{
     })
     .then((data) => {
       this.authenticated=data;
+      if(init){
+        return this.init();
+      }
       return data;
     });
   }
