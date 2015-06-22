@@ -20,6 +20,12 @@ export default /*@ngInject*/class user{
     this.$storage.token=data.token;
     this.$storage._id=data._id;
   }
+  get _id(){
+    return this.$storage._id;
+  }
+  get token(){
+    return this.$storage.token;
+  }
   init(){
     return this.$q((resolve,reject) => {
       if(!this.authenticated){

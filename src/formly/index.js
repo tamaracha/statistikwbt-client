@@ -36,6 +36,11 @@ export var types=[
     wrapper: ['horizontalBootstrapLabel','bootstrapHasError']
   },
   {
+    name: 'horizontalMultiCheckboxInline',
+    extends: 'horizontalMultiCheckbox',
+    template: require('./types/horizontal-multi-checkbox-inline.jade')
+  },
+  {
     name: 'horizontalTextarea',
     extends: 'textarea',
     wrapper: ['horizontalBootstrapLabel','bootstrapHasError']

@@ -1,6 +1,6 @@
 {
   "node": true,
-  "predef": ["MathJax","angular","_"],
+  "predef": ["MathJax","angular","_","Blob","saveAs"],
 
   "curly": true,
   "latedef": true,

@@ -5,5 +5,17 @@ export default {
   url: '/download',
   template,
   controller,
-  controllerAs: 'download'
+  controllerAs: 'download',
+  data: {
+    permissions: {
+      except: ['anonymous']
+    }
+  },
+  resolve: {
+    units: /*@ngInject*/function(Restangular){
+      var query={};
+      query.projections='title';
+      return Restangular.all('units').getList(query);
+    }
+  }
 };

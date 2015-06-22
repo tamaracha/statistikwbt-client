@@ -1,4 +1,4 @@
-.checkbox(ng-repeat="(key, option) in to.options"): label
+label.checkbox-inline(ng-repeat="(key, option) in to.options")
   input(
     type="checkbox"
     id="{{id + '_'+ $index}}"
