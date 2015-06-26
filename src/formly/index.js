@@ -20,8 +20,9 @@ export var types=[
   },
   {
     name: 'horizontalStatic',
-    template: '<p class="static-control" ng-bind="model[options.key]"></p>',
-    wrapper: ['horizontalBootstrapLabel','bootstrapHasError']
+    template: '<p class="form-control-static" ng-bind="model[options.key]"></p>',
+    wrapper: ['horizontalBootstrapLabel','bootstrapHasError'],
+    noFormControl: true
   },
   {
     name: 'horizontalCheckbox',

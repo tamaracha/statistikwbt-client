@@ -1,8 +1,8 @@
 .row: .col-xs-12
   ul.nav.nav-tabs
-    li: button.btn.btn-default(type="button" ng-click="view='markdown'" ng-init="view='markdown'") Markdown
-    li: button.btn.btn-default(type="button" ng-click="view='preview'") Vorschau
-    li: button.btn.btn-default(type="button" ng-click="view='both'") nebeneinander
+    li(ng-class="{'active': 'both'}[view]"): button.btn.btn-default(type="button" ng-click="view='markdown'" ng-init="view='markdown'") Markdown
+    li(ng-class="{'active': 'both'}[view]"): button.btn.btn-default(type="button" ng-click="view='preview'") Vorschau
+    li(ng-class="{'active': 'both'}[view]"): button.btn.btn-default(type="button" ng-click="view='both'") nebeneinander
 .row(ng-switch="view")
   .col-xs-12(ng-switch-when="markdown")
     textarea.form-control(ng-model="model[options.key]")

@@ -22,7 +22,12 @@ export default {
       });
     },
     tests: /*@ngInject*/function(Restangular,$stateParams){
-      return Restangular.one('units',$stateParams.unit).all('tests').getList();
+      var query={
+        conditions: {
+          unit: $stateParams.unit
+        }
+      };
+      return Restangular.all('tests').getList(query);
     }
   }
 };

@@ -1,8 +1,9 @@
+import _ from 'lodash';
 export default /*@ngInject*/class TestsCtrl{
-  constructor(tests,Restangular,$stateParams){
+  constructor(tests,$stateParams){
+    this.$stateParams=$stateParams;
     this.tests=tests;
-    this.Tests=Restangular.one('units',$stateParams.unit).all('tests');
-    this.newTest={tags: [], options: []};
+    this.newTest=this.newDefaults;
     this.error=null;
     this.newFields=[{
       type: 'horizontalMarkdownArea',
@@ -78,14 +79,49 @@ export default /*@ngInject*/class TestsCtrl{
         label: 'Tags'
       }
     }];
+    this.fields=[{
+      key: '_id',
+      type: 'horizontalStatic',
+      templateOptions: {
+        label: 'ID'
+      }
+    }];
+    this.fields=this.fields.concat(this.newFields);
+  }
+  get newDefaults(){
+    return {
+      tags: [],
+      choices: [],
+      unit: this.$stateParams.unit
+    };
   }
   create(){
-    this.Tests.post(this.newTest)
+    return this.tests.post(this.newTest)
     .then((data) => {
       this.tests.push(data);
-      this.newTest={};
+      this.newTest=this.newDefaults;
+      this.newTestForm.$setPristine();
     }, (data) => {
       this.error=data.data;
+    });
+  }
+  update(){
+    var el=this.selected.clone();
+    return el.put()
+    .then((data) => {
+      _.merge(this.selected,data);
+      this.testForm.$setPristine();
+    },(e) => {
+      this.error=e;
+    });
+  }
+  remove(){
+    return this.selected.remove()
+    .then((data) => {
+      _.remove(this.tests,{_id: this.selected._id});
+      this.selected=null;
+    },(e) => {
+      this.error=e;
     });
   }
 }

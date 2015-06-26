@@ -7,5 +7,6 @@
   "quotmark": true,
   "undef": true,
   "trailing": true,
-  "esnext": true
+  "esnext": true,
+  "devel": true
 }

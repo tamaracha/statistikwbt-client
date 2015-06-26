@@ -47,18 +47,27 @@ function compress(){
 }
 gulp.task('compress',compress);
 
+function images(){
+  gulp.src('src/images/*')
+  .pipe($.imagemin({progressive: true}))
+  .pipe(gulp.dest('dist/images'));
+}
+gulp.task('images',images);
+
 gulp.task('dev',gulp.series([
   'clean',
   gulp.parallel([
     'jade_dev',
-    'webpack_dev'
+    'webpack_dev',
+    'images'
   ])
 ]));
 gulp.task('default',gulp.series([
   'clean',
   gulp.parallel([
     'jade_prod',
-    'webpack_prod'
+    'webpack_prod',
+    'images'
   ]),
   'compress'
 ]));
