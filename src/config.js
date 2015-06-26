@@ -28,7 +28,7 @@ export /*@ngInject*/function run($rootScope,$state,$stateParams,Permission,user,
   $rootScope.$on('$stateChangePermissionDenied',function(event,toState,toParams){
     modals.login()
     .result.then((data) => {
-      $state.go(toState.name);
+      $state.go(toState.name,toParams);
     },(data) => {
       if($rootScope.prevState.name===''){$state.go('main.home');}
     });

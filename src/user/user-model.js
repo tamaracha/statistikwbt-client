@@ -64,7 +64,7 @@ export default /*@ngInject*/class user{
     return this.Users.post(form)
     .then((data) => {
       this.data=data;
-      return this.authenticate(form.email,form.password);
+      return data;
     });
   }
   remove(){

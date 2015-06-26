@@ -4,7 +4,7 @@ import 'angular-ui-router';
 import 'ng-annotate?add=true!angular-ui-router.stateHelper';
 import 'script!angular-bootstrap';
 import 'ngstorage';
-import 'oclazyload';
+import 'script!oclazyload';
 import apiCheck from 'api-check';
 apiCheck.globalConfig.disabled=true;
 import formly from 'angular-formly';

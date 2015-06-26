@@ -4,7 +4,18 @@ include ../../mixins/radio-inline
 include ../../mixins/submit.jade
 - var form="registerForm"
 h2 Registrieren
-form.form-horizontal(novalidate name=form ng-submit="main.user.register(register.registerData)" role="form")
+//-
+  form.form-horizontal(novalidate role="form" name="register.form" ng-submit="register.register()")
+    formly-form(model="register.registerData" fields="register.fields" form="register.form")
+      p Mit der Registrierung erklärst du dich mit folgenden Punkten einverstanden:
+      ul
+        li Wir behandeln deine Eingaben anonym und vertraulich.
+        li Neben deinen explizit gemachten Angaben werden deine Bewegungen teilweise mit erfasst um dich nicht zusätzlich nach deiner Verweildauer, den von dir angefurften Inhalten o.Ä. fragen zu müssen.
+        li Zu Forschungszwecken werten wir alle Nutzerdaten wissenschaftlich aus.
+        li Wir behalten uns das Recht vor, dich zu Forschungszwecken über deine hier angegebene E-Mail-Adresse kontaktieren zu können.
+      +submit('Registrieren')
+
+form.form-horizontal(role="form" novalidate name=form ng-submit="register.register()")
   fieldset
     legend Logindaten
     +input("email","E-Mail-Adresse","email",{required: "Bitte gib eine E-Mail-Adresse an.", email: "Das ist keine gültige E-mail-Adresse.", userAvailable: "Diese E-Mail ist schon registriert."})(
@@ -28,8 +39,9 @@ form.form-horizontal(novalidate name=form ng-submit="main.user.register(register
           input(type="radio" name="sex" value="female" data-ng-model="register.registerData.profile.sex" required)
           span.fa.fa-female
           |  weiblich
-    +input("subject","Studienfach (optional)")(data-ng-model="register.registerData.profile.subject" typeahead="subject.name for subject in register.getSubjects($viewValue)" placeholder="hier Studienfach eingeben und auswählen" typeahead-min-length="3" ng-required="register.profile.subject")
-    +checkbox("Registrierungsgrund/gründe","register.registerData.reasons",["Interesse für das Thema","Langeweile, Zeitvertreib, zufällig reingestolpert","Vor- oder Nachbereitung für Klausur/Vorlesung"])
+    //-
+      +input("subject","Studienfach (optional)")(data-ng-model="register.registerData.profile.subject" typeahead="subject.name for subject in register.getSubjects($viewValue)" placeholder="hier Studienfach eingeben und auswählen" typeahead-min-length="3" ng-required="register.profile.subject")
+      +checkbox("Registrierungsgrund/gründe","register.registerData.reasons",["Interesse für das Thema","Langeweile, Zeitvertreib, zufällig reingestolpert","Vor- oder Nachbereitung für Klausur/Vorlesung"])
   fieldset
     legend Datenschutz
     p Mit der Registrierung erklärst du dich mit folgenden Punkten einverstanden:
