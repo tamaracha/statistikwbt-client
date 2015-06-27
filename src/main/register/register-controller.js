@@ -1,7 +1,17 @@
 export default /*@ngInject*/class RegisterCtrl{
-  constructor(user,subjects,$state,$q){
+  constructor(user,$state,$q,Restangular){
+    function getSubjects(val){
+      return Restangular.all('subjects').getList({search: val});
+    }
+    function userAvailable($viewValue){
+      return user.check('email',$viewValue)
+      .then(() => {
+        return $q.reject('exists');
+      }, () => {
+        return true;
+      });
+    }
     this.user = user;
-    this.subjects = subjects;
     this.$state = $state;
     this.formOptions = {
       formState: {
@@ -12,14 +22,6 @@ export default /*@ngInject*/class RegisterCtrl{
       role: 'user',
       profile: {}
     };
-    function userAvailable($viewValue){
-      return user.check('email',$viewValue)
-      .then(() => {
-        return $q.reject('exists');
-      }, () => {
-        return true;
-      });
-    }
     this.fields = [{
       key: 'email',
       type: 'horizontalInput',
@@ -116,9 +118,10 @@ export default /*@ngInject*/class RegisterCtrl{
         required: true,
         type: 'text',
         placeholder: 'hier Studiengang eingeben und auswählen',
-        options: subjects,
-        valueProp: 'name',
-        tml: 3
+        options: getSubjects,
+        tml: 3,
+        tws: 300,
+        typeahead: 'subject.name for subject in to.options($viewValue)'
       }
     },
     {

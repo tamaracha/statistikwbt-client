@@ -35,7 +35,7 @@ export default /*@ngInject*/class TopicsCtrl{
     }];
   }
   save(){
-    this.topics.post(this.new)
+    return this.topics.post(this.new)
     .then((topic) => {
       this.topics.push(topic);
       this.selected = topic;
@@ -43,25 +43,41 @@ export default /*@ngInject*/class TopicsCtrl{
     });
   }
   remove(){
-    if(!this.selected){
-      return;
+    if(this.selected){
+      return this.selected.remove()
+      .then(() => {
+        _.remove(this.topics,{_id: this.selected._id});
+        this.selected = null;
+      },
+      (e) => {
+        this.error = e;
+      });
     }
-    this.selected.remove()
-    .then(() => {
-      _.remove(this.topics,{_id: this.selected._id});
-      this.selected = null;
-    });
   }
   moveUp(){
-    this.selected.moveUp()
+    return this.topics.patch({
+      action: 'move',
+      'dir': 'up',
+      topic: this.selected._id
+    })
     .then((topics) => {
       this.topics = topics;
+    },
+    (e) => {
+      this.error = e;
     });
   }
   moveDown(){
-    this.selected.moveDown()
+    return this.topics.patch({
+      action: 'move',
+      'dir': 'down',
+      topic: this.selected._id
+    })
     .then((topics) => {
       this.topics = topics;
+    },
+    (e) => {
+      this.error = e;
     });
   }
 }
