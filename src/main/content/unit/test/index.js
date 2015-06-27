@@ -37,7 +37,7 @@ export default {
     {
       name: 'item',
       url: '/:item',
-      template: 'itemTemplate'
+      template: itemTemplate
     }
   ]
 };

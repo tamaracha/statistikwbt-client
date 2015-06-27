@@ -4,7 +4,7 @@ import akzeptanz from './akzeptanz';
 
 export default /*@ngInject*/class modals{
   constructor($modal){
-    this.$modal=$modal;
+    this.$modal = $modal;
   }
   login(){
     return this.$modal.open(login);

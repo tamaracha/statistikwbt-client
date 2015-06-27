@@ -9,14 +9,17 @@ export default {
   controller,
   controllerAs: 'units',
   resolve: {
-    units: ['Restangular',function(Restangular){
-      let projections='title';
-      let options={sort: 'position'};
-      let query={projections,options};
+    units: /*@ngInject*/function(Restangular){
+      const query = {
+        projections: 'title',
+        options: {sort: 'position'}
+      };
       return Restangular.all('units').getList(query);
-    }]
+    }
   },
-  ncyBreadcrumb: {label: 'Kapitel'},
+  ncyBreadcrumb: {
+    label: 'Kapitel'
+  },
   children: [
     unit
   ]

@@ -1,10 +1,14 @@
 import _ from 'lodash';
 export default /*@ngInject*/class TestCtrl{
-  constructor(items,guesses,$state,$stateParams){
-    this.items=items;
-    this.guesses=guesses;
-    if($state.current.name!=='main.content.unit.test'){$state.go('^.');}
-    if(items.length===0){$state.go('.noitems');}
+  constructor(items,guesses,$state){
+    this.items = items;
+    this.guesses = guesses;
+    if($state.current.name !== 'main.content.unit.test'){
+      $state.go('^.');
+    }
+    if(items.length === 0){
+      $state.go('.noitems');
+    }
   }
   get max(){
     return this.items.length;
@@ -18,7 +22,7 @@ export default /*@ngInject*/class TestCtrl{
     },this);
   }
   clean(){
-    
+    return;
   }
 }
 /*

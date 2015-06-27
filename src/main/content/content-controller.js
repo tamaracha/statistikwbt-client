@@ -1,5 +1,5 @@
 export default /*@ngInject*/class ContentCtrl{
   constructor(units){
-    this.units=units;
+    this.units = units;
   }
 }

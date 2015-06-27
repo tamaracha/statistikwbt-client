@@ -1,10 +1,10 @@
 import _ from 'lodash';
 export default /*@ngInject*/class UnitCtrl{
   constructor($scope,jsonpatch,unit){
-    this.unit=unit.plain();
-    this.patches=[];
-    this.error=null;
-    this.unitFields=[{
+    this.unit = unit.plain();
+    this.patches = [];
+    this.error = null;
+    this.unitFields = [{
       key: '_id',
       type: 'horizontalStatic',
       templateOptions: {
@@ -49,20 +49,21 @@ export default /*@ngInject*/class UnitCtrl{
         placeholder: 'Beschreibungstext'
       }
     }];
-    $scope.$watch('units.units',(val,oldVal) => {
-      this.unitFields[3].templateOptions.options=_.reject($scope.units.units,{_id: unit._id});
+    $scope.$watch('units.units',() => {
+      this.unitFields[3].templateOptions.options = _.reject($scope.units.units,{_id: unit._id});
     },true);
     $scope.$watch('unit.unit',(val,oldVal) => {
-      this.patches=jsonpatch.compare(oldVal,val);
-      if(this.patches.length===0){return;}
-      return unit.patch(this.patches)
-      .then((data) => {
-        this.patches=[];
-        this.error=false;
-      },(res) => {
-        this.error=true;
-        this.recover=oldVal;
-      });
+      this.patches = jsonpatch.compare(oldVal,val);
+      if(this.patches.length > 0){
+        return unit.patch(this.patches)
+        .then(() => {
+          this.patches = [];
+          this.error = null;
+        },(e) => {
+          this.error = e;
+          this.recover = oldVal;
+        });
+      }
     },true);
   }
 }

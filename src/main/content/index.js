@@ -15,7 +15,7 @@ export default {
   },
   resolve: {
     units: /*@ngInject*/function(Restangular){
-      let query={
+      const query = {
         projections: 'title',
         options: {sort: 'position'}
       };
@@ -24,7 +24,7 @@ export default {
     markdown: /*@ngInject*/function($q,$ocLazyLoad){
       return $q(function(resolve){
         require.ensure([],function(){
-          var md=require('../../markdown');
+          const md = require('../../markdown');
           $ocLazyLoad.load({name: md});
           return resolve(md);
         });

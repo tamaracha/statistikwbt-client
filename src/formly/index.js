@@ -1,5 +1,5 @@
 // wrappers
-export var wrappers=[
+export const wrappers = [
   {
     name: 'horizontalBootstrapLabel',
     template: require('./wrappers/horizontal-bootstrap-label.jade')
@@ -12,7 +12,7 @@ export var wrappers=[
 ];
 
 // types
-export var types=[
+export const types = [
   {
     name: 'horizontalInput',
     extends: 'input',
@@ -65,5 +65,26 @@ export var types=[
     name: 'repeatSection',
     template: require('./types/repeat-section.jade'),
     controller: require('./types/repeat-section-controller.js')
+  },
+  {
+    name: 'horizontalTypeahead',
+    extends: 'horizontalInput',
+    template: require('./types/horizontal-typeahead.jade'),
+    defaultOptions(options) {
+      const typeahead = options.templateOptions.typeahead || `option[to.valueProp || 'value'] as option[to.labelProp || 'name'] for option in to.options | filter : $viewValue | limitTo: 8`;
+      return {
+        ngModelAttrs: {
+          [typeahead]: {
+            value: 'typeahead'
+          },
+          'options.templateOptions.tws': {
+            value: 'typeahead-wait-ms'
+          },
+          'options.templateOptions.tml': {
+            value: 'typeahead-min-length'
+          }
+        }
+      };
+    }
   }
 ];

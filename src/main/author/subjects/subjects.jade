@@ -1,5 +1,0 @@
-include /mixins/submit
-h3 Studienfächer
-form.form-horizontal(novalidate name="subjectForm" ng-submit="subjects.create()")
-  formly-form(model="subjects.newSubject" fields="subjects.fields" form="subjects.newForm")
-    +submit('Hinzufügen')

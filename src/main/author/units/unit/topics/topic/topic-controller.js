@@ -1,9 +1,9 @@
 export default /*@ngInject*/class TopicCtrl{
   constructor($scope,jsonpatch,topic){
-    this.topic=topic.plain();
-    this.patches=[];
-    this.error=null;
-    this.topicFields=[{
+    this.topic = topic.plain();
+    this.patches = [];
+    this.error = null;
+    this.topicFields = [{
       key: '_id',
       type: 'horizontalStatic',
       templateOptions: {
@@ -39,16 +39,17 @@ export default /*@ngInject*/class TopicCtrl{
       }
     }];
     $scope.$watch('topic.topic',(val,oldVal) => {
-      this.patches=jsonpatch.compare(oldVal,val);
-      if(this.patches.length===0){return;}
-      return topic.patch(this.patches)
-      .then((data) => {
-        this.patches=[];
-        this.error=false;
-      },(res) => {
-        this.error=true;
-        this.recover=oldVal;
-      });
+      this.patches = jsonpatch.compare(oldVal,val);
+      if(this.patches.length > 0){
+        return topic.patch(this.patches)
+        .then(() => {
+          this.patches = [];
+          this.error = null;
+        },(e) => {
+          this.error = e;
+          this.recover = oldVal;
+        });
+      }
     },true);
   }
 }

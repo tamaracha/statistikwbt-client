@@ -7,7 +7,9 @@ export default {
   template,
   controller,
   controllerAs: 'tests',
-  ncyBreadcrumb: {label: '{{unit.unit.title}} — Testaufgaben'},
+  ncyBreadcrumb: {
+    label: '{{unit.unit.title}} — Testaufgaben'
+  },
   resolve: {
     ngTagsInput: /*@ngInject*/function($q,$ocLazyLoad){
       return $q(function(resolve,reject){
@@ -16,13 +18,15 @@ export default {
             require('ng-tags-input/build/ng-tags-input.bootstrap.min.css');
             require('ng-tags-input');
           }
-          catch(e){return reject('ngTagsInput not loaded');}
+          catch(e){
+            return reject('ngTagsInput not loaded');
+          }
           return resolve($ocLazyLoad.load({name: 'ngTagsInput'}));
         });
       });
     },
     tests: /*@ngInject*/function(Restangular,$stateParams){
-      var query={
+      const query = {
         conditions: {
           unit: $stateParams.unit
         }

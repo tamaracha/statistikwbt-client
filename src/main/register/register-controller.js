@@ -1,21 +1,47 @@
 export default /*@ngInject*/class RegisterCtrl{
-  constructor(user,subjects,$state){
-    this.user=user;
-    this.subjects=subjects;
-    this.$state=$state;
-    this.registerData={
-      role: 'user',
-      profile: {
-        age: 20
+  constructor(user,subjects,$state,$q){
+    this.user = user;
+    this.subjects = subjects;
+    this.$state = $state;
+    this.formOptions = {
+      formState: {
+        showPassword: false
       }
     };
-    this.fields=[{
+    this.model = {
+      role: 'user',
+      profile: {}
+    };
+    function userAvailable($viewValue){
+      return user.check('email',$viewValue)
+      .then(() => {
+        return $q.reject('exists');
+      }, () => {
+        return true;
+      });
+    }
+    this.fields = [{
       key: 'email',
       type: 'horizontalInput',
       templateOptions: {
         label: 'E-Mail-Adresse',
         type: 'email',
-        required: true
+        required: true,
+        maxlength: 30,
+        placeholder: 'name@provider.com'
+      },
+      validators: {
+        userAvailable: {
+          expression: userAvailable,
+          message: '$viewValue+" wurde schon registriert"'
+        }
+      },
+      modelOptions: {
+        updateOn: 'default blur',
+        debounce: {
+          blur: 0,
+          default: 500
+        }
       }
     },
     {
@@ -25,28 +51,48 @@ export default /*@ngInject*/class RegisterCtrl{
         label: 'Passwort',
         type: 'password',
         minlength: 8,
-        required: true
+        required: true,
+        placeholder: 'unlösbar'
+      },
+      expressionProperties: {
+        'templateOptions.type': 'formState.showPassword ? "text" : "password"'
       }
     },
     {
-      key: 'profile.nickname',
+      key: 'showPassword',
+      model: this.formOptions.formState,
+      type: 'horizontalCheckbox',
+      templateOptions: {
+        label: 'Passwort einblenden'
+      }
+    },
+    {
+      key: 'nickname',
+      model: 'model.profile',
       type: 'horizontalInput',
       templateOptions: {
         type: 'text',
-        label: 'Nickname'
+        label: 'Nickname',
+        maxlength: 20
       }
     },
     {
-      key: 'profile.age',
+      key: 'age',
+      model: 'model.profile',
       type: 'horizontalInput',
       templateOptions: {
         label: 'Alter',
+        required: true,
         type: 'number',
-        placeholder: 20
+        placeholder: 20,
+        min: 0,
+        max: 100,
+        step: 1
       }
     },
     {
-      key: 'profile.sex',
+      key: 'sex',
+      model: 'model.profile',
       type: 'horizontalRadioInline',
       templateOptions: {
         label: 'Geschlecht',
@@ -60,17 +106,51 @@ export default /*@ngInject*/class RegisterCtrl{
           value: 'female'
         }]
       }
+    },
+    {
+      key: 'subject',
+      model: 'model.profile',
+      type: 'horizontalTypeahead',
+      templateOptions: {
+        label: 'Studiengang',
+        required: true,
+        type: 'text',
+        placeholder: 'hier Studiengang eingeben und auswählen',
+        options: subjects,
+        valueProp: 'name',
+        tml: 3
+      }
+    },
+    {
+      key: 'reasons',
+      model: 'model.profile',
+      type: 'horizontalMultiCheckbox',
+      templateOptions: {
+        label: 'Registrierungsgründe',
+        options: [{
+          name: 'Interesse für das Thema',
+          value: 'interesse'
+        },
+        {
+          name: 'Langeweile, Zeitvertreib, zufällig reingestolpert',
+          value: 'langeweile'
+        },
+        {
+          name: 'Vor- oder Nachbereitung für Klausur/Vorlesung',
+          value: 'klausur'
+        }]
+      }
     }];
   }
   register(){
-    return this.user.create(this.registerData)
-    .then((data) => {
-      return this.user.authenticate(this.registerData,false)
-      .then(() => {;
-      this.$state.go('^.home');
+    return this.user.create(this.model)
+    .then(() => {
+      return this.user.authenticate(this.model,false)
+      .then(() => {
+        this.$state.go('^.home');
       });
     },(e) => {
-      this.error=e;
+      this.error = e;
     });
   }
 }

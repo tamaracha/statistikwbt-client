@@ -13,8 +13,9 @@ export default {
   },
   resolve: {
     units: /*@ngInject*/function(Restangular){
-      var query={};
-      query.projections='title';
+      const query = {
+        projections: 'title'
+      };
       return Restangular.all('units').getList(query);
     }
   }

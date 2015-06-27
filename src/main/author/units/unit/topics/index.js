@@ -7,10 +7,12 @@ export default {
   template,
   controller,
   controllerAs: 'topics',
-  ncyBreadcrumb: {label: '{{unit.unit.title}} — Subkapitel'},
+  ncyBreadcrumb: {
+    label: '{{unit.unit.title}} — Subkapitel'
+  },
   resolve: {
     topics: /*@ngInject*/function(Restangular,$stateParams){
-      let query={projections: 'topics.title topics._id'};
+      const query = {projections: 'topics.title topics._id'};
       return Restangular.one('units',$stateParams.unit).all('topics').getList(query);
     }
   },

@@ -12,15 +12,15 @@
 export default /*@ngInject*/function markdownDirective(markdown,$sanitize){
   function link(scope,el,attrs){
     function render(val){
-      let html=markdown.render(val);
-      let saneHtml=$sanitize(html);
+      const html = markdown.render(val);
+      const saneHtml = $sanitize(html);
       el.html(saneHtml);
       if(attrs.hasOwnProperty('mathJax')){
-        MathJax.Hub.Queue(['Typeset', MathJax.Hub, el[0]]);
+        MathJax.Hub.Queue(['Typeset', MathJax.Hub, el[0]]); // eslint-disable-line
       }
     }
-    render(scope.markdown||el.text());
-    let clean=scope.$watch('markdown',render);
+    render(scope.markdown || el.text());
+    const clean = scope.$watch('markdown',render);
     scope.$on('$destroy',clean);
   }
   return {

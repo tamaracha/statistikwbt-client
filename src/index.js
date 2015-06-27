@@ -6,7 +6,7 @@ import 'script!angular-bootstrap';
 import 'ngstorage';
 import 'script!oclazyload';
 import apiCheck from 'api-check';
-apiCheck.globalConfig.disabled=true;
+apiCheck.globalConfig.disabled = true;
 import formly from 'angular-formly';
 import formlyBootstrap from 'angular-formly-templates-bootstrap';
 import 'angular-permission';

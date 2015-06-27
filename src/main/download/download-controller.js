@@ -1,11 +1,11 @@
 export default /*@ngInject*/class DownloadController{
   constructor(units){
-    this.units=units;
-    this.data={
+    this.units = units;
+    this.data = {
       contents: ['body'],
       format: 'markdown'
     };
-    this.fields=[{
+    this.fields = [{
       key: 'units',
       type: 'horizontalMultiCheckbox',
       templateOptions: {

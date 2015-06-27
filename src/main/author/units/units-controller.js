@@ -1,11 +1,10 @@
 import _ from 'lodash';
-
 export default /*@ngInject*/class UnitsController{
   constructor(units){
-    this.collapse=false;
-    this.units=units;
-    this.new={};
-    this.newFields=[{
+    this.collapse = false;
+    this.units = units;
+    this.new = {};
+    this.newFields = [{
       key: 'title',
       type: 'horizontalInput',
       templateOptions: {
@@ -48,16 +47,15 @@ export default /*@ngInject*/class UnitsController{
     return this.units.post(this.new)
     .then((unit) => {
       this.units.push(unit);
-      this.selected=unit;
-      this.new={};
+      this.selected = unit;
+      this.new = {};
     });
   }
   remove(){
-    if(!this.selected){return;}
     return this.selected.remove()
-    .then((unit) => {
+    .then(() => {
       _.remove(this.units,{_id: this.selected._id});
-      this.selected=null;
+      this.selected = null;
     });
   }
 }

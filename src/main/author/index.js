@@ -16,8 +16,10 @@ export default {
     markdown: /*@ngInject*/function($q,$ocLazyLoad){
       return $q(function(resolve,reject){
         require.ensure([],function(){
-          var md=require('../../markdown');
-          if(!md){return reject('markdown not loaded');}
+          const md = require('../../markdown');
+          if(!md){
+            return reject('markdown not loaded');
+          }
           return resolve($ocLazyLoad.load({name: md}));
         });
       });
@@ -25,14 +27,18 @@ export default {
     breadCrumb: /*@ngInject*/function($q,$ocLazyLoad){
       return $q(function(resolve,reject){
         require.ensure([],function(){
-          var breadCrumb=require('angular-breadcrumb');
-          if(!breadCrumb){return reject('breadCrumb not loaded');}
+          const breadCrumb = require('angular-breadcrumb');
+          if(!breadCrumb){
+            return reject('breadCrumb not loaded');
+          }
           return resolve($ocLazyLoad.load({name: 'ncy-angular-breadcrumb'}));
         });
       });
     }
   },
-  ncyBreadcrumb: {label: 'Autorentool'},
+  ncyBreadcrumb: {
+    label: 'Autorentool'
+  },
   children: [
     units,
     vega

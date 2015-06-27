@@ -14,7 +14,9 @@ export default {
   abstract: true,
   resolve: {
     unit: /*@ngInject*/function(Restangular,$stateParams){
-      let query={projections: 'title subtitle description requires topics._id topics.title'};
+      const query = {
+        projections: 'title subtitle description requires topics._id topics.title'
+      };
       return Restangular.one('units',$stateParams.unit).get(query);
     }
   },

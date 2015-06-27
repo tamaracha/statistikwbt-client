@@ -12,16 +12,16 @@ export default {
   controllerAs: 'unit',
   abstract: true,
   resolve: {
-    jsonpatch: /*@ngInject*/function($q,$ocLazyLoad){
+    jsonpatch: /*@ngInject*/function($q){
       return $q(function(resolve,reject){
         require.ensure([],function(){
-          var jsonpatch=require('fast-json-patch');
+          const jsonpatch = require('fast-json-patch');
           return jsonpatch ? resolve(jsonpatch) : reject('jsonpatch not loaded');
         });
       });
     },
     unit: /*@ngInject*/function(Restangular,$stateParams){
-      let query={projections: 'title subtitle description requires'};
+      const query = {projections: 'title subtitle description requires'};
       return Restangular.one('units',$stateParams.unit).get(query);
     }
   },

@@ -1,11 +1,11 @@
 import _ from 'lodash';
 export default /*@ngInject*/class TestsCtrl{
   constructor(tests,$stateParams){
-    this.$stateParams=$stateParams;
-    this.tests=tests;
-    this.newTest=this.newDefaults;
-    this.error=null;
-    this.newFields=[{
+    this.$stateParams = $stateParams;
+    this.tests = tests;
+    this.newTest = this.newDefaults;
+    this.error = null;
+    this.newFields = [{
       type: 'horizontalMarkdownArea',
       key: 'text',
       templateOptions: {
@@ -38,7 +38,7 @@ export default /*@ngInject*/class TestsCtrl{
       type: 'repeatSection',
       key: 'choices',
       templateOptions: {
-        btnText:'Antwortoption hinzufügen',
+        btnText: 'Antwortoption hinzufügen',
         label: 'Antwortoptionen',
         fields: [
           {
@@ -79,14 +79,14 @@ export default /*@ngInject*/class TestsCtrl{
         label: 'Tags'
       }
     }];
-    this.fields=[{
+    this.fields = [{
       key: '_id',
       type: 'horizontalStatic',
       templateOptions: {
         label: 'ID'
       }
     }];
-    this.fields=this.fields.concat(this.newFields);
+    this.fields = this.fields.concat(this.newFields);
   }
   get newDefaults(){
     return {
@@ -99,29 +99,28 @@ export default /*@ngInject*/class TestsCtrl{
     return this.tests.post(this.newTest)
     .then((data) => {
       this.tests.push(data);
-      this.newTest=this.newDefaults;
+      this.newTest = this.newDefaults;
       this.newTestForm.$setPristine();
-    }, (data) => {
-      this.error=data.data;
+    }, (e) => {
+      this.error = e;
     });
   }
   update(){
-    var el=this.selected.clone();
-    return el.put()
+    return this.selected.clone().put()
     .then((data) => {
       _.merge(this.selected,data);
       this.testForm.$setPristine();
     },(e) => {
-      this.error=e;
+      this.error = e;
     });
   }
   remove(){
     return this.selected.remove()
-    .then((data) => {
+    .then(() => {
       _.remove(this.tests,{_id: this.selected._id});
-      this.selected=null;
+      this.selected = null;
     },(e) => {
-      this.error=e;
+      this.error = e;
     });
   }
 }

@@ -1,9 +1,9 @@
 export default /*@ngInject*/class LoginCtrl{
   constructor(user,$modalInstance){
-    this.user=user;
-    this.$modalInstance=$modalInstance;
-    this.data={};
-    this.loginFields=[{
+    this.user = user;
+    this.$modalInstance = $modalInstance;
+    this.data = {};
+    this.loginFields = [{
       key: 'email',
       type: 'horizontalInput',
       templateOptions: {
@@ -45,7 +45,7 @@ export default /*@ngInject*/class LoginCtrl{
     .then((data) => {
       return this.$modalInstance.close(data);
     },(e) => {
-      this.message=e.data;
+      this.message = e.data;
       return e;
     });
   }
