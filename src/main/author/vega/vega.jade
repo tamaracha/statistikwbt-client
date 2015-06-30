@@ -15,7 +15,7 @@ h3 Vega
         .form-group
           .col-xs-offset-2.col-xs-10
             input.btn.btn-danger(type="button" value="Löschen" ng-click="vega.remove()" ng-if="vega.selected")
-            input.btn(type="submit" value="Erstellen" ng-class="{'btn-primary': vega.form.$valid, 'btn-danger': vega.form.$invalid}")
+            input.btn(type="submit" value="{{vega.selected ? 'Aktualisieren' : 'Erstellen'}}" ng-class="{'btn-primary': vega.form.$valid, 'btn-danger': vega.form.$invalid}")
   .col-sm-6(ng-if="vega.model.spec")
     ng-vega(
       vega-spec="vega.model.spec"
