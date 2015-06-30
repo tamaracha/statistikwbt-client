@@ -10,15 +10,10 @@ apiCheck.globalConfig.disabled = true;
 import formly from 'angular-formly';
 import formlyBootstrap from 'angular-formly-templates-bootstrap';
 import 'angular-permission';
-
-// config
 import {config, run} from './config.js';
-
-// user
 import * as user from './user';
-
-// modals
 import modals from './modals';
+import plot from './plot';
 export default angular.module('wbt',[
   'restangular',
   'ui.router',
@@ -32,7 +27,8 @@ export default angular.module('wbt',[
   'oc.lazyLoad',
   formly,
   formlyBootstrap,
-  'permission'
+  'permission',
+  plot
 ])
 .config(config)
 .run(run)

@@ -11,8 +11,8 @@ form.form-horizontal(novalidate ng-if="tests.selected" ng-submit="tests.update()
   formly-form(model="tests.selected" fields="tests.fields" form="tests.testForm")
     .form-group
       .col-xs-offset-2.col-xs-10
-        input(type="button" value="Löschen" ng-click="tests.remove()")
-        input(type="submit" value="Aktualisieren")
+        input.btn.btn-danger(type="button" value="Löschen" ng-click="tests.remove()")
+        input.btn(type="submit" value="Aktualisieren" ng-class="{'btn-primary': tests.testForm.$valid, 'btn-danger': tests.testForm.$invalid}")
 form.form-horizontal(novalidate name="tests.newTestForm" ng-submit="tests.create()" ng-if="!tests.selected")
   formly-form(model="tests.newTest" fields="tests.newFields" form="tests.newTestForm")
         +submit('Erstellen', 'tests.newTestForm')

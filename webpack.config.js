@@ -20,11 +20,13 @@ module.exports = {
       },
       {
         loader: `jade-html?doctype=html&basedir=${__dirname}/src`,
-        test: /\.jade$/
+        test: /\.jade$/,
+        exclude: /(node_modules|bower_components)/,
       },
       {
         loader: 'json!yaml',
-        test: /(.yaml|.yml)/
+        test: /\.yml$/,
+        exclude: /(node_modules|bower_components)/,
       }
     ]
   },
@@ -44,8 +46,5 @@ module.exports = {
       oclazyload: __dirname+'/bower_components/oclazyload/dist/ocLazyLoad.min.js',
       'angular-permission': __dirname+'/bower_components/angular-permission/dist/angular-permission.js'
     }
-  },
-  jshint: {
-    "devel": true
   }
 };

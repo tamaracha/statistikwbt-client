@@ -41,6 +41,7 @@ export /*@ngInject*/function run($rootScope,$state,$stateParams,Permission,user,
     }
     return false;
   });
+  formlyValidationMessages.addStringMessage('json','JSON ist invalid');
   formlyValidationMessages.addTemplateOptionValueMessage('minlength','minlength','Bitte mindestens','Zeichen eingeben');
   formlyValidationMessages.addTemplateOptionValueMessage('maxlength','maxlength','Bitte höchstens','Zeichen eingeben');
   formlyValidationMessages.addTemplateOptionValueMessage('required','label','','ist erforderlich');

@@ -44,7 +44,15 @@ export const types = [
   {
     name: 'horizontalTextarea',
     extends: 'textarea',
-    wrapper: ['horizontalBootstrapLabel','bootstrapHasError']
+    wrapper: ['horizontalBootstrapLabel','bootstrapHasError'],
+    defaultOptions: {
+      ngModelAttrs: {
+        json: {
+          attribute: 'json',
+          bound: 'json'
+        }
+      }
+    }
   },
   {
     name: 'horizontalMarkdownArea',
