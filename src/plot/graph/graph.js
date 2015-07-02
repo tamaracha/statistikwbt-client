@@ -1,3 +1,4 @@
+import _ from 'lodash';
 /*@ngInject*/class GraphCtrl{
   constructor($http){
     this.$http = $http;
@@ -31,8 +32,10 @@
 
 export default /*@ngInject*/function(){
   function link(scope){
-    const clean = scope.$watchCollection('graph.model',function(){
-      scope.graph.getData();
+    const clean = scope.$watchCollection('graph.model',function(val){
+      if(_.size(val) > 0){
+        scope.graph.getData();
+      }
     });
     scope.$on('$destroy',clean);
   }
