@@ -10,8 +10,13 @@ h3 Vega
           option(value="") Neue Spec
 .row
   .col-sm-6
-    form.form-horizontal(novalidate name="vega.form" ng-submit="vega.save()" role="form")
-      formly-form(model="vega.model" fields="vega.fields" form="vega.form" options="vega.formOptions")
+    form.form-horizontal(novalidate name="vega.form" ng-submit="vega.save()")
+      formly-form(
+        model="vega.model"
+        fields="vega.fields"
+        form="vega.form"
+        options="vega.formOptions"
+      )
         .form-group
           .col-xs-offset-2.col-xs-10
             input.btn.btn-danger(type="button" value="Löschen" ng-click="vega.remove()" ng-if="vega.selected")

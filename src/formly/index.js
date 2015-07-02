@@ -94,5 +94,24 @@ export const types = [
         }
       };
     }
+  },
+  {
+    name: 'horizontalRating',
+    template: require('./types/horizontal-rating.jade'),
+    wrapper: ['bootstrapHasError'],
+    defaultOptions: {
+      noFormControl: true,
+      ngModelAttrs: {
+        'textValue': {
+          attribute: 'aria-valuetext'
+        },
+        'label': {
+          attribute: 'aria-label'
+        }
+      },
+      expressionProperties: {
+        'templateOptions.textValue': 'to.labels[$viewValue]'
+      }
+    }
   }
 ];

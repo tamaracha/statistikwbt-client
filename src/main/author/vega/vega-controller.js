@@ -8,6 +8,13 @@ export default /*@ngInject*/class VegaCtrl{
         renderer: 'svg'
       }
     };
+    const modelOptions = {
+      updateOn: 'default blur',
+      debounce: {
+        default: 300,
+        blur: 0
+      }
+    };
     this.fields = [{
       key: '_id',
       type: 'horizontalStatic',
@@ -23,7 +30,7 @@ export default /*@ngInject*/class VegaCtrl{
         label: 'Name',
         type: 'text',
         required: true,
-        placeholder: 'Bezeichnung für diese Spec'
+        placeholder: 'Bezeichnung für diese Grafik'
       }
     },
     {
@@ -34,13 +41,17 @@ export default /*@ngInject*/class VegaCtrl{
         required: true,
         json: true
       },
-      modelOptions: {
-        updateOn: 'default blur',
-        debounce: {
-          default: 300,
-          blur: 0
-        }
-      }
+      modelOptions
+    },
+    {
+      key: 'fields',
+      type: 'horizontalTextarea',
+      templateOptions: {
+        label: 'Steuerelemente',
+        required: true,
+        json: true
+      },
+      modelOptions
     },
     {
       key: 'renderer',

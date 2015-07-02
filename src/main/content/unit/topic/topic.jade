@@ -17,6 +17,6 @@ div(markdown="topic.topic.body" math-jax)
         li(data-ng-repeat="extra in topic.topic.extras")
           a.btn.btn-default(data-ui-sref=".extra({extra: extra.title})" data-ng-bind="extra.title")
   .btn-group(data-ng-if="main.user.authenticated")
-    button.btn.btn-default(type="button" ng-click="main.modal.akzeptanz(unit.unit)") Kapitel bewerten
-    button.btn.btn-default(type="button" data-ng-click="main.modal.fsk()") Statistikkenntnisse einschätzen
+    button.btn.btn-default(type="button" ng-click="main.modals.akzeptanz()") Kapitel bewerten
+    button.btn.btn-default(type="button" data-ng-click="main.modals.fsk()") Statistikkenntnisse einschätzen
 section(data-ui-view)

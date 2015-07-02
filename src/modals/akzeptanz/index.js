@@ -7,8 +7,8 @@ export default {
   controllerAs: 'akzeptanz',
   animation: false,
   resolve: {
-    summary: /*@ngInject*/function(UnitModel){
-      return UnitModel.akzeptanz();
+    summary: /*@ngInject*/function(Restangular,$stateParams){
+      return Restangular.one('units',$stateParams.unit).one('summaries','akzeptanz').get();
     }
   }
 };
