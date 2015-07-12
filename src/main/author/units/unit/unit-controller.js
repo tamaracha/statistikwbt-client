@@ -36,8 +36,7 @@ export default /*@ngInject*/class UnitCtrl{
       templateOptions: {
         label: 'Voraussetzungen',
         valueProp: '_id',
-        labelProp: 'title',
-        options: _.reject($scope.units.units,{_id: unit._id})
+        labelProp: 'title'
       }
     },
     {

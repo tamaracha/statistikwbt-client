@@ -5,7 +5,7 @@ var webpack=require('webpack');
 var $=require('gulp-load-plugins')();
 $.webpack_dev=webpack(require('./webpack.config.js'));
 $.webpack_prod=webpack(require('./webpack.config.min.js'));
-var angularVersion='1.4.1';
+var angularVersion='1.4.2';
 function clean(cb){
   del('dist/*',cb);
 }

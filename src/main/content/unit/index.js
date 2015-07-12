@@ -2,6 +2,7 @@ import './subkapitel.css';
 import template from './unit.jade';
 import controller from './unit-controller.js';
 import description from './description';
+import test from './test';
 import topic from './topic';
 //import test from './test';
 
@@ -22,7 +23,7 @@ export default {
   },
   children: [
     description,
-//    test,
+    test,
     topic
   ]
 };
