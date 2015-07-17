@@ -1,8 +1,10 @@
 .row: .col-xs-12
   div(ncy-breadcrumb)
   h2 Authorenmodus
-  ul.nav.nav-tabs
+  ul(ng-hide="main.user.data.role==='user'").nav.nav-tabs
     li(ui-sref-active="active"): a(ui-sref=".units") Kapitel
     li(ui-sref-active="active"): a(ui-sref=".vega") Vega
   div(ui-view)
-    p Dies ist der Autorenmodus. Nur WBT-Autoren können ihn verwenden und mit seiner Hilfe die Inhalte des WBT bearbeiten.
+    ng-switch(on="main.user.data.role")
+      p.text-success(ng-switch-when="author") Willkommen beim Autorenmodus. Du gehörst zu den Autoren dieses WBT und kannst hier seine Inhalte editieren.
+      p.text-warning(ng-switch-when="user") Willkommen beim Autorenmodus. Du bist leider kein Autor und kannst keine Inhalte bearbeiten. Bitte wende dich an uns, falls du Autor werden möchtest.

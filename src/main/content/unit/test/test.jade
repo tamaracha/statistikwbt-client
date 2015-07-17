@@ -27,21 +27,22 @@ div(collapse="test.intro" ng-init="test.intro=true")
     role="progressbar"
     ng-style="{'width': test.sumPoints/test.maxPoints*100+'%'}"
   ) Punkte: {{test.sumPoints}}/{{test.maxPoints}}
-form(novalidate name="test.form" ng-submit="test.submit()" ng-switch="test.item.type" ng-if="test.item")
+p(ng-hide="test.current") Es gibt noch keine Testaufgaben für dieses Kapitel.
+form(novalidate name="test.form" ng-show="test.current" ng-submit="test.submit()" ng-switch="test.current.type")
   .form-group(ng-switch-when="input" ng-class="{'has-success': test.form.$submitted&&test.form.item.$valid, 'has-error': test.form.$submitted&&test.form.item.$invalid}")
-    label.control-label(for="item" ng-bind="test.item.text")
+    label.control-label(for="item" ng-bind="test.current.text")
     input#item.form-control(type="text" name="item" ng-model="test.input")
     p.help-block(ng-bind="test.output")
   .form-group(ng-switch-when="single" ng-class="{'has-success': test.form.$submitted&&test.form.item.$valid, 'has-error': test.form.$submitted&&test.form.item.$invalid}")
-    label(ng-bind="test.item.text")
-    .radio(ng-repeat="c in test.item.choices track by c._id")
+    label(ng-bind="test.current.text")
+    .radio(ng-repeat="c in test.current.choices track by c._id")
       label
         input(type="radio" name="item" ng-value="c" ng-model="test.input")
         |  {{c.text}}
     p.help-block(ng-bind="test.input.feedback" ng-show="test.form.$submitted")
   .form-group(ng-switch-when="multiple")
-    label(ng-bind="test.item.text")
-    div(ng-repeat="c in test.item.choices track by c._id" ng-class="{'has-success': test.form.$submitted&&!!c.checked===c.correct, 'has-error': test.form.$submitted&&!!c.checked!==c.correct}")
+    label(ng-bind="test.current.text")
+    div(ng-repeat="c in test.current.choices track by c._id" ng-class="{'has-success': test.form.$submitted&&!!c.checked===c.correct, 'has-error': test.form.$submitted&&!!c.checked!==c.correct}")
       .checkbox
         label
           input(type="checkbox" name="item" ng-model="c.checked")

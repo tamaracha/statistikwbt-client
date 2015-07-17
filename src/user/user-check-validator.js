@@ -1,9 +1,7 @@
-export default function userCheckValidator($q,Restangular){
+export default function userCheckValidator($q,user){
   function link(scope,el,attrs,c){
     c.$asyncValidators.userCheck = function(value){
-      const query = {};
-      query[attrs.name] = value;
-      const promise = Restangular.all('users').head(query);
+      const promise = user.check('email',value);
       switch(attrs.userCheck){
         case 'available':
           return promise.then(() => {

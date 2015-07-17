@@ -13,14 +13,14 @@ export default /*@ngInject*/class LoginCtrl{
         placeholder: 'name@provider.com',
         maxlength: 20
       },
-      validators: {
-        userExists: {
-          expression: function($viewValue){
-            return user.check('email',$viewValue);
-          },
-          message: function($viewValue){
-            return `${$viewValue} ist kein registrierter Benutzer`;
-          }
+      validation: {
+        messages: {
+          'userCheck': '$viewValue+" ist kein registrierter Benutzer"'
+        }
+      },
+      ngModelAttrs: {
+        'exists': {
+          value: 'user-check'
         }
       },
       modelOptions: {

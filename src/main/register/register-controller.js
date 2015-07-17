@@ -3,14 +3,6 @@ export default /*@ngInject*/class RegisterCtrl{
     function getSubjects(val){
       return Restangular.all('subjects').getList({search: val});
     }
-    function userAvailable($viewValue){
-      return user.check('email',$viewValue)
-      .then(() => {
-        return $q.reject('exists');
-      }, () => {
-        return true;
-      });
-    }
     this.user = user;
     this.$state = $state;
     this.formOptions = {
@@ -32,10 +24,14 @@ export default /*@ngInject*/class RegisterCtrl{
         maxlength: 30,
         placeholder: 'name@provider.com'
       },
-      validators: {
-        userAvailable: {
-          expression: userAvailable,
-          message: '$viewValue+" wurde schon registriert"'
+      ngModelAttrs: {
+        'available': {
+          value: 'user-check'
+        }
+      },
+      validation: {
+        messages: {
+          'userCheck': '$viewValue+" wurde schon registriert"'
         }
       },
       modelOptions: {
