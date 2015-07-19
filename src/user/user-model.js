@@ -1,3 +1,4 @@
+const _ = require('lodash');
 export default /*@ngInject*/class user{
   constructor(Restangular,$localStorage,$window,$q){
     this.Users = Restangular.all('users');
@@ -68,6 +69,33 @@ export default /*@ngInject*/class user{
       this.data = data;
       return data;
     });
+  }
+  addUnit(id){
+    const included = _.includes(this.data.done,id);
+    if(included){
+      return;
+    }
+    const item = {
+      unit: id
+    };
+    this.data.all('done').post(item)
+    .then((data) => {
+      this.data.done.push(data);
+    });
+  }
+  complete(unit){
+    if(!this.authenticated){
+      return false;
+    }
+    return _.includes(this.data.done,unit);
+  }
+  requiresComplete(requires){
+    if(!this.authenticated){
+      return false;
+    }
+    return _.every(requires,function(val){
+      return _.includes(this.data.done,val);
+    },this);
   }
   remove(){
     return this.data.remove()

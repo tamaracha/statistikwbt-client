@@ -1,8 +1,10 @@
 import _ from 'lodash';
 export default /*@ngInject*/class TestCtrl{
-  constructor(Restangular,tests){
+  constructor(Restangular,tests,unit,user){
     this.originalTests = tests.plain();
     this.Guesses = Restangular.all('guesses');
+    this.unit = unit;
+    this.user = user;
     this.init();
   }
   init(){
@@ -90,6 +92,14 @@ export default /*@ngInject*/class TestCtrl{
       return sum;
     },0,this);
   }
+  postSubmit(data){
+    this.tests.todo[0].guess.responses.push(data);
+    this.tests.done.push(this.tests.todo[0]);
+    this.tests.todo.shift();
+    if(this.done === this.max){
+      return this.user.addUnit(this.unit._id);
+    }
+  }
   submit(){
     const response = {};
     switch(this.current.type){
@@ -125,9 +135,7 @@ export default /*@ngInject*/class TestCtrl{
     if(this.tests.todo[0].guess){
       this.Guesses.one(this.tests.todo[0].guess._id).all('responses').post(response)
       .then((data) => {
-        this.tests.todo[0].guess.responses.push(data);
-        this.tests.done.push(this.tests.todo[0]);
-        this.tests.todo.shift();
+        this.postSubmit(data);
       });
     }
     else{
@@ -137,9 +145,7 @@ export default /*@ngInject*/class TestCtrl{
       };
       this.Guesses.post(guess)
       .then((data) => {
-        this.tests.todo[0].guess = data;
-        this.tests.done.push(this.tests.todo[0]);
-        this.tests.todo.shift();
+        this.postSubmit(data);
       });
     }
   }
