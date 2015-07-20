@@ -16,7 +16,7 @@ export default {
   resolve: {
     units: /*@ngInject*/function(Restangular){
       const query = {
-        projections: 'title',
+        projections: 'title requires',
         options: {sort: 'position'}
       };
       return Restangular.all('units').getList(query);

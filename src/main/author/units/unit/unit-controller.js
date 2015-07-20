@@ -34,6 +34,7 @@ export default /*@ngInject*/class UnitCtrl{
       key: 'requires',
       type: 'horizontalMultiCheckbox',
       templateOptions: {
+        options: _.reject($scope.units.units,{_id: unit._id}),
         label: 'Voraussetzungen',
         valueProp: '_id',
         labelProp: 'title'

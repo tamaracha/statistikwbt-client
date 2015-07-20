@@ -87,14 +87,14 @@ export default /*@ngInject*/class user{
     if(!this.authenticated){
       return false;
     }
-    return _.includes(this.data.done,unit);
+    return _.some(this.data.done,{unit: unit});
   }
   requiresComplete(requires){
     if(!this.authenticated){
       return false;
     }
     return _.every(requires,function(val){
-      return _.includes(this.data.done,val);
+      return _.some(this.data.done,{unit: val});
     },this);
   }
   remove(){

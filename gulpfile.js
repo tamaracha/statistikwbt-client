@@ -1,3 +1,4 @@
+'use strict';
 //var _=require('lodash');
 var gulp=require('gulp');
 var del=require('del');
@@ -71,10 +72,3 @@ gulp.task('default',gulp.series([
   ]),
   'compress'
 ]));
-
-function lint(){
-  return gulp.src('src/**/*.js')
-  .pipe($.eslint())
-  .pipe($.eslint.format());
-}
-gulp.task('lint',lint);
