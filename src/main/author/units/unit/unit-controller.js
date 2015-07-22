@@ -1,6 +1,13 @@
 import _ from 'lodash';
 export default /*@ngInject*/class UnitCtrl{
   constructor($scope,jsonpatch,unit){
+    const modelOptions = {
+      updateOn: 'default blur',
+      debounce: {
+        default: 500,
+        blur: 0
+      }
+    };
     this.unit = unit.plain();
     this.patches = [];
     this.error = null;
@@ -14,6 +21,7 @@ export default /*@ngInject*/class UnitCtrl{
     {
       key: 'title',
       type: 'horizontalInput',
+      modelOptions,
       templateOptions: {
         type: 'text',
         label: 'Titel',
@@ -24,6 +32,7 @@ export default /*@ngInject*/class UnitCtrl{
     {
       key: 'subtitle',
       type: 'horizontalInput',
+      modelOptions,
       templateOptions: {
         type: 'text',
         label: 'Untertitel',
@@ -33,6 +42,7 @@ export default /*@ngInject*/class UnitCtrl{
     {
       key: 'requires',
       type: 'horizontalMultiCheckbox',
+      modelOptions,
       templateOptions: {
         options: _.reject($scope.units.units,{_id: unit._id}),
         label: 'Voraussetzungen',
@@ -43,6 +53,7 @@ export default /*@ngInject*/class UnitCtrl{
     {
       key: 'description',
       type: 'horizontalMarkdownArea',
+      modelOptions,
       templateOptions: {
         label: 'Beschreibung',
         required: true,

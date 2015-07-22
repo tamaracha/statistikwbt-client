@@ -1,5 +1,12 @@
 export default /*@ngInject*/class TopicCtrl{
   constructor($scope,jsonpatch,topic){
+    const modelOptions = {
+      updateOn: 'default blur',
+      debounce: {
+        default: 500,
+        blur: 0
+      }
+    };
     this.topic = topic.plain();
     this.patches = [];
     this.error = null;
@@ -18,7 +25,8 @@ export default /*@ngInject*/class TopicCtrl{
         required: true,
         label: 'Titel',
         placeholder: 'Titel des Subkapitels'
-      }
+      },
+      modelOptions
     },
     {
       key: 'subtitle',
@@ -27,7 +35,8 @@ export default /*@ngInject*/class TopicCtrl{
         type: 'text',
         label: 'Untertitel',
         placeholder: 'Untertitel des Subkapitels'
-      }
+      },
+      modelOptions
     },
     {
       key: 'body',
@@ -36,7 +45,8 @@ export default /*@ngInject*/class TopicCtrl{
         required: true,
         label: 'Text',
         placeholder: 'Hier Text des Subkapitels eingeben'
-      }
+      },
+      modelOptions
     }];
     $scope.$watch('topic.topic',(val,oldVal) => {
       this.patches = jsonpatch.compare(oldVal,val);
