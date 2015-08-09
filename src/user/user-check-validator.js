@@ -1,4 +1,4 @@
-export default function userCheckValidator($q,user){
+export default /*@ngInject*/function userCheckValidator($q,user){
   function link(scope,el,attrs,c){
     c.$asyncValidators.userCheck = function(value){
       const promise = user.check('email',value);
