@@ -8,12 +8,6 @@ module.exports = {
     publicPath: 'dist/'
   },
   module: {
-    preLoaders: [
-      {
-        test: /\.js$/,
-      loader: 'source-map'
-      }
-    ],
     loaders: [
       {
         test: /\.js$/,
