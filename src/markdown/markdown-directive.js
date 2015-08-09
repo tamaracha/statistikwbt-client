@@ -1,14 +1,3 @@
-//import MathJax from 'MathJax';
-/**
-* @ngdoc directive
-* @name markdown.directive:markdown
-* @scope
-* @restrict ae
-* @description
-* übersetzt markdown in html
-* @param {number} num eine zahl
-*/
-
 export default /*@ngInject*/function markdownDirective(markdown,$sanitize){
   function link(scope,el,attrs){
     function render(val){

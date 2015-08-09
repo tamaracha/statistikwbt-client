@@ -17,21 +17,15 @@ export default {
       return $q(function(resolve,reject){
         require.ensure([],function(){
           const md = require('../../markdown');
-          if(!md){
-            return reject('markdown not loaded');
-          }
-          return resolve($ocLazyLoad.load({name: md}));
+          return resolve($ocLazyLoad.inject(md));
         });
       });
     },
-    breadCrumb: /*@ngInject*/function($q,$ocLazyLoad){
+    breadcrumb: /*@ngInject*/function($q,$ocLazyLoad){
       return $q(function(resolve,reject){
         require.ensure([],function(){
           const breadCrumb = require('angular-breadcrumb');
-          if(!breadCrumb){
-            return reject('breadCrumb not loaded');
-          }
-          return resolve($ocLazyLoad.load({name: 'ncy-angular-breadcrumb'}));
+          return resolve($ocLazyLoad.inject('ncy-angular-breadcrumb'));
         });
       });
     }

@@ -25,8 +25,7 @@ export default {
       return $q(function(resolve){
         require.ensure([],function(){
           const md = require('../../markdown');
-          $ocLazyLoad.load({name: md});
-          return resolve(md);
+          return resolve($ocLazyLoad.inject(md));
         });
       });
     }

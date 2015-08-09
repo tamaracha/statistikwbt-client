@@ -10,6 +10,7 @@ apiCheck.globalConfig.disabled = true;
 import formly from 'angular-formly';
 import formlyBootstrap from 'angular-formly-templates-bootstrap';
 import 'angular-permission';
+
 import {config, run} from './config.js';
 import * as user from './user';
 import modals from './modals';
