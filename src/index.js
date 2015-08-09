@@ -1,10 +1,10 @@
 // libraries
 import angular from 'angular';
-import 'angular-ui-router';
+import uiRouter from 'angular-ui-router';
 import 'ng-annotate?add=true!angular-ui-router.stateHelper';
-import 'script!angular-bootstrap';
+import uiBootstrap from 'angular-ui-bootstrap';
 import 'ngstorage';
-import 'script!oclazyload';
+import ocLazyLoad from 'oclazyload';
 import apiCheck from 'api-check';
 apiCheck.globalConfig.disabled = true;
 import formly from 'angular-formly';
@@ -16,15 +16,15 @@ import modals from './modals';
 import plot from './plot';
 export default angular.module('wbt',[
   'restangular',
-  'ui.router',
+  uiRouter,
   'ui.router.stateHelper',
-  'ui.bootstrap',
+  uiBootstrap,
   'ngMessages',
   'ngAria',
   'ngAnimate',
   'ngSanitize',
   'ngStorage',
-  'oc.lazyLoad',
+  ocLazyLoad,
   formly,
   formlyBootstrap,
   'permission',
