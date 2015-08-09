@@ -1,20 +1,22 @@
 import _ from 'lodash';
+import angular from 'angular';
 /*@ngInject*/class GraphCtrl{
-  constructor($http){
+  constructor($http,opencpu){
     this.$http = $http;
+    this.opencpu = opencpu;
     this.data = {};
-    this.model = {};
     this.renderer = 'svg';
-    this.getSpecFields();
+    this.getSpecFields()
+    .then(() => {
+      return this.getData();
+    });
   }
   getData(){
-    return this.$http.get('api/data/' + this.value, {
-      params: this.model
-    })
-    .success((data) => {
-      this.data[this.value] = data;
-    })
-    .error((e) => {
+    return this.$http(this.source)
+    .then((data) => {
+      this.data = angular.fromJson(data);
+    },
+    (e) => {
       this.error = e;
     });
   }
@@ -23,6 +25,7 @@ import _ from 'lodash';
     .success((data) => {
       this.fields = data.fields;
       this.spec = data.spec;
+      this.source = data.source;
     })
     .error((e) => {
       this.error = e;
@@ -32,7 +35,7 @@ import _ from 'lodash';
 
 export default /*@ngInject*/function(){
   function link(scope){
-    const clean = scope.$watchCollection('graph.model',function(val){
+    const clean = scope.$watchCollection('graph.source.params',function(val){
       if(_.size(val) > 0){
         scope.graph.getData();
       }

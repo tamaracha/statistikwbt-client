@@ -3,14 +3,14 @@ export default function userCheckValidator($q,user){
     c.$asyncValidators.userCheck = function(value){
       const promise = user.check('email',value);
       switch(attrs.userCheck){
-        case 'available':
-          return promise.then(() => {
-            return $q.reject('exists');
-          },() => {
-            return true;
-          });
-        case 'exists':
-          return promise;
+      case 'available':
+        return promise.then(() => {
+          return $q.reject('exists');
+        },() => {
+          return true;
+        });
+      case 'exists':
+        return promise;
       }
     };
   }

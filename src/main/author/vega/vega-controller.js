@@ -2,7 +2,12 @@ import _ from 'lodash';
 export default /*@ngInject*/class VegaCtrl{
   constructor(specs){
     this.specs = specs;
-    this.model = {};
+    this.model = {
+      source: {
+        method: 'POST',
+        params: {}
+      }
+    };
     this.formOptions = {
       formState: {
         renderer: 'svg'
@@ -32,6 +37,50 @@ export default /*@ngInject*/class VegaCtrl{
         required: true,
         placeholder: 'Bezeichnung für diese Grafik'
       }
+    },
+    {
+      key: 'source',
+      fieldGroup: [{
+        key: 'url',
+        type: 'horizontalInput',
+        templateOptions: {
+          label: 'Opencpu-URL',
+          type: 'url',
+          required: true,
+          placeholder: 'library/stats/r/mean'
+        },
+        modelOptions,
+        ngModelAttrs: {
+          'opencpu': {
+            value: 'opencpu'
+          }
+        }
+      },
+      {
+        key: 'method',
+        type: 'horizontalRadioInline',
+        templateOptions: {
+          label: 'Methode',
+          options: [{
+            name: 'get',
+            value: 'GET'
+          },
+          {
+            name: 'post',
+            value: 'POST'
+          }]
+        },
+        modelOptions
+      },
+      {
+        key: 'params',
+        type: 'horizontalTextarea',
+        templateOptions: {
+          label: 'Parameter',
+          json: true
+        },
+        modelOptions
+      }]
     },
     {
       key: 'spec',

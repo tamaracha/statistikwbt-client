@@ -46,15 +46,15 @@ export default /*@ngInject*/class TestCtrl{
   get maxPoints(){
     return _.reduce(this.originalTests,function(sum,test){
       switch(test.item.type){
-        case 'single':
-          sum = sum + 1;
-          break;
-        case 'multiple':
-          sum = sum + test.item.choices.length;
-          break;
-        case 'input':
-          sum = sum + 1;
-          break;
+      case 'single':
+        sum = sum + 1;
+        break;
+      case 'multiple':
+        sum = sum + test.item.choices.length;
+        break;
+      case 'input':
+        sum = sum + 1;
+        break;
       }
       return sum;
     },0);
@@ -68,26 +68,26 @@ export default /*@ngInject*/class TestCtrl{
       const response = test.guess.responses[test.guess.responses.length - 1];
       let choice;
       switch(item.type){
-        case 'single':
-          choice = _.find(item.choices,{_id: response.value});
-          if(choice.correct){
+      case 'single':
+        choice = _.find(item.choices,{_id: response.value});
+        if(choice.correct){
+          sum = sum + 1;
+        }
+        break;
+      case 'multiple':
+        _.each(item.choices,function(c){
+          const checked = _.contains(response.value,c._id);
+          if(checked === c.correct){
             sum = sum + 1;
           }
-          break;
-        case 'multiple':
-          _.each(item.choices,function(c){
-            const checked = _.contains(response.value,c._id);
-            if(checked === c.correct){
-              sum = sum + 1;
-            }
-          },this);
-          break;
-        case 'input':
-          choice = _.find(item.choices,{text: response.value});
-          if(choice.correct){
-            sum = sum + 1;
-          }
-          break;
+        },this);
+        break;
+      case 'input':
+        choice = _.find(item.choices,{text: response.value});
+        if(choice.correct){
+          sum = sum + 1;
+        }
+        break;
       }
       return sum;
     },0,this);
@@ -103,34 +103,34 @@ export default /*@ngInject*/class TestCtrl{
   submit(){
     const response = {};
     switch(this.current.type){
-      case 'single':
-        if(!this.input){
-          return;
+    case 'single':
+      if(!this.input){
+        return;
+      }
+      this.form.item.$setValidity('correct',this.input.correct);
+      response.value = this.input._id;
+      break;
+    case 'input':
+      if(!this.input){
+        return;
+      }
+      const choice = _.find(this.current.choices,{text: this.input});
+      if(choice){
+        this.form.item.$setValidity('correct',choice.correct);
+        this.output = choice.feedback;
+      }
+      else{
+        this.form.item.$setValidity('correct',false);
+        this.output = 'Falsch';
+      }
+      response.value = this.input;
+      break;
+    case 'multiple':
+      response.value = _.transform(this.current.choices,function(res,c){
+        if(c.checked){
+          res.push(c._id);
         }
-        this.form.item.$setValidity('correct',this.input.correct);
-        response.value = this.input._id;
-        break;
-      case 'input':
-        if(!this.input){
-          return;
-        }
-        const choice = _.find(this.current.choices,{text: this.input});
-        if(choice){
-          this.form.item.$setValidity('correct',choice.correct);
-          this.output = choice.feedback;
-        }
-        else{
-          this.form.item.$setValidity('correct',false);
-          this.output = 'Falsch';
-        }
-        response.value = this.input;
-        break;
-      case 'multiple':
-        response.value = _.transform(this.current.choices,function(res,c){
-          if(c.checked){
-            res.push(c._id);
-          }
-        },[],this);
+      },[],this);
     }
     if(this.tests.todo[0].guess){
       this.Guesses.one(this.tests.todo[0].guess._id).all('responses').post(response)

@@ -1,4 +1,4 @@
-export default /*@ngInject*/function jsonDirective(){
+export default /*@ngInject*/function opencpuDirective(opencpu){
   function link(scope,el,attrs,ctrl){
     let lastValid;
     function parse(val){
@@ -6,16 +6,19 @@ export default /*@ngInject*/function jsonDirective(){
         return undefined;
       }
       try{
-        lastValid = angular.fromJson(val);
-        ctrl.$setValidity('json',true);
+        lastValid = opencpu + val;
+        ctrl.$setValidity('opencpu',true);
       }
       catch(e){
-        ctrl.$setValidity('json',false);
+        ctrl.$setValidity('opencpu',false);
       }
       return lastValid;
     }
     function format(val){
-      return angular.toJson(val,true);
+      if(!val){
+        return undefined;
+      }
+      return val.slice(opencpu.length);
     }
     ctrl.$parsers.push(parse);
     ctrl.$formatters.unshift(format);
@@ -24,14 +27,13 @@ export default /*@ngInject*/function jsonDirective(){
       ctrl.$setValidity('json',true);
       scope.$apply();
     });
-    const clean = scope.$watch(attrs.ngModel,function(val,oldVal){
+    scope.$watch(attrs.ngModel,function(val,oldVal){
       lastValid = lastValid || val;
       if(val !== oldVal){
         ctrl.$setViewValue(format(val));
         ctrl.$render();
       }
     },true);
-    scope.$on('$destroy',clean);
   }
   return {
     restrict: 'A',
