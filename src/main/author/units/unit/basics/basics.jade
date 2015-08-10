@@ -1,5 +1,5 @@
-form.form-horizontal(novalidate name="basicsForm")
-  formly-form(model="unit.unit" fields="unit.unitFields" form="unit.unitForm")
+form.form-horizontal(novalidate name="basics.form")
+  formly-form(model="unit.unit" fields="basics.fields" form="basics.form")
   .alert.alert-success(ng-if="unit.patches.length===0" role="alert") alles hochgeladen
   .alert.alert-info(ng-if="unit.patches.length>0" role="alert") lade Änderungen hoch
   .alert.alert-danger(ng-if="unit.error" role="alert")

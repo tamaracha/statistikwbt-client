@@ -1,54 +1,32 @@
 import _ from 'lodash';
 export default /*@ngInject*/class UnitsController{
-  constructor(units){
-    this.collapse = false;
+  constructor(units,$state){
     this.units = units;
-    this.new = {};
-    this.newFields = [{
-      key: 'title',
-      type: 'horizontalInput',
-      templateOptions: {
-        type: 'text',
-        label: 'Titel',
-        placeholder: 'Titel des Kapitels',
-        required: true
-      }
-    },
-    {
-      key: 'subtitle',
-      type: 'horizontalInput',
-      templateOptions: {
-        type: 'text',
-        label: 'Untertitel',
-        placeholder: 'Untertitel des Kapitels'
-      }
-    },
-    {
-      key: 'requires',
-      type: 'horizontalMultiCheckbox',
-      templateOptions: {
-        label: 'Voraussetzungen',
-        options: this.units,
-        labelProp: 'title',
-        valueProp: '_id'
-      }
-    },
-    {
-      key: 'description',
-      type: 'horizontalMarkdownArea',
-      templateOptions: {
-        label: 'Beschreibung',
-        required: true,
-        placeholder: 'hier Beschreibungstext eingeben'
-      }
-    }];
+    this.$state = $state;
+    this.collapse = false;
+    this.init();
   }
-  save(){
-    return this.units.post(this.new)
+  init(){
+    if(this.$state.params.unit){
+      this.selected = _.find(this.units,{_id: this.$state.params.unit});
+    }
+  }
+  select(){
+    if(this.selected){
+      this.$state.go(
+        'main.author.units.unit.basics',
+        {unit: this.selected._id}
+      );
+    }
+    else{
+      this.$state.go('main.author.units.new');
+    }
+  }
+  save(newUnit){
+    return this.units.post(newUnit)
     .then((unit) => {
       this.units.push(unit);
       this.selected = unit;
-      this.new = {};
     });
   }
   remove(){

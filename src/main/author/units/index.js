@@ -1,5 +1,6 @@
 import template from './units.jade';
 import controller from './units-controller.js';
+import newUnit from './new';
 import unit from './unit';
 
 export default {
@@ -8,6 +9,7 @@ export default {
   template,
   controller,
   controllerAs: 'units',
+  abstract: true,
   resolve: {
     units: /*@ngInject*/function(Restangular){
       const query = {
@@ -17,10 +19,8 @@ export default {
       return Restangular.all('units').getList(query);
     }
   },
-  ncyBreadcrumb: {
-    label: 'Kapitel'
-  },
   children: [
+    newUnit,
     unit
   ]
 };
