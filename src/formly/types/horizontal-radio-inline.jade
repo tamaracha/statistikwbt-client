@@ -4,5 +4,7 @@ label.radio-inline(ng-repeat="option in to.options")
     id="{{id+'_'+$index}}"
     name="{{options.key}}"
     ng-value="option[to.valueProp||'value']"
-    ng-model="model[options.key]")
+    ng-model="model[options.key]"
+  )
+  span.fa(ng-if="option.icon" ng-class="'fa-'+option.icon")
   |  {{option[to.labelProp||'name']}}

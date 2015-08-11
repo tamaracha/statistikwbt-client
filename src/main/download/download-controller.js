@@ -1,9 +1,14 @@
 export default /*@ngInject*/class DownloadController{
-  constructor(units){
-    this.units = units;
+  constructor(units,lodash){
+    this.units = units.plain();
+    this.lodash = lodash;
     this.data = {
       contents: ['body'],
-      format: 'markdown'
+      format: 'rtf'
+    };
+    this.show = {
+      units: false,
+      contents: false
     };
     this.fields = [{
       key: 'units',
@@ -41,25 +46,37 @@ export default /*@ngInject*/class DownloadController{
         label: 'DateiFormat',
         options: [{
           name: 'MS Word',
+          icon: 'file-word-o',
           value: 'docx'
         },
         {
           name: 'RTF',
+          icon: 'file-text-o',
           value: 'rtf'
         },
         {
-          name: 'Epub',
+          name: 'Epub (E-Book)',
+          icon: 'book',
           value: 'epub'
         },
         {
           name: 'Markdown',
+          icon: 'file-text-o',
           value: 'markdown'
         },
         {
           name: 'LaTeX',
+          icon: 'file-code-o',
           value: 'latex'
         }]
       }
     }];
   }
+  selectUnits(val){
+    this.data.units = val ? this.lodash.map(this.units,'_id') : [];
+  }
+  selectContents(val){
+    this.data.contents = val ? ['body','examples','extras'] : [];
+  }
+  
 }

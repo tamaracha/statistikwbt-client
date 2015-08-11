@@ -1,5 +1,6 @@
 import template from './topics.jade';
 import controller from './topics-controller';
+import newTopic from './new';
 import topic from './topic';
 export default {
   name: 'topics',
@@ -7,9 +8,7 @@ export default {
   template,
   controller,
   controllerAs: 'topics',
-  ncyBreadcrumb: {
-    label: '{{unit.unit.title}} — Subkapitel'
-  },
+  abstract: true,
   resolve: {
     topics: /*@ngInject*/function(Restangular,$stateParams){
       const query = {projections: 'topics.title topics._id'};
@@ -17,6 +16,7 @@ export default {
     }
   },
   children: [
+    newTopic,
     topic
   ]
 };

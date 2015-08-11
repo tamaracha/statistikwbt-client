@@ -1,5 +1,6 @@
 // libraries
 import angular from 'angular';
+import lodash from 'lodash';
 import uiRouter from 'angular-ui-router';
 import 'ng-annotate?add=true!angular-ui-router.stateHelper';
 import uiBootstrap from 'angular-ui-bootstrap';
@@ -31,6 +32,7 @@ export default angular.module('wbt',[
   'permission',
   plot
 ])
+.constant('lodash',lodash)
 .config(config)
 .run(run)
 .factory('userInterceptor',user.interceptor)

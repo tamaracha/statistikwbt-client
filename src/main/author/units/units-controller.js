@@ -27,6 +27,7 @@ export default /*@ngInject*/class UnitsController{
     .then((unit) => {
       this.units.push(unit);
       this.selected = unit;
+      this.select();
     });
   }
   remove(){
@@ -34,6 +35,7 @@ export default /*@ngInject*/class UnitsController{
     .then(() => {
       _.remove(this.units,{_id: this.selected._id});
       this.selected = null;
+      this.select();
     });
   }
 }
