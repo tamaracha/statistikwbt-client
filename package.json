@@ -10,7 +10,7 @@
     "dev": "gulp dev"
   },
   "author": "Tamara Cook",
-  "license": "MIT",
+  "license": "ISC",
   "repository": {
     "type": "git",
     "url": "git@github.com/tamaracha/statistikwbt-client"
